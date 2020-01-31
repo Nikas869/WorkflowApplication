@@ -1,0 +1,591 @@
+﻿<Window
+    x:Class="CSVInput.MainWindowClass"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CSVInput"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    x:Name="MainWindow"
+    Title="Data Input"
+    Width="717.906"
+    Height="700.597"
+    ContentRendered="MainWindow_ContentRendered"
+    Loaded="Window_Loaded"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ObjectDataProvider
+            x:Key="DataTypeProvider"
+            MethodName="GetValues"
+            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:EnumDataType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider
+            x:Key="TrimTypeProvider"
+            MethodName="GetValues"
+            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:EnumTrimType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid VerticalAlignment="Bottom">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="856*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="15*" />
+            <ColumnDefinition Width="26*" />
+            <ColumnDefinition Width="103*" />
+            <ColumnDefinition Width="560*" />
+            <ColumnDefinition Width="0*" />
+        </Grid.ColumnDefinitions>
+        <TabControl
+            Grid.Column="1"
+            Grid.ColumnSpan="4"
+            Margin="6,-44,0,0"
+            VerticalAlignment="Bottom"
+            FontFamily="arial">
+            <TabItem
+                x:Name="InputTab"
+                Margin="0,0,-4,-2"
+                Header="Input File">
+                <Grid Margin="0,0,0,-44" Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0" />
+                        <ColumnDefinition Width="100*" />
+                        <ColumnDefinition Width="9*" />
+                        <ColumnDefinition Width="329*" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Column="1"
+                        Width="100"
+                        Height="22"
+                        Margin="13,32,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Root Array Name: "
+                        FontSize="11" />
+                    <TextBox
+                        x:Name="txtRootArrayName"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Height="20"
+                        Margin="113,32,302,0"
+                        VerticalAlignment="Top"
+                        FontSize="12"
+                        Text="ROOT_ARRAY"
+                        TextChanged="TxtRootArrayName_TextChanged"
+                        TextWrapping="Wrap" />
+                    <Label
+                        Grid.Column="1"
+                        Width="51"
+                        Height="23"
+                        Margin="13,56,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Input file: "
+                        FontSize="11" />
+                    <Grid Grid.ColumnSpan="4" Margin="70,36,17,435">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="65*" />
+                                <ColumnDefinition Width="533*" />
+
+                            </Grid.ColumnDefinitions>
+                            <TextBox
+                                x:Name="txtInputFile"
+                                Grid.ColumnSpan="2"
+                                Height="40"
+                                Margin="43,22,210.4,0"
+                                VerticalAlignment="Top"
+                                AcceptsReturn="True"
+                                FontSize="12"
+                                TextChanged="TxtInputFile_TextChanged"
+                                TextWrapping="Wrap"
+                                VerticalScrollBarVisibility="Visible" />
+                            <Button
+                                x:Name="btnFileBrowser"
+                                Grid.Column="1"
+                                Height="20"
+                                MinWidth="22"
+                                Margin="0,22,180,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Click="BtnFileBrower_Click"
+                                Content="..." />
+                        </Grid>
+                    </Grid>
+                    <Label
+                        x:Name="DelimiterLbl"
+                        Grid.Column="1"
+                        Width="100"
+                        Height="22"
+                        Margin="13,127,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Delimiter: "
+                        FontSize="11" />
+                    <TextBox
+                        x:Name="txtDelimiter"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Height="20"
+                        Margin="113,130,302.2,0"
+                        VerticalAlignment="Top"
+                        FontSize="12"
+                        Text=","
+                        TextChanged="TxtDelimiter_TextChanged"
+                        TextWrapping="Wrap" />
+                    <Label
+                        x:Name="EncLbl"
+                        Grid.Column="1"
+                        Width="100"
+                        Height="22"
+                        Margin="13,150,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Text Qualifier: "
+                        FontSize="11" />
+                    <TextBox
+                        x:Name="txtEnclousure"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Height="20"
+                        Margin="113,155,302.2,0"
+                        VerticalAlignment="Top"
+                        FontSize="12"
+                        Text="&quot;"
+                        TextChanged="TxtEnclousure_TextChanged"
+                        TextWrapping="Wrap" />
+                    <Label
+                        Grid.Column="1"
+                        Width="100"
+                        Height="22"
+                        Margin="13,98,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="File encoding: "
+                        FontSize="11" />
+                    <ComboBox
+                        x:Name="cbxEncoding"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Height="20"
+                        Margin="113,103,302.2,0"
+                        VerticalAlignment="Top"
+                        IsEditable="false"
+                        SelectedIndex="3"
+                        SelectedValuePath="Content"
+                        SelectionChanged="cbxEncoding_SelectionChanged" />
+                    <Label
+                        Grid.Column="1"
+                        Width="86"
+                        Height="22"
+                        Margin="13,5,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Open File Type:"
+                        FontSize="11" />
+                    <Grid Grid.ColumnSpan="4" Margin="5,220,5,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="574*" />
+                            <RowDefinition Height="23*" />
+                            <RowDefinition Height="40*" />
+                        </Grid.RowDefinitions>
+                        <DataGrid
+                            x:Name="dataGrid"
+                            Margin="0,10,0,95"
+                            GridLinesVisibility="None"
+                            HorizontalGridLinesBrush="blue"
+                            ItemsSource="{Binding}"
+                            VerticalGridLinesBrush="Red" />
+                        <Button
+                            x:Name="btnCVSView"
+                            Width="84"
+                            Height="26"
+                            Margin="0,524,296,24.198"
+                            HorizontalAlignment="Right"
+                            Click="CVSViewBtn_Click"
+                            Content="Preview"
+                            Visibility="Hidden" />
+                        <DataGrid
+                            x:Name="dataGridColumns"
+                            MaxHeight="150"
+                            Margin="0,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            HorizontalContentAlignment="Center"
+                            AutoGenerateColumns="False"
+                            CanUserAddRows="True"
+                            InitializingNewItem="DataGridColumns_InitializingNewItem"
+                            PreviewKeyUp="DataGridColumns_PreviewKeyUp"
+                            RowEditEnding="dataGridColumns_RowEditEnding"
+                            SelectionChanged="dataGridColumns_SelectionChanged"
+                            SelectionMode="Single"
+                            SelectionUnit="Cell">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn
+                                    Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                    CanUserSort="False"
+                                    Header="Name" />
+                                <DataGridComboBoxColumn
+                                    CanUserSort="False"
+                                    Header="DataType"
+                                    ItemsSource="{Binding Source={StaticResource DataTypeProvider}}"
+                                    SelectedItemBinding="{Binding Path=DataType, UpdateSourceTrigger=PropertyChanged}" />
+                                <DataGridTextColumn
+                                    Binding="{Binding StartPos, UpdateSourceTrigger=PropertyChanged}"
+                                    CanUserSort="False"
+                                    Header="StartPos" />
+                                <DataGridTextColumn
+                                    Binding="{Binding Length, UpdateSourceTrigger=PropertyChanged}"
+                                    CanUserSort="False"
+                                    Header="Length" />
+                                <DataGridComboBoxColumn
+                                    CanUserSort="False"
+                                    Header="TrimSpaces"
+                                    ItemsSource="{Binding Source={StaticResource TrimTypeProvider}}"
+                                    SelectedItemBinding="{Binding Path=TrimSpaces, UpdateSourceTrigger=PropertyChanged}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </Grid>
+                    <ComboBox
+                        x:Name="CmbFileType"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Height="20"
+                        Margin="113,7,302,0"
+                        VerticalAlignment="Top"
+                        IsEditable="false"
+                        SelectedIndex="3"
+                        SelectedValuePath="Content">
+                        <ComboBoxItem
+                            Content="please select"
+                            IsSelected="True"
+                            Visibility="Collapsed" />
+                        <ComboBoxItem Content="CSV" />
+                        <ComboBoxItem Content="DBF" />
+                        <ComboBoxItem Content="Fixed Width" />
+                        <!--<ComboBoxItem Content="ALL"/>-->
+                    </ComboBox>
+                    <Grid Grid.ColumnSpan="9" Margin="0,0,5,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="574*" />
+                            <RowDefinition Height="23*" />
+                            <RowDefinition Height="40*" />
+                        </Grid.RowDefinitions>
+                        <Button
+                            x:Name="btnMetaDataSave"
+                            Grid.RowSpan="2"
+                            Width="92"
+                            Height="40"
+                            Margin="0,0,219,5"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Click="MetaDataSaveBtn_Click"
+                            Content="Apply"
+                            RenderTransformOrigin="0.526,4.22"
+                            Visibility="Collapsed" />
+                        <Button
+                            x:Name="btnCancel"
+                            Grid.RowSpan="2"
+                            Width="92"
+                            Height="40"
+                            Margin="0,0,2,6"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Click="btnCancel_Click"
+                            Content="Cancel"
+                            RenderTransformOrigin="-1.56,1.5" />
+                        <Label
+                            x:Name="lblPagingInfo"
+                            Width="auto"
+                            Margin="10,347,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Content="No records" />
+                        <Label
+                            x:Name="lblPageNumber"
+                            Grid.RowSpan="2"
+                            Width="17"
+                            Height="24"
+                            Margin="0,0,558,15"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Content="0"
+                            RenderTransformOrigin="-2.5,-0.646" />
+                        <Button
+                            x:Name="btnNext"
+                            Grid.RowSpan="2"
+                            Width="40"
+                            Height="26"
+                            Margin="0,0,500,15"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Click="btnNext_Click"
+                            Content="&gt;" />
+                        <Button
+                            x:Name="btnFirst"
+                            Grid.RowSpan="2"
+                            Width="40"
+                            Height="26"
+                            Margin="0,0,640,17"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Click="btnFirst_Click"
+                            Content="&lt;&lt;" />
+                        <Button
+                            x:Name="btnPrev"
+                            Grid.RowSpan="2"
+                            Width="40"
+                            Height="26"
+                            Margin="0,0,592,17"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Click="btnPrev_Click"
+                            Content="&lt;" />
+                        <Button
+                            x:Name="btnLast"
+                            Grid.RowSpan="2"
+                            Width="40"
+                            Height="26"
+                            Margin="0,0,452,15"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Click="btnLast_Click"
+                            Content="&gt;&gt;" />
+                        <Button
+                            x:Name="ParseXml"
+                            Grid.RowSpan="2"
+                            Width="92"
+                            Height="40"
+                            Margin="0,0,219.2,5.2"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Click="ParseXml_Click"
+                            Content="Export Schema" />
+                        <TextBox
+                            x:Name="textBoxFrom"
+                            Width="45"
+                            Height="25"
+                            Margin="0,103,20,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            VerticalContentAlignment="Center"
+                            LostFocus="textBoxFrom_LostFocus"
+                            RenderTransformOrigin="-0.397,0.292"
+                            Text="200"
+                            TextAlignment="Center"
+                            TextChanged="TextBoxFrom_TextChanged"
+                            TextWrapping="Wrap" />
+                        <DataGrid
+                            x:Name="dataGridHidden"
+                            Width="36"
+                            Height="16"
+                            Margin="158,351,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top" />
+                    </Grid>
+                    <CheckBox
+                        x:Name="HeadercheckBox"
+                        Grid.ColumnSpan="4"
+                        Width="234"
+                        Height="30"
+                        Margin="112,181,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="HeadercheckBox_Click"
+                        Content="First Row Contains Header Information" />
+                    <Label
+                        x:Name="labelTo"
+                        Grid.Column="3"
+                        Margin="0,103,70,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Content="Show Records"
+                        RenderTransformOrigin="-0.397,0.292" />
+                    <Button
+                        x:Name="btnOk"
+                        Grid.Column="3"
+                        Width="92"
+                        Height="40"
+                        Margin="0,0,114,48"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Click="btnOk_Click"
+                        Content="OK" />
+                    <Label
+                        x:Name="schemeHeaderLabel"
+                        Grid.Column="1"
+                        Width="100"
+                        Height="22"
+                        Margin="12,195,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Schema Header: "
+                        FontSize="11" />
+                </Grid>
+            </TabItem>
+            <TabItem
+                Width="55"
+                Height="18"
+                Margin="7,0,-7,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                ContextMenuOpening="TabItem_ContextMenuOpening"
+                Header="Parse"
+                Visibility="Hidden">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="9*" />
+                        <ColumnDefinition Width="22*" />
+                        <ColumnDefinition Width="661*" />
+                    </Grid.ColumnDefinitions>
+                    <DataGrid
+                        x:Name="ParserGrid"
+                        Grid.ColumnSpan="3"
+                        Width="682"
+                        Height="426"
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top" />
+                    <Button
+                        x:Name="NextBtn"
+                        Grid.Column="2"
+                        Width="61"
+                        Height="20"
+                        Margin="333,488,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="NextBtn_Click"
+                        Content="&gt;&gt;" />
+                    <Button
+                        x:Name="PrevBtn"
+                        Grid.Column="2"
+                        Width="60"
+                        Height="20"
+                        Margin="191,488,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="PrevBtn_Click"
+                        Content="&lt;&lt;" />
+                    <TextBox
+                        x:Name="LenTxt"
+                        Grid.Column="2"
+                        Width="41"
+                        Height="20"
+                        Margin="610,443,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        VerticalContentAlignment="Center"
+                        Text="0"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="ColTxt"
+                        Grid.Column="2"
+                        Width="32"
+                        Height="20"
+                        Margin="275,488,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        IsReadOnly="True"
+                        RenderTransformOrigin="1.205,0.522"
+                        Text="1"
+                        TextWrapping="Wrap" />
+                    <Slider
+                        x:Name="LenSlider"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Width="386"
+                        Height="20"
+                        Margin="13.835,463,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        ValueChanged="LenSlider_ValueChanged" />
+                    <Button
+                        x:Name="SaveBtn"
+                        Grid.Column="2"
+                        Width="75"
+                        Height="20"
+                        Margin="261,555,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="SaveBtn_Click"
+                        Content="Save" />
+                    <TextBox
+                        x:Name="colStartPosTxt"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Width="45"
+                        Height="20"
+                        Margin="13.835,443,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        VerticalContentAlignment="Center"
+                        Text="0"
+                        TextChanged="ColStartPosTxt_TextChanged"
+                        TextWrapping="Wrap" />
+
+                </Grid>
+            </TabItem>
+            <TabItem
+                x:Name="PropertiesTab"
+                Width="67"
+                Margin="12,0,-12,-2"
+                HorizontalAlignment="Left"
+                Header="Properties"
+                Visibility="Hidden">
+                <Grid Margin="0,0,6,-34" Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0*" />
+                        <ColumnDefinition Width="33*" />
+                        <ColumnDefinition Width="25*" />
+                        <ColumnDefinition Width="628*" />
+                    </Grid.ColumnDefinitions>
+                    <DataGrid
+                        x:Name="metaDataGrid"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Margin="0,10,10,540" />
+                    <Button
+                        x:Name="btnGetMetaDataField"
+                        Grid.Column="3"
+                        Width="84"
+                        Height="26"
+                        Margin="17,646,0,175"
+                        HorizontalAlignment="Left"
+                        Click="GetMetaDataFieldBtn_Click"
+                        Content="Get Fields" />
+                    <Button
+                        x:Name="btnParseToXML"
+                        Grid.Column="3"
+                        Width="84"
+                        Height="26"
+                        Margin="272,646,0,175"
+                        HorizontalAlignment="Left"
+                        Click="ParseToXMLBtn_Click"
+                        Content="ParseToXML" />
+                    <DataGrid
+                        x:Name="dataGridPreview"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Width="677"
+                        Height="180"
+                        Margin="0,312,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top" />
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>
