@@ -92,7 +92,6 @@
   <ItemGroup>
     <Compile Include="MetaData.cs" />
     <Compile Include="CSVModule.cs" />
-    <Compile Include="ParserBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

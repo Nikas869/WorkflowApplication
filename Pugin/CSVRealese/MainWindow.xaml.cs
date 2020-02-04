@@ -1,4 +1,8 @@
-﻿using System;
+﻿using dBASE.NET;
+using JdSuite.Common.FileProcessing;
+using JdSuite.Common.Module;
+using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -17,9 +21,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using dBASE.NET;
-using JdSuite.Common.Module;
-using Microsoft.VisualBasic.FileIO;
 
 namespace CSVInput
 {

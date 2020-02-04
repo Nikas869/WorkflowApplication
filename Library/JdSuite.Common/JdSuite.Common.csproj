@@ -33,6 +33,10 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="dBASE.NET">
+      <HintPath>..\..\dll\dBASE.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NLog.4.6.8\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -62,6 +66,10 @@
     <Compile Include="DataItem.cs" />
     <Compile Include="Extensions\BitmapExtensions.cs" />
     <Compile Include="Extensions\WinAPI.cs" />
+    <Compile Include="FileProcessing\CsvLoadingOptions.cs" />
+    <Compile Include="FileProcessing\DbfLoadingOptions.cs" />
+    <Compile Include="FileProcessing\ParserBase.cs" />
+    <Compile Include="FileProcessing\WorkflowFile.cs" />
     <Compile Include="Internal\SerializableDictionary.cs" />
     <Compile Include="Logging\Enums\LogCategory.cs" />
     <Compile Include="Logging\Enums\Severity.cs" />
@@ -90,6 +98,7 @@
     <Compile Include="Optionality.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Workflow.cs" />
+    <Compile Include="FileProcessing\WorkflowFileFactory.cs" />
     <Compile Include="xml\NodeIndexer.cs" />
     <Compile Include="xml\DataTypeChecker.cs" />
     <Compile Include="xml\FileUtil.cs" />
