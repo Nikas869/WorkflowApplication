@@ -17,6 +17,7 @@ using XMLConverter.Properties;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using JdSuite.Common.FileProcessing;
 
 namespace XMLConverter
 {
@@ -149,40 +150,53 @@ namespace XMLConverter
                 int totalNodeCount = indexer.GetTotalNodeCount();
                 float currentProgress = 0.0f;
 
-                using (XDocumentWrapper wrapper = new XDocumentWrapper(this.OutputNode.State.DataFilePath))
+                var workflowFile = WorkflowFileFactory.LoadFromXmlFile(this.OutputNode.State.DataFilePath);
+                workflowFile.OnValidationProgressChange += (s, e) => { workInfo.UpdateProgress(this, e); };
+                var validationErrors = new List<string>();
+
+                isValid = workflowFile.ValidateUsingSchema(this.OutputNode.State.Schema, indexer.GetTotalNodeCount(), out validationErrors);
+                workflowFile.OnValidationProgressChange = null;
+
+                foreach (var message in validationErrors)
                 {
-                    wrapper.OpenDocument();
-
-                    foreach (var FirstLevelSchemaNode in this.OutputNode.State.Schema.ChildNodes)
-                    {
-                        foreach (var xmlDataNode in wrapper.GetNodes(this.OutputNode.State.Schema.Name, FirstLevelSchemaNode.Name))
-                        {
-                            currentNodeCount++;
-
-                            currentProgress =100* currentNodeCount / totalNodeCount;
-
-                            if (currentProgress > lastProgress)
-                            {
-                                lastProgress = currentProgress;
-                                workInfo.UpdateProgress(this, currentProgress);
-                            }
-
-                            isValid = validator.Validate(FirstLevelSchemaNode, xmlDataNode);
-
-                            if (isValid == false)
-                            {
-                                foreach (var message in validator.ErrorList)
-                                {
-                                    workInfo.Log(this.DisplayName, NLog.LogLevel.Error, message);
-                                }
-                                break;
-                            }
-                        }
-
-                        if (isValid == false)
-                            break;
-                    }
+                    workInfo.Log(this.DisplayName, NLog.LogLevel.Error, message);
                 }
+
+                // Validation
+                //using (XDocumentWrapper wrapper = new XDocumentWrapper(this.OutputNode.State.DataFilePath))
+                //{
+                //    wrapper.OpenDocument();
+
+                //    foreach (var FirstLevelSchemaNode in this.OutputNode.State.Schema.ChildNodes)
+                //    {
+                //        foreach (var xmlDataNode in wrapper.GetNodes(this.OutputNode.State.Schema.Alias, FirstLevelSchemaNode.Name))
+                //        {
+                //            currentNodeCount++;
+
+                //            currentProgress =100* currentNodeCount / totalNodeCount;
+
+                //            if (currentProgress > lastProgress)
+                //            {
+                //                lastProgress = currentProgress;
+                //                workInfo.UpdateProgress(this, currentProgress);
+                //            }
+
+                //            isValid = validator.Validate(FirstLevelSchemaNode, xmlDataNode);
+
+                //            if (isValid == false)
+                //            {
+                //                foreach (var message in validator.ErrorList)
+                //                {
+                //                    workInfo.Log(this.DisplayName, NLog.LogLevel.Error, message);
+                //                }
+                //                break;
+                //            }
+                //        }
+
+                //        if (isValid == false)
+                //            break;
+                //    }
+                //}
 
                 /*
                 indexer.NodeParsed += (object sender, NodeIndexEventArgs e) =>

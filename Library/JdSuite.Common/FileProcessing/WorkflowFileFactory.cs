@@ -12,7 +12,7 @@ namespace JdSuite.Common.FileProcessing
     {
         public static WorkflowFile LoadFromXmlFile(string filePath)
         {
-            CheckExtension(filePath, "xml");
+            CheckExtension(filePath, ".xml");
 
             using (var fileStream = ReadFile(filePath))
             {
@@ -22,7 +22,7 @@ namespace JdSuite.Common.FileProcessing
 
         public static WorkflowFile LoadFromCsvFile(string filePath, CsvLoadingOptions options)
         {
-            CheckExtension(filePath, "csv");
+            CheckExtension(filePath, ".csv");
 
             var content = new XDocument();
             content.Add(new XElement(options.XmlRootName));
@@ -86,7 +86,7 @@ namespace JdSuite.Common.FileProcessing
 
         public static WorkflowFile LoadFromDbfFile(string filePath, DbfLoadingOptions options)
         {
-            CheckExtension(filePath, "dbf");
+            CheckExtension(filePath, ".dbf");
 
             var content = new XDocument();
             content.Add(new XElement(options.XmlRootName));
@@ -125,7 +125,7 @@ namespace JdSuite.Common.FileProcessing
         {
             if (!string.Equals(Path.GetExtension(filePath), extension, StringComparison.OrdinalIgnoreCase))
             {
-                throw new ArgumentException($"File should be an .{extension} document!", nameof(filePath));
+                throw new ArgumentException($"File should be an {extension} document!", nameof(filePath));
             }
         }
 
