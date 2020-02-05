@@ -92,8 +92,8 @@ namespace JdSuite.Common
         */
 
         lblReturn:
-
-            logger.Trace($"{schemaNode.Name}.[{schemaNode.Optionality}] TargetCount {dataNodeCount}=>{isValid}");
+            // Due to performance issues
+            //logger.Trace($"{schemaNode.Name}.[{schemaNode.Optionality}] TargetCount {dataNodeCount}=>{isValid}");
 
             return isValid;
         }
@@ -295,8 +295,8 @@ namespace JdSuite.Common
         */
 
         lblReturn:
-
-            logger.Trace($"{parent}[{attrSchemaNode.Name}].<{attrSchemaNode.Optionality}> TargetCount {itemCount}=>{isValid}");
+            // Due to performance issues
+            //logger.Trace($"{parent}[{attrSchemaNode.Name}].<{attrSchemaNode.Optionality}> TargetCount {itemCount}=>{isValid}");
 
             return isValid;
 

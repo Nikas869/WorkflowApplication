@@ -129,7 +129,7 @@ namespace CSVInput
 
                     workInfo.Log(this.DisplayName, NLog.LogLevel.Info, $"Writing to output file {this.OutputNode.State.DataFilePath}");
 
-                    JdSuite.Common.ApplicationWindowUtil.ShowStatusBarMessage("CSV Module: Saving CSV file xml");
+                    //JdSuite.Common.ApplicationWindowUtil.ShowStatusBarMessage("CSV Module: Saving CSV file xml");
                     parser.SaveXML(this.OutputNode.State.DataFilePath);
 
                     logger.Info($"Created xml file from csv {this.OutputNode.State.DataFilePath}");
@@ -169,7 +169,7 @@ namespace CSVInput
 
                 msg = "CSV Module: Executed its part successfully";
                 workInfo.Log(this.DisplayName, NLog.LogLevel.Info, msg);
-               // JdSuite.Common.ApplicationWindowUtil.ShowStatusBarMessage("CSV Module: Executed its part successfully");
+                //JdSuite.Common.ApplicationWindowUtil.ShowStatusBarMessage("CSV Module: Executed its part successfully");
                 bStatus = true;
             }
             catch (Exception ex)

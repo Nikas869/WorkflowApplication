@@ -9,6 +9,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using JdSuite.Common.FileProcessing;
 using JdSuite.Common.Internal;
 
 namespace JdSuite.Common.Module
@@ -40,6 +41,9 @@ namespace JdSuite.Common.Module
         /// </summary>
         [XmlAttribute]
         public string DataFilePath { get; set; } = String.Empty;
+
+        [XmlIgnore]
+        public WorkflowFile DataFile { get; set; }
 
 
         [XmlElement(ElementName = "StateVar")]
