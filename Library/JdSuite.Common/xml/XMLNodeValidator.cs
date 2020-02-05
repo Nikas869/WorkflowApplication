@@ -107,7 +107,8 @@ namespace JdSuite.Common
                 logger.Warn("XMLData node is null");
             }
 
-            logger.Trace("Validating nodes schemaNode [{0}] DataNode [{1}]", rootSchemaNode.Name, rootDataNode.Name.LocalName);
+            // Due to performanse issues
+            //logger.Trace("Validating nodes schemaNode [{0}] DataNode [{1}]", rootSchemaNode.Name, rootDataNode.Name.LocalName);
 
             if (string.Compare(rootSchemaNode.Name, rootDataNode.Name.LocalName, StringComparison.OrdinalIgnoreCase) != 0)
             {
@@ -136,7 +137,8 @@ namespace JdSuite.Common
                 if (schemaNode.Type == TypeAttribute)
                     continue;
 
-                logger.Trace("Validating ChildSchemaNode schemaNode [{0}] DataNode [{1}]", schemaNode.Name, rootDataNode.Name.LocalName);
+                // Due to performance issues
+                //logger.Trace("Validating ChildSchemaNode schemaNode [{0}] DataNode [{1}]", schemaNode.Name, rootDataNode.Name.LocalName);
 
 
                 IsValid = CheckOptionality(schemaNode, rootDataNode);

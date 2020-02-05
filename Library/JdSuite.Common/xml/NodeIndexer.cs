@@ -237,7 +237,8 @@ namespace JdSuite.Common
 
                 foreach (var ff in RootSchemaNode.ChildNodes)
                 {
-                    logger.Info("Creating_nodeIndex for node {0}", ff.ToString());
+                    // Due to performance issues
+                    //logger.Info("Creating_nodeIndex for node {0}", ff.ToString());
 
                     string indexNodeName = ff.Name;
                     SortedList<long, NodeInfo> nodeMap = new SortedList<long, NodeInfo>();
@@ -312,7 +313,8 @@ namespace JdSuite.Common
                     last = info;
                     nodeMap.Add(info.Id, info);
 
-                    logger.Trace("Found_node {0}=>{1}", indexNodeName, info.ToString());
+                    // Due to performance issues
+                    //logger.Trace("Found_node {0}=>{1}", indexNodeName, info.ToString());
 
                     OnNodeParsed?.Invoke(this, new NodeIndexEventArgs(indexNodeName) { NodeIndexer = this, ItemCount = nodeMap.Count, CurrentNode = info });
                     if (StopIndexing)

@@ -203,8 +203,6 @@ namespace DataOutput
                 logger.Error(ex, $"Halting execution as Module {currentModule.DisplayName} encountered an error");
                 winfo.Log(currentModule.DisplayName, LogLevel.Error, $"Halting execution as due to error: {ex.Message}");
             }
-
-
         }
 
         public override void OpenWindow(Workflow workflow)

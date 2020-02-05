@@ -97,6 +97,11 @@ namespace XMLConverter
                     return false;
                 }
 
+                if (this.OutputNode.State.DataFile == null || this.OutputNode.State.DataFile.FilePath != this.OutputNode.State.DataFilePath)
+                {
+                    this.OutputNode.State.DataFile = WorkflowFileFactory.LoadFromXmlFile(this.OutputNode.State.DataFilePath);
+                }
+
 
                 Field.SetParent(this.OutputNode.State.Schema);
                 Field.ComputeXPath(this.OutputNode.State.Schema);
@@ -106,9 +111,6 @@ namespace XMLConverter
 
 
                 bool isValid = false;
-                XMLNodeValidator validator = new XMLNodeValidator();
-
-
                 indexer = new NodeIndexer();
 
                 /*
@@ -137,7 +139,6 @@ namespace XMLConverter
 
 
                 //string fieldXPath= FirstLevelSchemaNode.GetXPath(FirstLevelSchemaNode.Parent);
-                float lastProgress = 0;
 
                 workInfo.Log(this.DisplayName, NLog.LogLevel.Info, "Starting optionality validation process, please wait....");
                 foreach (var nodeName in indexer.GetFirstLevelNodes())
@@ -145,10 +146,6 @@ namespace XMLConverter
                     int Count = indexer.GetNodeCount(nodeName);
                     workInfo.Log(this.DisplayName, NLog.LogLevel.Info, $"[{nodeName}].Count = {Count} Nodes");
                 }
-
-                int currentNodeCount = 0;
-                int totalNodeCount = indexer.GetTotalNodeCount();
-                float currentProgress = 0.0f;
 
                 var workflowFile = WorkflowFileFactory.LoadFromXmlFile(this.OutputNode.State.DataFilePath);
                 workflowFile.OnValidationProgressChange += (s, e) => { workInfo.UpdateProgress(this, e); };
@@ -161,42 +158,6 @@ namespace XMLConverter
                 {
                     workInfo.Log(this.DisplayName, NLog.LogLevel.Error, message);
                 }
-
-                // Validation
-                //using (XDocumentWrapper wrapper = new XDocumentWrapper(this.OutputNode.State.DataFilePath))
-                //{
-                //    wrapper.OpenDocument();
-
-                //    foreach (var FirstLevelSchemaNode in this.OutputNode.State.Schema.ChildNodes)
-                //    {
-                //        foreach (var xmlDataNode in wrapper.GetNodes(this.OutputNode.State.Schema.Alias, FirstLevelSchemaNode.Name))
-                //        {
-                //            currentNodeCount++;
-
-                //            currentProgress =100* currentNodeCount / totalNodeCount;
-
-                //            if (currentProgress > lastProgress)
-                //            {
-                //                lastProgress = currentProgress;
-                //                workInfo.UpdateProgress(this, currentProgress);
-                //            }
-
-                //            isValid = validator.Validate(FirstLevelSchemaNode, xmlDataNode);
-
-                //            if (isValid == false)
-                //            {
-                //                foreach (var message in validator.ErrorList)
-                //                {
-                //                    workInfo.Log(this.DisplayName, NLog.LogLevel.Error, message);
-                //                }
-                //                break;
-                //            }
-                //        }
-
-                //        if (isValid == false)
-                //            break;
-                //    }
-                //}
 
                 /*
                 indexer.NodeParsed += (object sender, NodeIndexEventArgs e) =>
@@ -212,10 +173,6 @@ namespace XMLConverter
                     }
                 };
                 */
-
-
-
-
 
                 /*
                 foreach (var node in indexer.NodeMap)
