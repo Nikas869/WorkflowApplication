@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Type="Element" Name="Root" DataType="String" Optionality="One" Change="Flatten" Alias="root">
+  <Field Type="Element" Name="Entry" DataType="String" Optionality="One" Change="Flatten" Alias="Entry">
+    <Field Type="Attribute" Name="Id" DataType="String" Optionality="One" Change="Flatten" Alias="id" />
+    <Field Type="Attribute" Name="Class" DataType="String" Optionality="One" Change="Flatten" Alias="class" />
+    <Field Type="Attribute" Name="Mtype" DataType="String" Optionality="One" Change="Flatten" Alias="mtype" />
+    <Field Type="Attribute" Name="Seqlen" DataType="String" Optionality="One" Change="Flatten" Alias="seqlen" />
+    <Field Type="Element" Name="AC" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="AC" />
+    <Field Type="Element" Name="Mod" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Mod">
+      <Field Type="Attribute" Name="Date" DataType="String" Optionality="One" Change="Flatten" Alias="date" />
+      <Field Type="Attribute" Name="Rel" DataType="String" Optionality="One" Change="Flatten" Alias="Rel" />
+      <Field Type="Attribute" Name="Type" DataType="String" Optionality="One" Change="Flatten" Alias="type" />
+    </Field>
+    <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+    <Field Type="Element" Name="Species" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Species" />
+    <Field Type="Element" Name="Org" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Org" />
+    <Field Type="Element" Name="Ref" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Ref">
+      <Field Type="Attribute" Name="Num" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="num" />
+      <Field Type="Attribute" Name="Pos" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="pos" />
+      <Field Type="Element" Name="Comment" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Comment" />
+      <Field Type="Element" Name="DB" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="DB" />
+      <Field Type="Element" Name="MedlineID" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="MedlineID" />
+      <Field Type="Element" Name="Author" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Author" />
+      <Field Type="Element" Name="Cite" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Cite" />
+    </Field>
+    <Field Type="Element" Name="EMBL" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="EMBL">
+      <Field Type="Attribute" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Attribute" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="INTERPRO" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="INTERPRO">
+      <Field Type="Attribute" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Attribute" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="PFAM" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="PFAM">
+      <Field Type="Attribute" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Attribute" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+      <Field Type="Attribute" Name="Status" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="status" />
+    </Field>
+    <Field Type="Element" Name="Keyword" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Keyword" />
+    <Field Type="Element" Name="Features" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Features">
+      <Field Type="Element" Name="DOMAIN" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="DOMAIN">
+        <Field Type="Attribute" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Attribute" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="BINDING" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="BINDING">
+        <Field Type="Attribute" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Attribute" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="One or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="SIGNAL" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="SIGNAL">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="DISULFID" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="DISULFID">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="descr" />
+      </Field>
+      <Field Type="Element" Name="CHAIN" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="CHAIN">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="NON_TER" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="NON_TER">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="MOD_RES" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="MOD_RES">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="descr" />
+      </Field>
+      <Field Type="Element" Name="CONFLICT" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="CONFLICT">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="descr" />
+      </Field>
+      <Field Type="Element" Name="CARBOHYD" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="CARBOHYD">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="descr" />
+      </Field>
+      <Field Type="Element" Name="NP_BIND" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="NP_BIND">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="SIMILAR" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="SIMILAR">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="INIT_MET" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="INIT_MET">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="MUTAGEN" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="MUTAGEN">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="VARSPLIC" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="VARSPLIC">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="TRANSMEM" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="TRANSMEM">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="LIPID" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="LIPID">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="REPEAT" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="REPEAT">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="VARIANT" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="VARIANT">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="STRAND" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="STRAND">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+      </Field>
+      <Field Type="Element" Name="TURN" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="TURN">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+      </Field>
+      <Field Type="Element" Name="HELIX" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="HELIX">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+      </Field>
+      <Field Type="Element" Name="PROPEP" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="PROPEP">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="ACT_SITE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="ACT_SITE">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="UNSURE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="UNSURE">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="NON_CONS" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="NON_CONS">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="SITE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="SITE">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="DNA_BIND" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="DNA_BIND">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="ZN_FING" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="ZN_FING">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="THIOLEST" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="THIOLEST">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="PEPTIDE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="PEPTIDE">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="CA_BIND" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="CA_BIND">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="METAL" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="METAL">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="TRANSIT" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="TRANSIT">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="THIOETH" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="THIOETH">
+        <Field Type="Element" Name="From" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="To" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+      <Field Type="Element" Name="SE_CYS" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="SE_CYS">
+        <Field Type="Element" Name="from" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="from" />
+        <Field Type="Element" Name="to" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="to" />
+        <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+      </Field>
+    </Field>
+    <Field Type="Element" Name="PIR" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="PIR">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="MENDEL" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="MENDEL">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+      <Field Type="Element" Name="Status" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="status" />
+    </Field>
+    <Field Type="Element" Name="HSSP" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="HSSP">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="PROSITE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="PROSITE">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+      <Field Type="Element" Name="Status" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="status" />
+    </Field>
+    <Field Type="Element" Name="Gene" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Gene" />
+    <Field Type="Element" Name="PRINTS" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="PRINTS">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="FLYBASE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="FLYBASE">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="MAIZEDB" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="MAIZEDB">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="WORMPEP" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="WORMPEP">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+    </Field>
+    <Field Type="Element" Name="DICTYDB" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="DICTYDB">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="MIM" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="MIM">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="MGD" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="MGD">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="SWISS-2DPAGE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="SWISS-2DPAGE">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="AARHUSGHENT-2DPAGE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="AARHUSGHENT-2DPAGE">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="PDB" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="PDB">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+      <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+    </Field>
+    <Field Type="Element" Name="TUBERCULIST" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="TUBERCULIST">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="ECOGENE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="ECOGENE">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="TIGR" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="TIGR">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="Organelle" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Organelle" />
+    <Field Type="Element" Name="SGD" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="SGD">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+      <Field Type="Element" Name="Descr" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="Descr" />
+    </Field>
+    <Field Type="Element" Name="ECO2DBASE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="ECO2DBASE">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="SUBTILIST" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="SUBTILIST">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="GCRDB" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="GCRDB">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="YEPD" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="YEPD">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="STYGENE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="STYGENE">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="HSC-2DPAGE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="HSC-2DPAGE">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="CARBBANK" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="CARBBANK">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="TRANSFAC" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="TRANSFAC">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="ZFIN" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="ZFIN">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="MAIZE-2DPAGE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="MAIZE-2DPAGE">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="REBASE" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="REBASE">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+    <Field Type="Element" Name="HIV" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="HIV">
+      <Field Type="Element" Name="Prim_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="prim_id" />
+      <Field Type="Element" Name="Sec_id" DataType="String" Optionality="Zero or more" Change="Flatten" Alias="sec_id" />
+    </Field>
+  </Field>
+</Field>

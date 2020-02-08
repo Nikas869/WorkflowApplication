@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Type="Element" Name="catalog" DataType="String" Optionality="One" Change="Flatten" Alias="catalog">
+  <Field Type="Element" Name="book" DataType="Array" Optionality="One or more" Change="Flatten" Alias="book">
+    <Field Type="Attribute" Name="id" DataType="String" Optionality="Zero or one" Change="Flatten" Alias="id" />
+    <Field Type="Attribute" Name="author" DataType="String" Optionality="One" Change="Flatten" Alias="author" />
+    <Field Type="Attribute" Name="title" DataType="String" Optionality="One" Change="Flatten" Alias="title" />
+    <Field Type="Attribute" Name="genre" DataType="String" Optionality="One" Change="Flatten" Alias="genre" />
+    <Field Type="Attribute" Name="price" DataType="String" Optionality="One" Change="Flatten" Alias="price" />
+    <Field Type="Attribute" Name="publish_date" DataType="String" Optionality="One" Change="Flatten" Alias="publish_date" />
+    <Field Type="Attribute" Name="description" DataType="String" Optionality="One" Change="Flatten" Alias="description" />
+  </Field>
+</Field>

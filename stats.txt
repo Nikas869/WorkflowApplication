@@ -1,0 +1,450 @@
+before:
+
+02/01/2020 00:51:56	Info	Starting execution of XML Input module	DataOutput
+02/01/2020 00:51:56	Info	Running Module	XML Input
+02/01/2020 00:51:56	Info	Starting indexing process, please wait....	XML Input
+02/01/2020 00:52:00	Info	Indexing process completed	XML Input
+02/01/2020 00:52:00	Info	Starting optionality validation process, please wait....	XML Input
+02/01/2020 00:52:00	Info	[Entry].Count = 50000 Nodes	XML Input
+02/01/2020 00:52:10	Info	Progress 01.00 %	XML Input
+02/01/2020 00:52:15	Info	Progress 02.00 %	XML Input
+02/01/2020 00:52:21	Info	Progress 03.00 %	XML Input
+02/01/2020 00:52:26	Info	Progress 04.00 %	XML Input
+02/01/2020 00:52:32	Info	Progress 05.00 %	XML Input
+02/01/2020 00:52:37	Info	Progress 06.00 %	XML Input
+02/01/2020 00:52:44	Info	Progress 07.00 %	XML Input
+02/01/2020 00:52:49	Info	Progress 08.00 %	XML Input
+02/01/2020 00:52:53	Info	Progress 09.00 %	XML Input
+02/01/2020 00:52:59	Info	Progress 10.00 %	XML Input
+02/01/2020 00:53:03	Info	Progress 11.00 %	XML Input
+02/01/2020 00:53:09	Info	Progress 12.00 %	XML Input
+02/01/2020 00:53:14	Info	Progress 13.00 %	XML Input
+02/01/2020 00:53:19	Info	Progress 14.00 %	XML Input
+02/01/2020 00:53:26	Info	Progress 15.00 %	XML Input
+02/01/2020 00:53:31	Info	Progress 16.00 %	XML Input
+02/01/2020 00:53:37	Info	Progress 17.00 %	XML Input
+02/01/2020 00:53:44	Info	Progress 18.00 %	XML Input
+02/01/2020 00:53:49	Info	Progress 19.00 %	XML Input
+02/01/2020 00:53:54	Info	Progress 20.00 %	XML Input
+02/01/2020 00:53:59	Info	Progress 21.00 %	XML Input
+02/01/2020 00:54:04	Info	Progress 22.00 %	XML Input
+02/01/2020 00:54:09	Info	Progress 23.00 %	XML Input
+02/01/2020 00:54:15	Info	Progress 24.00 %	XML Input
+02/01/2020 00:54:20	Info	Progress 25.00 %	XML Input
+02/01/2020 00:54:25	Info	Progress 26.00 %	XML Input
+02/01/2020 00:54:30	Info	Progress 27.00 %	XML Input
+02/01/2020 00:54:35	Info	Progress 28.00 %	XML Input
+02/01/2020 00:54:41	Info	Progress 29.00 %	XML Input
+02/01/2020 00:54:46	Info	Progress 30.00 %	XML Input
+02/01/2020 00:54:52	Info	Progress 31.00 %	XML Input
+02/01/2020 00:54:57	Info	Progress 32.00 %	XML Input
+02/01/2020 00:55:02	Info	Progress 33.00 %	XML Input
+02/01/2020 00:55:07	Info	Progress 34.00 %	XML Input
+02/01/2020 00:55:11	Info	Progress 35.00 %	XML Input
+02/01/2020 00:55:16	Info	Progress 36.00 %	XML Input
+02/01/2020 00:55:21	Info	Progress 37.00 %	XML Input
+02/01/2020 00:55:27	Info	Progress 38.00 %	XML Input
+02/01/2020 00:55:33	Info	Progress 39.00 %	XML Input
+02/01/2020 00:55:38	Info	Progress 40.00 %	XML Input
+02/01/2020 00:55:44	Info	Progress 41.00 %	XML Input
+02/01/2020 00:55:50	Info	Progress 42.00 %	XML Input
+02/01/2020 00:55:55	Info	Progress 43.00 %	XML Input
+02/01/2020 00:56:00	Info	Progress 44.00 %	XML Input
+02/01/2020 00:56:05	Info	Progress 45.00 %	XML Input
+02/01/2020 00:56:10	Info	Progress 46.00 %	XML Input
+02/01/2020 00:56:16	Info	Progress 47.00 %	XML Input
+02/01/2020 00:56:23	Info	Progress 48.00 %	XML Input
+02/01/2020 00:56:32	Info	Progress 49.00 %	XML Input
+02/01/2020 00:56:41	Info	Progress 50.00 %	XML Input
+02/01/2020 00:56:53	Info	Progress 51.00 %	XML Input
+02/01/2020 00:57:03	Info	Progress 52.00 %	XML Input
+02/01/2020 00:57:12	Info	Progress 53.00 %	XML Input
+02/01/2020 00:57:22	Info	Progress 54.00 %	XML Input
+02/01/2020 00:57:32	Info	Progress 55.00 %	XML Input
+02/01/2020 00:57:42	Info	Progress 56.00 %	XML Input
+02/01/2020 00:57:50	Info	Progress 57.00 %	XML Input
+02/01/2020 00:58:02	Info	Progress 58.00 %	XML Input
+02/01/2020 00:58:10	Info	Progress 59.00 %	XML Input
+02/01/2020 00:58:19	Info	Progress 60.00 %	XML Input
+02/01/2020 00:58:27	Info	Progress 61.00 %	XML Input
+02/01/2020 00:58:35	Info	Progress 62.00 %	XML Input
+02/01/2020 00:58:43	Info	Progress 63.00 %	XML Input
+02/01/2020 00:58:52	Info	Progress 64.00 %	XML Input
+02/01/2020 00:58:59	Info	Progress 65.00 %	XML Input
+02/01/2020 00:59:07	Info	Progress 66.00 %	XML Input
+02/01/2020 00:59:15	Info	Progress 67.00 %	XML Input
+02/01/2020 00:59:24	Info	Progress 68.00 %	XML Input
+02/01/2020 00:59:32	Info	Progress 69.00 %	XML Input
+02/01/2020 00:59:40	Info	Progress 70.00 %	XML Input
+02/01/2020 00:59:48	Info	Progress 71.00 %	XML Input
+02/01/2020 01:00:00	Info	Progress 72.00 %	XML Input
+02/01/2020 01:00:09	Info	Progress 73.00 %	XML Input
+02/01/2020 01:00:18	Info	Progress 74.00 %	XML Input
+02/01/2020 01:00:24	Info	Progress 75.00 %	XML Input
+02/01/2020 01:00:31	Info	Progress 76.00 %	XML Input
+02/01/2020 01:00:37	Info	Progress 77.00 %	XML Input
+02/01/2020 01:00:44	Info	Progress 78.00 %	XML Input
+02/01/2020 01:00:50	Info	Progress 79.00 %	XML Input
+02/01/2020 01:00:56	Info	Progress 80.00 %	XML Input
+02/01/2020 01:01:02	Info	Progress 81.00 %	XML Input
+02/01/2020 01:01:08	Info	Progress 82.00 %	XML Input
+02/01/2020 01:01:14	Info	Progress 83.00 %	XML Input
+02/01/2020 01:01:20	Info	Progress 84.00 %	XML Input
+02/01/2020 01:01:25	Info	Progress 85.00 %	XML Input
+02/01/2020 01:01:30	Info	Progress 86.00 %	XML Input
+02/01/2020 01:01:36	Info	Progress 87.00 %	XML Input
+02/01/2020 01:01:42	Info	Progress 88.00 %	XML Input
+02/01/2020 01:01:49	Info	Progress 89.00 %	XML Input
+02/01/2020 01:01:57	Info	Progress 90.00 %	XML Input
+02/01/2020 01:02:03	Info	Progress 91.00 %	XML Input
+02/01/2020 01:02:10	Info	Progress 92.00 %	XML Input
+02/01/2020 01:02:17	Info	Progress 93.00 %	XML Input
+02/01/2020 01:02:23	Info	Progress 94.00 %	XML Input
+02/01/2020 01:02:29	Info	Progress 95.00 %	XML Input
+02/01/2020 01:02:37	Info	Progress 96.00 %	XML Input
+02/01/2020 01:02:43	Info	Progress 97.00 %	XML Input
+02/01/2020 01:02:50	Info	Progress 98.00 %	XML Input
+02/01/2020 01:02:56	Info	Progress 99.00 %	XML Input
+02/01/2020 01:03:02	Info	Progress 100.00 %	XML Input
+02/01/2020 01:03:02	Info	Module completed processing with Status: True	XML Input
+02/01/2020 01:03:02	Info	Starting execution of DataOutput module	DataOutput
+
+around 11 mins
+
+without logs
+
+02/01/2020 01:22:33	Info	Starting execution of XML Input module	DataOutput
+02/01/2020 01:22:33	Info	Running Module	XML Input
+02/01/2020 01:22:33	Info	Starting indexing process, please wait....	XML Input
+02/01/2020 01:22:37	Info	Indexing process completed	XML Input
+02/01/2020 01:22:37	Info	Starting optionality validation process, please wait....	XML Input
+02/01/2020 01:22:37	Info	[Entry].Count = 50000 Nodes	XML Input
+02/01/2020 01:22:44	Info	Progress 01.00 %	XML Input
+02/01/2020 01:22:46	Info	Progress 02.00 %	XML Input
+02/01/2020 01:22:49	Info	Progress 03.00 %	XML Input
+02/01/2020 01:22:52	Info	Progress 04.00 %	XML Input
+02/01/2020 01:22:54	Info	Progress 05.00 %	XML Input
+02/01/2020 01:22:57	Info	Progress 06.00 %	XML Input
+02/01/2020 01:23:00	Info	Progress 07.00 %	XML Input
+02/01/2020 01:23:02	Info	Progress 08.00 %	XML Input
+02/01/2020 01:23:05	Info	Progress 09.00 %	XML Input
+02/01/2020 01:23:07	Info	Progress 10.00 %	XML Input
+02/01/2020 01:23:09	Info	Progress 11.00 %	XML Input
+02/01/2020 01:23:12	Info	Progress 12.00 %	XML Input
+02/01/2020 01:23:14	Info	Progress 13.00 %	XML Input
+02/01/2020 01:23:17	Info	Progress 14.00 %	XML Input
+02/01/2020 01:23:20	Info	Progress 15.00 %	XML Input
+02/01/2020 01:23:23	Info	Progress 16.00 %	XML Input
+02/01/2020 01:23:26	Info	Progress 17.00 %	XML Input
+02/01/2020 01:23:29	Info	Progress 18.00 %	XML Input
+02/01/2020 01:23:31	Info	Progress 19.00 %	XML Input
+02/01/2020 01:23:34	Info	Progress 20.00 %	XML Input
+02/01/2020 01:23:36	Info	Progress 21.00 %	XML Input
+02/01/2020 01:23:39	Info	Progress 22.00 %	XML Input
+02/01/2020 01:23:41	Info	Progress 23.00 %	XML Input
+02/01/2020 01:23:44	Info	Progress 24.00 %	XML Input
+02/01/2020 01:23:46	Info	Progress 25.00 %	XML Input
+02/01/2020 01:23:49	Info	Progress 26.00 %	XML Input
+02/01/2020 01:23:51	Info	Progress 27.00 %	XML Input
+02/01/2020 01:23:54	Info	Progress 28.00 %	XML Input
+02/01/2020 01:23:56	Info	Progress 29.00 %	XML Input
+02/01/2020 01:23:59	Info	Progress 30.00 %	XML Input
+02/01/2020 01:24:01	Info	Progress 31.00 %	XML Input
+02/01/2020 01:24:04	Info	Progress 32.00 %	XML Input
+02/01/2020 01:24:06	Info	Progress 33.00 %	XML Input
+02/01/2020 01:24:09	Info	Progress 34.00 %	XML Input
+02/01/2020 01:24:11	Info	Progress 35.00 %	XML Input
+02/01/2020 01:24:13	Info	Progress 36.00 %	XML Input
+02/01/2020 01:24:16	Info	Progress 37.00 %	XML Input
+02/01/2020 01:24:18	Info	Progress 38.00 %	XML Input
+02/01/2020 01:24:21	Info	Progress 39.00 %	XML Input
+02/01/2020 01:24:24	Info	Progress 40.00 %	XML Input
+02/01/2020 01:24:27	Info	Progress 41.00 %	XML Input
+02/01/2020 01:24:30	Info	Progress 42.00 %	XML Input
+02/01/2020 01:24:32	Info	Progress 43.00 %	XML Input
+02/01/2020 01:24:34	Info	Progress 44.00 %	XML Input
+02/01/2020 01:24:37	Info	Progress 45.00 %	XML Input
+02/01/2020 01:24:39	Info	Progress 46.00 %	XML Input
+02/01/2020 01:24:42	Info	Progress 47.00 %	XML Input
+02/01/2020 01:24:44	Info	Progress 48.00 %	XML Input
+02/01/2020 01:24:47	Info	Progress 49.00 %	XML Input
+02/01/2020 01:24:49	Info	Progress 50.00 %	XML Input
+02/01/2020 01:24:52	Info	Progress 51.00 %	XML Input
+02/01/2020 01:24:54	Info	Progress 52.00 %	XML Input
+02/01/2020 01:24:57	Info	Progress 53.00 %	XML Input
+02/01/2020 01:24:59	Info	Progress 54.00 %	XML Input
+02/01/2020 01:25:02	Info	Progress 55.00 %	XML Input
+02/01/2020 01:25:04	Info	Progress 56.00 %	XML Input
+02/01/2020 01:25:07	Info	Progress 57.00 %	XML Input
+02/01/2020 01:25:09	Info	Progress 58.00 %	XML Input
+02/01/2020 01:25:11	Info	Progress 59.00 %	XML Input
+02/01/2020 01:25:14	Info	Progress 60.00 %	XML Input
+02/01/2020 01:25:16	Info	Progress 61.00 %	XML Input
+02/01/2020 01:25:19	Info	Progress 62.00 %	XML Input
+02/01/2020 01:25:21	Info	Progress 63.00 %	XML Input
+02/01/2020 01:25:24	Info	Progress 64.00 %	XML Input
+02/01/2020 01:25:26	Info	Progress 65.00 %	XML Input
+02/01/2020 01:25:29	Info	Progress 66.00 %	XML Input
+02/01/2020 01:25:32	Info	Progress 67.00 %	XML Input
+02/01/2020 01:25:34	Info	Progress 68.00 %	XML Input
+02/01/2020 01:25:37	Info	Progress 69.00 %	XML Input
+02/01/2020 01:25:40	Info	Progress 70.00 %	XML Input
+02/01/2020 01:25:42	Info	Progress 71.00 %	XML Input
+02/01/2020 01:25:45	Info	Progress 72.00 %	XML Input
+02/01/2020 01:25:48	Info	Progress 73.00 %	XML Input
+02/01/2020 01:25:50	Info	Progress 74.00 %	XML Input
+02/01/2020 01:25:53	Info	Progress 75.00 %	XML Input
+02/01/2020 01:25:55	Info	Progress 76.00 %	XML Input
+02/01/2020 01:25:58	Info	Progress 77.00 %	XML Input
+02/01/2020 01:26:00	Info	Progress 78.00 %	XML Input
+02/01/2020 01:26:03	Info	Progress 79.00 %	XML Input
+02/01/2020 01:26:06	Info	Progress 80.00 %	XML Input
+02/01/2020 01:26:08	Info	Progress 81.00 %	XML Input
+02/01/2020 01:26:11	Info	Progress 82.00 %	XML Input
+02/01/2020 01:26:13	Info	Progress 83.00 %	XML Input
+02/01/2020 01:26:15	Info	Progress 84.00 %	XML Input
+02/01/2020 01:26:18	Info	Progress 85.00 %	XML Input
+02/01/2020 01:26:19	Info	Progress 86.00 %	XML Input
+02/01/2020 01:26:22	Info	Progress 87.00 %	XML Input
+02/01/2020 01:26:24	Info	Progress 88.00 %	XML Input
+02/01/2020 01:26:27	Info	Progress 89.00 %	XML Input
+02/01/2020 01:26:30	Info	Progress 90.00 %	XML Input
+02/01/2020 01:26:32	Info	Progress 91.00 %	XML Input
+02/01/2020 01:26:35	Info	Progress 92.00 %	XML Input
+02/01/2020 01:26:38	Info	Progress 93.00 %	XML Input
+02/01/2020 01:26:40	Info	Progress 94.00 %	XML Input
+02/01/2020 01:26:43	Info	Progress 95.00 %	XML Input
+02/01/2020 01:26:46	Info	Progress 96.00 %	XML Input
+02/01/2020 01:26:49	Info	Progress 97.00 %	XML Input
+02/01/2020 01:26:51	Info	Progress 98.00 %	XML Input
+02/01/2020 01:26:53	Info	Progress 99.00 %	XML Input
+02/01/2020 01:26:56	Info	Progress 100.00 %	XML Input
+02/01/2020 01:26:56	Info	Module completed processing with Status: True	XML Input
+02/01/2020 01:26:56	Info	Starting execution of DataOutput module	DataOutput
+
+around 3.5 mins
+
+
+###################
+
+02/05/2020 15:00:46	Info	Starting execution of XML Input module	DataOutput
+02/05/2020 15:00:46	Info	Running Module	XML Input
+02/05/2020 15:00:46	Info	Starting indexing process, please wait....	XML Input
+02/05/2020 15:00:47	Info	Indexing process completed	XML Input
+02/05/2020 15:00:47	Info	Starting optionality validation process, please wait....	XML Input
+02/05/2020 15:00:47	Info	[Entry].Count = 50000 Nodes	XML Input
+02/05/2020 15:00:52	Info	Progress 01.00 %	XML Input
+02/05/2020 15:00:53	Info	Progress 02.00 %	XML Input
+02/05/2020 15:00:53	Info	Progress 03.00 %	XML Input
+02/05/2020 15:00:53	Info	Progress 04.00 %	XML Input
+02/05/2020 15:00:54	Info	Progress 05.00 %	XML Input
+02/05/2020 15:00:54	Info	Progress 06.00 %	XML Input
+02/05/2020 15:00:55	Info	Progress 07.00 %	XML Input
+02/05/2020 15:00:55	Info	Progress 08.00 %	XML Input
+02/05/2020 15:00:55	Info	Progress 09.00 %	XML Input
+02/05/2020 15:00:56	Info	Progress 10.00 %	XML Input
+02/05/2020 15:00:56	Info	Progress 11.00 %	XML Input
+02/05/2020 15:00:56	Info	Progress 12.00 %	XML Input
+02/05/2020 15:00:57	Info	Progress 13.00 %	XML Input
+02/05/2020 15:00:57	Info	Progress 14.00 %	XML Input
+02/05/2020 15:00:58	Info	Progress 15.00 %	XML Input
+02/05/2020 15:00:58	Info	Progress 16.00 %	XML Input
+02/05/2020 15:00:58	Info	Progress 17.00 %	XML Input
+02/05/2020 15:00:59	Info	Progress 18.00 %	XML Input
+02/05/2020 15:00:59	Info	Progress 19.00 %	XML Input
+02/05/2020 15:01:00	Info	Progress 20.00 %	XML Input
+02/05/2020 15:01:00	Info	Progress 21.00 %	XML Input
+02/05/2020 15:01:00	Info	Progress 22.00 %	XML Input
+02/05/2020 15:01:01	Info	Progress 23.00 %	XML Input
+02/05/2020 15:01:01	Info	Progress 24.00 %	XML Input
+02/05/2020 15:01:02	Info	Progress 25.00 %	XML Input
+02/05/2020 15:01:02	Info	Progress 26.00 %	XML Input
+02/05/2020 15:01:02	Info	Progress 27.00 %	XML Input
+02/05/2020 15:01:03	Info	Progress 28.00 %	XML Input
+02/05/2020 15:01:03	Info	Progress 29.00 %	XML Input
+02/05/2020 15:01:04	Info	Progress 30.00 %	XML Input
+02/05/2020 15:01:04	Info	Progress 31.00 %	XML Input
+02/05/2020 15:01:04	Info	Progress 32.00 %	XML Input
+02/05/2020 15:01:05	Info	Progress 33.00 %	XML Input
+02/05/2020 15:01:05	Info	Progress 34.00 %	XML Input
+02/05/2020 15:01:05	Info	Progress 35.00 %	XML Input
+02/05/2020 15:01:06	Info	Progress 36.00 %	XML Input
+02/05/2020 15:01:06	Info	Progress 37.00 %	XML Input
+02/05/2020 15:01:06	Info	Progress 38.00 %	XML Input
+02/05/2020 15:01:07	Info	Progress 39.00 %	XML Input
+02/05/2020 15:01:07	Info	Progress 40.00 %	XML Input
+02/05/2020 15:01:08	Info	Progress 41.00 %	XML Input
+02/05/2020 15:01:08	Info	Progress 42.00 %	XML Input
+02/05/2020 15:01:09	Info	Progress 43.00 %	XML Input
+02/05/2020 15:01:09	Info	Progress 44.00 %	XML Input
+02/05/2020 15:01:09	Info	Progress 45.00 %	XML Input
+02/05/2020 15:01:10	Info	Progress 46.00 %	XML Input
+02/05/2020 15:01:10	Info	Progress 47.00 %	XML Input
+02/05/2020 15:01:11	Info	Progress 48.00 %	XML Input
+02/05/2020 15:01:11	Info	Progress 49.00 %	XML Input
+02/05/2020 15:01:11	Info	Progress 50.00 %	XML Input
+02/05/2020 15:01:12	Info	Progress 51.00 %	XML Input
+02/05/2020 15:01:12	Info	Progress 52.00 %	XML Input
+02/05/2020 15:01:13	Info	Progress 53.00 %	XML Input
+02/05/2020 15:01:13	Info	Progress 54.00 %	XML Input
+02/05/2020 15:01:13	Info	Progress 55.00 %	XML Input
+02/05/2020 15:01:14	Info	Progress 56.00 %	XML Input
+02/05/2020 15:01:14	Info	Progress 57.00 %	XML Input
+02/05/2020 15:01:14	Info	Progress 58.00 %	XML Input
+02/05/2020 15:01:15	Info	Progress 59.00 %	XML Input
+02/05/2020 15:01:15	Info	Progress 60.00 %	XML Input
+02/05/2020 15:01:16	Info	Progress 61.00 %	XML Input
+02/05/2020 15:01:16	Info	Progress 62.00 %	XML Input
+02/05/2020 15:01:16	Info	Progress 63.00 %	XML Input
+02/05/2020 15:01:17	Info	Progress 64.00 %	XML Input
+02/05/2020 15:01:17	Info	Progress 65.00 %	XML Input
+02/05/2020 15:01:18	Info	Progress 66.00 %	XML Input
+02/05/2020 15:01:18	Info	Progress 67.00 %	XML Input
+02/05/2020 15:01:18	Info	Progress 68.00 %	XML Input
+02/05/2020 15:01:19	Info	Progress 69.00 %	XML Input
+02/05/2020 15:01:19	Info	Progress 70.00 %	XML Input
+02/05/2020 15:01:20	Info	Progress 71.00 %	XML Input
+02/05/2020 15:01:20	Info	Progress 72.00 %	XML Input
+02/05/2020 15:01:21	Info	Progress 73.00 %	XML Input
+02/05/2020 15:01:21	Info	Progress 74.00 %	XML Input
+02/05/2020 15:01:21	Info	Progress 75.00 %	XML Input
+02/05/2020 15:01:22	Info	Progress 76.00 %	XML Input
+02/05/2020 15:01:22	Info	Progress 77.00 %	XML Input
+02/05/2020 15:01:23	Info	Progress 78.00 %	XML Input
+02/05/2020 15:01:23	Info	Progress 79.00 %	XML Input
+02/05/2020 15:01:23	Info	Progress 80.00 %	XML Input
+02/05/2020 15:01:24	Info	Progress 81.00 %	XML Input
+02/05/2020 15:01:24	Info	Progress 82.00 %	XML Input
+02/05/2020 15:01:24	Info	Progress 83.00 %	XML Input
+02/05/2020 15:01:25	Info	Progress 84.00 %	XML Input
+02/05/2020 15:01:25	Info	Progress 85.00 %	XML Input
+02/05/2020 15:01:26	Info	Progress 86.00 %	XML Input
+02/05/2020 15:01:26	Info	Progress 87.00 %	XML Input
+02/05/2020 15:01:26	Info	Progress 88.00 %	XML Input
+02/05/2020 15:01:27	Info	Progress 89.00 %	XML Input
+02/05/2020 15:01:27	Info	Progress 90.00 %	XML Input
+02/05/2020 15:01:28	Info	Progress 91.00 %	XML Input
+02/05/2020 15:01:28	Info	Progress 92.00 %	XML Input
+02/05/2020 15:01:28	Info	Progress 93.00 %	XML Input
+02/05/2020 15:01:29	Info	Progress 94.00 %	XML Input
+02/05/2020 15:01:29	Info	Progress 95.00 %	XML Input
+02/05/2020 15:01:30	Info	Progress 96.00 %	XML Input
+02/05/2020 15:01:30	Info	Progress 97.00 %	XML Input
+02/05/2020 15:01:31	Info	Progress 98.00 %	XML Input
+02/05/2020 15:01:31	Info	Progress 99.00 %	XML Input
+02/05/2020 15:01:31	Info	Progress 100.00 %	XML Input
+02/05/2020 15:01:31	Info	Module completed processing with Status: True	XML Input
+02/05/2020 15:01:31	Info	Starting execution of DataOutput module	DataOutput
+
+45 sec
+
+02/05/2020 15:10:35	Info	Starting execution of XML Input module	DataOutput
+02/05/2020 15:10:35	Info	Running Module	XML Input
+02/05/2020 15:10:35	Info	Starting indexing process, please wait....	XML Input
+02/05/2020 15:10:37	Info	Indexing process completed	XML Input
+02/05/2020 15:10:37	Info	Starting optionality validation process, please wait....	XML Input
+02/05/2020 15:10:37	Info	[Entry].Count = 50000 Nodes	XML Input
+02/05/2020 15:10:42	Info	Progress 01.00 %	XML Input
+02/05/2020 15:10:42	Info	Progress 02.00 %	XML Input
+02/05/2020 15:10:42	Info	Progress 03.00 %	XML Input
+02/05/2020 15:10:43	Info	Progress 04.00 %	XML Input
+02/05/2020 15:10:43	Info	Progress 05.00 %	XML Input
+02/05/2020 15:10:44	Info	Progress 06.00 %	XML Input
+02/05/2020 15:10:44	Info	Progress 07.00 %	XML Input
+02/05/2020 15:10:44	Info	Progress 08.00 %	XML Input
+02/05/2020 15:10:45	Info	Progress 09.00 %	XML Input
+02/05/2020 15:10:45	Info	Progress 10.00 %	XML Input
+02/05/2020 15:10:45	Info	Progress 11.00 %	XML Input
+02/05/2020 15:10:46	Info	Progress 12.00 %	XML Input
+02/05/2020 15:10:46	Info	Progress 13.00 %	XML Input
+02/05/2020 15:10:47	Info	Progress 14.00 %	XML Input
+02/05/2020 15:10:47	Info	Progress 15.00 %	XML Input
+02/05/2020 15:10:47	Info	Progress 16.00 %	XML Input
+02/05/2020 15:10:48	Info	Progress 17.00 %	XML Input
+02/05/2020 15:10:48	Info	Progress 18.00 %	XML Input
+02/05/2020 15:10:49	Info	Progress 19.00 %	XML Input
+02/05/2020 15:10:49	Info	Progress 20.00 %	XML Input
+02/05/2020 15:10:49	Info	Progress 21.00 %	XML Input
+02/05/2020 15:10:50	Info	Progress 22.00 %	XML Input
+02/05/2020 15:10:50	Info	Progress 23.00 %	XML Input
+02/05/2020 15:10:51	Info	Progress 24.00 %	XML Input
+02/05/2020 15:10:51	Info	Progress 25.00 %	XML Input
+02/05/2020 15:10:51	Info	Progress 26.00 %	XML Input
+02/05/2020 15:10:52	Info	Progress 27.00 %	XML Input
+02/05/2020 15:10:52	Info	Progress 28.00 %	XML Input
+02/05/2020 15:10:53	Info	Progress 29.00 %	XML Input
+02/05/2020 15:10:53	Info	Progress 30.00 %	XML Input
+02/05/2020 15:10:53	Info	Progress 31.00 %	XML Input
+02/05/2020 15:10:54	Info	Progress 32.00 %	XML Input
+02/05/2020 15:10:54	Info	Progress 33.00 %	XML Input
+02/05/2020 15:10:54	Info	Progress 34.00 %	XML Input
+02/05/2020 15:10:55	Info	Progress 35.00 %	XML Input
+02/05/2020 15:10:55	Info	Progress 36.00 %	XML Input
+02/05/2020 15:10:55	Info	Progress 37.00 %	XML Input
+02/05/2020 15:10:56	Info	Progress 38.00 %	XML Input
+02/05/2020 15:10:56	Info	Progress 39.00 %	XML Input
+02/05/2020 15:10:57	Info	Progress 40.00 %	XML Input
+02/05/2020 15:10:57	Info	Progress 41.00 %	XML Input
+02/05/2020 15:10:57	Info	Progress 42.00 %	XML Input
+02/05/2020 15:10:58	Info	Progress 43.00 %	XML Input
+02/05/2020 15:10:58	Info	Progress 44.00 %	XML Input
+02/05/2020 15:10:58	Info	Progress 45.00 %	XML Input
+02/05/2020 15:10:59	Info	Progress 46.00 %	XML Input
+02/05/2020 15:10:59	Info	Progress 47.00 %	XML Input
+02/05/2020 15:11:00	Info	Progress 48.00 %	XML Input
+02/05/2020 15:11:00	Info	Progress 49.00 %	XML Input
+02/05/2020 15:11:00	Info	Progress 50.00 %	XML Input
+02/05/2020 15:11:01	Info	Progress 51.00 %	XML Input
+02/05/2020 15:11:01	Info	Progress 52.00 %	XML Input
+02/05/2020 15:11:02	Info	Progress 53.00 %	XML Input
+02/05/2020 15:11:02	Info	Progress 54.00 %	XML Input
+02/05/2020 15:11:02	Info	Progress 55.00 %	XML Input
+02/05/2020 15:11:03	Info	Progress 56.00 %	XML Input
+02/05/2020 15:11:03	Info	Progress 57.00 %	XML Input
+02/05/2020 15:11:03	Info	Progress 58.00 %	XML Input
+02/05/2020 15:11:04	Info	Progress 59.00 %	XML Input
+02/05/2020 15:11:04	Info	Progress 60.00 %	XML Input
+02/05/2020 15:11:04	Info	Progress 61.00 %	XML Input
+02/05/2020 15:11:05	Info	Progress 62.00 %	XML Input
+02/05/2020 15:11:05	Info	Progress 63.00 %	XML Input
+02/05/2020 15:11:06	Info	Progress 64.00 %	XML Input
+02/05/2020 15:11:06	Info	Progress 65.00 %	XML Input
+02/05/2020 15:11:06	Info	Progress 66.00 %	XML Input
+02/05/2020 15:11:07	Info	Progress 67.00 %	XML Input
+02/05/2020 15:11:07	Info	Progress 68.00 %	XML Input
+02/05/2020 15:11:08	Info	Progress 69.00 %	XML Input
+02/05/2020 15:11:08	Info	Progress 70.00 %	XML Input
+02/05/2020 15:11:08	Info	Progress 71.00 %	XML Input
+02/05/2020 15:11:09	Info	Progress 72.00 %	XML Input
+02/05/2020 15:11:09	Info	Progress 73.00 %	XML Input
+02/05/2020 15:11:10	Info	Progress 74.00 %	XML Input
+02/05/2020 15:11:10	Info	Progress 75.00 %	XML Input
+02/05/2020 15:11:10	Info	Progress 76.00 %	XML Input
+02/05/2020 15:11:11	Info	Progress 77.00 %	XML Input
+02/05/2020 15:11:11	Info	Progress 78.00 %	XML Input
+02/05/2020 15:11:11	Info	Progress 79.00 %	XML Input
+02/05/2020 15:11:12	Info	Progress 80.00 %	XML Input
+02/05/2020 15:11:12	Info	Progress 81.00 %	XML Input
+02/05/2020 15:11:13	Info	Progress 82.00 %	XML Input
+02/05/2020 15:11:13	Info	Progress 83.00 %	XML Input
+02/05/2020 15:11:13	Info	Progress 84.00 %	XML Input
+02/05/2020 15:11:14	Info	Progress 85.00 %	XML Input
+02/05/2020 15:11:14	Info	Progress 86.00 %	XML Input
+02/05/2020 15:11:14	Info	Progress 87.00 %	XML Input
+02/05/2020 15:11:15	Info	Progress 88.00 %	XML Input
+02/05/2020 15:11:15	Info	Progress 89.00 %	XML Input
+02/05/2020 15:11:16	Info	Progress 90.00 %	XML Input
+02/05/2020 15:11:16	Info	Progress 91.00 %	XML Input
+02/05/2020 15:11:16	Info	Progress 92.00 %	XML Input
+02/05/2020 15:11:17	Info	Progress 93.00 %	XML Input
+02/05/2020 15:11:17	Info	Progress 94.00 %	XML Input
+02/05/2020 15:11:18	Info	Progress 95.00 %	XML Input
+02/05/2020 15:11:18	Info	Progress 96.00 %	XML Input
+02/05/2020 15:11:19	Info	Progress 97.00 %	XML Input
+02/05/2020 15:11:19	Info	Progress 98.00 %	XML Input
+02/05/2020 15:11:19	Info	Progress 99.00 %	XML Input
+02/05/2020 15:11:20	Info	Progress 100.00 %	XML Input
+02/05/2020 15:11:20	Info	Module completed processing with Status: True	XML Input
+02/05/2020 15:11:20	Info	Starting execution of DataOutput module	DataOutput
+
+45 sec

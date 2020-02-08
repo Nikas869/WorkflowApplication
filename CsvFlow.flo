@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <AppWorkflow Guid="00000000-0000-0000-0000-000000000000">
+    <WorkflowScrollViewer Title="CsvFlow" ScrollH="0" ScrollV="0">
+      <WorkflowCanvas Zoom="1">
+        <CanvasModules Count="2">
+          <CanvasModule Name="CSV" Left="223.79" Top="200.08">
+            <BaseModule Type="CSVInput.CSVModule, CSVInput, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Guid="cf05a353-e806-4e0a-896f-edb16e597e97" StateCount="1" InputCount="0" OutputCount="1" ParameterCount="0">
+              <OutputNodes>
+                <OutputNode Identifier="4000d92a-983d-49cc-8e2c-a06bb9a4161b" DisplayName="MainOutput" Extension="DataLocation" />
+              </OutputNodes>
+              <dictionary>
+                <item>
+                  <key>
+                    <guid>4000d92a-983d-49cc-8e2c-a06bb9a4161b</guid>
+                  </key>
+                  <value>
+                    <ModuleState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" InputIsSchema="false" TextEncoding="" DataFilePath="C:\Temp\CSVOutput_200204222922798.xml">
+                      <StateVar />
+                      <Schema Name="Root" DataType="String" Optionality="One" Change="Flatten" Alias="Root">
+                        <Field Type="Element" Name="Item" DataType="Array" Optionality="One" Change="Flatten" Alias="Item">
+                          <Field Type="Element" Name="anzsic06" DataType="String" Optionality="One" Change="Flatten" Alias="anzsic06" />
+                          <Field Type="Element" Name="Area" DataType="String" Optionality="One" Change="Flatten" Alias="Area" />
+                          <Field Type="Element" Name="year" DataType="String" Optionality="One" Change="Flatten" Alias="year" />
+                          <Field Type="Element" Name="geo_count" DataType="String" Optionality="One" Change="Flatten" Alias="geo_count" />
+                          <Field Type="Element" Name="ec_count" DataType="String" Optionality="One" Change="Flatten" Alias="ec_count" />
+                        </Field>
+                      </Schema>
+                    </ModuleState>
+                  </value>
+                </item>
+              </dictionary>
+              <Parameters>
+                <DataFileInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" FileType="CSV" RootArrayName="Root" FilePath="D:\Projects\WorkflowApplication\Data7602DescendingYearOrder.csv" Encoding="US-ASCII" ShowRecordCount="2000" Delimiter="," Id="0" TextQualifier="&quot;" FirstRowHasHeader="true" />
+              </Parameters>
+            </BaseModule>
+          </CanvasModule>
+          <CanvasModule Name="DataOutput" Left="471.79" Top="229.08">
+            <BaseModule Type="DataOutput.DataOutputModule, DataOutput, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Guid="34b18ad6-ec62-410f-921f-daa840e93b4c" StateCount="0" InputCount="1" OutputCount="0" ParameterCount="0">
+              <InputNodes>
+                <InputNode Identifier="241f2316-a0f2-4f39-b656-8a3b1789d85f" DisplayName="Schema" Extension="DataLocation" />
+              </InputNodes>
+            </BaseModule>
+          </CanvasModule>
+        </CanvasModules>
+        <Connections Count="1">
+          <Connection>
+            <OutputNode ModuleName="CSV" Index="0" Identity="4000d92a-983d-49cc-8e2c-a06bb9a4161b" />
+            <InputNode ModuleName="DataOutput" Index="0" Identity="241f2316-a0f2-4f39-b656-8a3b1789d85f" />
+          </Connection>
+        </Connections>
+      </WorkflowCanvas>
+    </WorkflowScrollViewer>
+  </AppWorkflow>
+</Root>

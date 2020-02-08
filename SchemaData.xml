@@ -1,0 +1,1203 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <dataList>
+    <LEISTNR>1</LEISTNR>
+    <LEISTUNG>das ist doch keine leistung</LEISTUNG>
+    <PREIS>44</PREIS>
+    <KNAME>hw</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>2</LEISTNR>
+    <LEISTUNG>Meister</LEISTUNG>
+    <PREIS>48</PREIS>
+    <KNAME>ms</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>3</LEISTNR>
+    <LEISTUNG>Programmierer</LEISTUNG>
+    <PREIS>100</PREIS>
+    <KNAME>progr</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>15</LEISTNR>
+    <LEISTUNG>asdfasdfafs</LEISTUNG>
+    <PREIS>44</PREIS>
+    <KNAME>hw</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>100</LEISTNR>
+    <LEISTUNG>Wiesbadener Kurier</LEISTUNG>
+    <PREIS>36.9</PREIS>
+    <KNAME>WK</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>200</LEISTNR>
+    <LEISTUNG>Frankfurter Rundschau</LEISTUNG>
+    <PREIS>44</PREIS>
+    <KNAME>FR</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>300</LEISTNR>
+    <LEISTUNG>Frankfurter Allgemeine Zeitung</LEISTUNG>
+    <PREIS>50</PREIS>
+    <KNAME>FAZ</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>999999</LEISTNR>
+    <LEISTUNG>tempor?re Leistung</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>tempo</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>999999</LEISTNR>
+    <LEISTUNG>Leistung</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>NoNam</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1</LEISTNR>
+    <LEISTUNG>neu</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>neu</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>123456</LEISTNR>
+    <LEISTUNG>neu</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>neu</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>10</LEISTNR>
+    <LEISTUNG>1 Buehnenmeister</LEISTUNG>
+    <PREIS>28.5</PREIS>
+    <KNAME>B?Mei</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1</LEISTNR>
+    <LEISTUNG>1 Buehnenhandwerker</LEISTUNG>
+    <PREIS>22.8</PREIS>
+    <KNAME>B?Han</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>2</LEISTNR>
+    <LEISTUNG>2 Buehnenhandwerker</LEISTUNG>
+    <PREIS>22.8</PREIS>
+    <KNAME>B?Han</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>3</LEISTNR>
+    <LEISTUNG>3 Buehnenhandwerker</LEISTUNG>
+    <PREIS>22.8</PREIS>
+    <KNAME>B?Han</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>4</LEISTNR>
+    <LEISTUNG>4 Buehnenhandwerker</LEISTUNG>
+    <PREIS>22.8</PREIS>
+    <KNAME>B?Han</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>5</LEISTNR>
+    <LEISTUNG>5 B?hnenhandwerker</LEISTUNG>
+    <PREIS>22.8</PREIS>
+    <KNAME>B?Han</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>6</LEISTNR>
+    <LEISTUNG>6 B?hnenhandwerker</LEISTUNG>
+    <PREIS>22.8</PREIS>
+    <KNAME>B?Han</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>7</LEISTNR>
+    <LEISTUNG>7 B?hnenhandwerker</LEISTUNG>
+    <PREIS>22.8</PREIS>
+    <KNAME>B?Han</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>15</LEISTNR>
+    <LEISTUNG>Fahrtkosten</LEISTUNG>
+    <PREIS>1.8</PREIS>
+    <KNAME>Fahrt</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>16</LEISTNR>
+    <LEISTUNG>Fahrtkosten</LEISTUNG>
+    <PREIS>1.6</PREIS>
+    <KNAME>Fahrt</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>17</LEISTNR>
+    <LEISTUNG>Fahrtkosten</LEISTUNG>
+    <PREIS>1.4</PREIS>
+    <KNAME>Fahrt</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>18</LEISTNR>
+    <LEISTUNG>Fahrtkosten</LEISTUNG>
+    <PREIS>1.2</PREIS>
+    <KNAME>Fahrt</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>800</LEISTNR>
+    <LEISTUNG>Forex,Plexiglas usw.</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>850</LEISTNR>
+    <LEISTUNG>Forex 8mm 3050x2030</LEISTUNG>
+    <PREIS>61.25</PREIS>
+    <KNAME>Forex</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>851</LEISTNR>
+    <LEISTUNG>Forex 10mm 3050x2030</LEISTUNG>
+    <PREIS>60.75</PREIS>
+    <KNAME>Forex</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>20</LEISTNR>
+    <LEISTUNG>Spesen</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>Spese</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>30</LEISTNR>
+    <LEISTUNG>Drehb?hne pro Sendung</LEISTUNG>
+    <PREIS>8875</PREIS>
+    <KNAME>FSG</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>0</LEISTNR>
+    <LEISTUNG>Drehb?hne pro Sendung</LEISTUNG>
+    <PREIS>8875</PREIS>
+    <KNAME>FSG</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>31</LEISTNR>
+    <LEISTUNG>Gabelstapler-Miete</LEISTUNG>
+    <PREIS>400</PREIS>
+    <KNAME>FSG</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>32</LEISTNR>
+    <LEISTUNG>Transportfahrzeug , 4 Anh?nger</LEISTUNG>
+    <PREIS>400</PREIS>
+    <KNAME>FSG</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>35</LEISTNR>
+    <LEISTUNG>Angebote Nr.1082 vom 04.05.06</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>21</LEISTNR>
+    <LEISTUNG>Theatermaler</LEISTUNG>
+    <PREIS>40.5</PREIS>
+    <KNAME>Theat</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>500</LEISTNR>
+    <LEISTUNG>Dekomaterial</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>550</LEISTNR>
+    <LEISTUNG>Voile 300cm breit</LEISTUNG>
+    <PREIS>7.95</PREIS>
+    <KNAME>Voile</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>400</LEISTNR>
+    <LEISTUNG>Farben</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>401</LEISTNR>
+    <LEISTUNG>Farbe</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>22</LEISTNR>
+    <LEISTUNG>Lohnkosten</LEISTUNG>
+    <PREIS>999999.99</PREIS>
+    <KNAME>Arbei</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>23</LEISTNR>
+    <LEISTUNG>Materialkosten</LEISTUNG>
+    <PREIS>999999.99</PREIS>
+    <KNAME>Mater</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>24</LEISTNR>
+    <LEISTUNG>Aufbau</LEISTUNG>
+    <PREIS>999999.99</PREIS>
+    <KNAME>Aufba</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>25</LEISTNR>
+    <LEISTUNG>LKW</LEISTUNG>
+    <PREIS>180</PREIS>
+    <KNAME>LKW</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>19</LEISTNR>
+    <LEISTUNG>Fahrtkosten</LEISTUNG>
+    <PREIS>0.51</PREIS>
+    <KNAME>Fahrt</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>36</LEISTNR>
+    <LEISTUNG>Angebot vom 06.07.2005</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>37</LEISTNR>
+    <LEISTUNG>Angebot Nr. 1077 vom 02.04.06</LEISTUNG>
+    <PREIS>2300</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>26</LEISTNR>
+    <LEISTUNG>Dekoeinlagerung</LEISTUNG>
+    <PREIS>525</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>8</LEISTNR>
+    <LEISTUNG>8 Buehnenhandwerker</LEISTUNG>
+    <PREIS>22.8</PREIS>
+    <KNAME>B?Han</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>9</LEISTNR>
+    <LEISTUNG>?berstunden</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>?bert</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>520</LEISTNR>
+    <LEISTUNG>d-c-fix Folie</LEISTUNG>
+    <PREIS>12.75</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>530</LEISTNR>
+    <LEISTUNG>Lackfolie 130 breit</LEISTUNG>
+    <PREIS>4.75</PREIS>
+    <KNAME>Lackf</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>830</LEISTNR>
+    <LEISTUNG>Plexiglas 5mm</LEISTUNG>
+    <PREIS>93</PREIS>
+    <KNAME>Plexi</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>510</LEISTNR>
+    <LEISTUNG>Dekomolton 300cm breit</LEISTUNG>
+    <PREIS>18.75</PREIS>
+    <KNAME>dekom</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>511</LEISTNR>
+    <LEISTUNG>Dekomolton 200cm breit</LEISTUNG>
+    <PREIS>8.1</PREIS>
+    <KNAME>dekom</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>512</LEISTNR>
+    <LEISTUNG>Dekomolton 130cm breit</LEISTUNG>
+    <PREIS>8.9</PREIS>
+    <KNAME>dekom</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>300</LEISTNR>
+    <LEISTUNG>Holz</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>00000</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>310</LEISTNR>
+    <LEISTUNG>4/6er Latten</LEISTUNG>
+    <PREIS>1.15</PREIS>
+    <KNAME>4/6er</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>312</LEISTNR>
+    <LEISTUNG>Dachlatten</LEISTUNG>
+    <PREIS>0.95</PREIS>
+    <KNAME>Dach</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>27</LEISTNR>
+    <LEISTUNG>Kleinmaterial</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>Klein</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>900</LEISTNR>
+    <LEISTUNG>Mero-Knoten verchromt</LEISTUNG>
+    <PREIS>27.2</PREIS>
+    <KNAME>Mero</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>901</LEISTNR>
+    <LEISTUNG>Mero-Stab 50cm verchromt</LEISTUNG>
+    <PREIS>29.6</PREIS>
+    <KNAME>Mero</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>902</LEISTNR>
+    <LEISTUNG>Mero-Stab 70cm verchromt</LEISTUNG>
+    <PREIS>34.2</PREIS>
+    <KNAME>Mero</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>313</LEISTNR>
+    <LEISTUNG>Tischlerplatte 13mm</LEISTUNG>
+    <PREIS>10.3</PREIS>
+    <KNAME>Tipla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>316</LEISTNR>
+    <LEISTUNG>Tischlerplatte 16mm</LEISTUNG>
+    <PREIS>10.85</PREIS>
+    <KNAME>Tipla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>319</LEISTNR>
+    <LEISTUNG>Tischlerplatte 19mm</LEISTUNG>
+    <PREIS>11.2</PREIS>
+    <KNAME>Tipla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>950</LEISTNR>
+    <LEISTUNG>Einlagerung Januar</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1001</LEISTNR>
+    <LEISTUNG>Einlagerung Januar</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1002</LEISTNR>
+    <LEISTUNG>Einlagerung Februar</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1003</LEISTNR>
+    <LEISTUNG>Einlagerung M?rz</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1004</LEISTNR>
+    <LEISTUNG>Einlagerung April</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1005</LEISTNR>
+    <LEISTUNG>Einlagerung Mai</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1006</LEISTNR>
+    <LEISTUNG>Einlagerung Juni</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1007</LEISTNR>
+    <LEISTUNG>Einlagerung Juli</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1008</LEISTNR>
+    <LEISTUNG>Einlagerung August</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1009</LEISTNR>
+    <LEISTUNG>Einlagerung September</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1010</LEISTNR>
+    <LEISTUNG>Einlagerung Oktober</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1011</LEISTNR>
+    <LEISTUNG>Einlagerung November</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1012</LEISTNR>
+    <LEISTUNG>Einlagerung Dezember</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>11</LEISTNR>
+    <LEISTUNG>Schreiner</LEISTUNG>
+    <PREIS>30</PREIS>
+    <KNAME>Schre</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>333</LEISTNR>
+    <LEISTUNG>Buche-Laminat-Bodenbelag</LEISTUNG>
+    <PREIS>112.5</PREIS>
+    <KNAME>Lamin</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>29</LEISTNR>
+    <LEISTUNG>Abbau</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>Abbau</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1200</LEISTNR>
+    <LEISTUNG>Heizk?rper</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>Heizk</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>340</LEISTNR>
+    <LEISTUNG>Spanplatten 13mm</LEISTUNG>
+    <PREIS>12.75</PREIS>
+    <KNAME>Spanp</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>540</LEISTNR>
+    <LEISTUNG>Nessel 220 breit</LEISTUNG>
+    <PREIS>5.25</PREIS>
+    <KNAME>Nesse</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>541</LEISTNR>
+    <LEISTUNG>Nessel 315 breit</LEISTUNG>
+    <PREIS>6.65</PREIS>
+    <KNAME>Nesse</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>542</LEISTNR>
+    <LEISTUNG>Nessel 435 breit</LEISTUNG>
+    <PREIS>12.2</PREIS>
+    <KNAME>Nesse</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>543</LEISTNR>
+    <LEISTUNG>Nessel 612 breit</LEISTUNG>
+    <PREIS>27.5</PREIS>
+    <KNAME>Nesse</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1201</LEISTNR>
+    <LEISTUNG>T?r</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>T?r</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>38</LEISTNR>
+    <LEISTUNG>Angebot Nr. 1061 vom 31.10.05</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>Angeb</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>345</LEISTNR>
+    <LEISTUNG>Sperrholz 25mm Wasserfest</LEISTUNG>
+    <PREIS>40.5</PREIS>
+    <KNAME>Sperr</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>350</LEISTNR>
+    <LEISTUNG>Kantholz 10x10</LEISTUNG>
+    <PREIS>4.2</PREIS>
+    <KNAME>Kanth</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>33</LEISTNR>
+    <LEISTUNG>Drehb?hne</LEISTUNG>
+    <PREIS>375</PREIS>
+    <KNAME>Drehb</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>34</LEISTNR>
+    <LEISTUNG>Nachtzuschlag</LEISTUNG>
+    <PREIS>20.25</PREIS>
+    <KNAME>Nacht</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>450</LEISTNR>
+    <LEISTUNG>Epoxidharz</LEISTUNG>
+    <PREIS>250</PREIS>
+    <KNAME>Epoxi</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>50</LEISTNR>
+    <LEISTUNG>Hotelkosten</LEISTUNG>
+    <PREIS>999999.9</PREIS>
+    <KNAME>Hotel</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>330</LEISTNR>
+    <LEISTUNG>Siebdruckplatten 9mm 250x125</LEISTUNG>
+    <PREIS>19.5</PREIS>
+    <KNAME>00000</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>70</LEISTNR>
+    <LEISTUNG>B?hnengewichte 12,6 kg</LEISTUNG>
+    <PREIS>999999.9</PREIS>
+    <KNAME>B?hgw</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>71</LEISTNR>
+    <LEISTUNG>B?hnengewicht 12 kg</LEISTUNG>
+    <PREIS>999999.9</PREIS>
+    <KNAME>B?hgw</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>39</LEISTNR>
+    <LEISTUNG>Angebot vom 19.01.06</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>Angeb</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>840</LEISTNR>
+    <LEISTUNG>Forex 5mm 3050x2030</LEISTUNG>
+    <PREIS>31.75</PREIS>
+    <KNAME>Forex</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>831</LEISTNR>
+    <LEISTUNG>Plexiglas 3mm</LEISTUNG>
+    <PREIS>49.9</PREIS>
+    <KNAME>Plexi</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>905</LEISTNR>
+    <LEISTUNG>Glasscheibe Miete</LEISTUNG>
+    <PREIS>6</PREIS>
+    <KNAME>Glas</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>40</LEISTNR>
+    <LEISTUNG>Angebot vom 18.02.und 23.02.05</LEISTUNG>
+    <PREIS>13000</PREIS>
+    <KNAME>Angeb</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>903</LEISTNR>
+    <LEISTUNG>Einlegeboden Miete</LEISTUNG>
+    <PREIS>3</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>920</LEISTNR>
+    <LEISTUNG>Mero-Turm 2x2m,H?he 6m</LEISTUNG>
+    <PREIS>450</PREIS>
+    <KNAME>Mero</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>950</LEISTNR>
+    <LEISTUNG>Linetraleuchten  30cm+R?hre</LEISTUNG>
+    <PREIS>30.65</PREIS>
+    <KNAME>Lines</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>951</LEISTNR>
+    <LEISTUNG>Linetraleuchten  50cm+R?hre</LEISTUNG>
+    <PREIS>44</PREIS>
+    <KNAME>Lines</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>952</LEISTNR>
+    <LEISTUNG>Linetraleuchten 100cm+R?hre</LEISTUNG>
+    <PREIS>77</PREIS>
+    <KNAME>Lines</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>960</LEISTNR>
+    <LEISTUNG>Lichterketten</LEISTUNG>
+    <PREIS>77</PREIS>
+    <KNAME>Licht</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>521</LEISTNR>
+    <LEISTUNG>Spiegelfolie</LEISTUNG>
+    <PREIS>12.75</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>965</LEISTNR>
+    <LEISTUNG>Tublights mit Zubeh?r</LEISTUNG>
+    <PREIS>3514</PREIS>
+    <KNAME>Tubli</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>535</LEISTNR>
+    <LEISTUNG>Opera Projektionsfolie 140cm</LEISTUNG>
+    <PREIS>15</PREIS>
+    <KNAME>Opera</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>12</LEISTNR>
+    <LEISTUNG>Vorhandwerker</LEISTUNG>
+    <PREIS>27</PREIS>
+    <KNAME>Schlo</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>930</LEISTNR>
+    <LEISTUNG>U-Schellen Miete</LEISTUNG>
+    <PREIS>2</PREIS>
+    <KNAME>Schel</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>835</LEISTNR>
+    <LEISTUNG>Waben-Plexiglas 8 mm</LEISTUNG>
+    <PREIS>136.25</PREIS>
+    <KNAME>Plexi</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1202</LEISTNR>
+    <LEISTUNG>Stahlblech 1mm</LEISTUNG>
+    <PREIS>300</PREIS>
+    <KNAME>T?r</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1300</LEISTNR>
+    <LEISTUNG>Alu-U-Profil 12x45x12x2,5</LEISTUNG>
+    <PREIS>16.5</PREIS>
+    <KNAME>Alu</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>560</LEISTNR>
+    <LEISTUNG>Tanzteppich 160cm breit</LEISTUNG>
+    <PREIS>29.6</PREIS>
+    <KNAME>Tanzt</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>565</LEISTNR>
+    <LEISTUNG>Folie 200cm breit</LEISTUNG>
+    <PREIS>9999</PREIS>
+    <KNAME>Tanzt</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>940</LEISTNR>
+    <LEISTUNG>Miete Bodenplatten</LEISTUNG>
+    <PREIS>5</PREIS>
+    <KNAME>BoPla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>941</LEISTNR>
+    <LEISTUNG>Miete Merostangen 70cm</LEISTUNG>
+    <PREIS>3</PREIS>
+    <KNAME>MeSta</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>942</LEISTNR>
+    <LEISTUNG>Miete Foliendach</LEISTUNG>
+    <PREIS>25</PREIS>
+    <KNAME>FoDac</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>566</LEISTNR>
+    <LEISTUNG>Folie wei? qm</LEISTUNG>
+    <PREIS>2</PREIS>
+    <KNAME>Folie</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>570</LEISTNR>
+    <LEISTUNG>Bluebox-Stoff 180</LEISTUNG>
+    <PREIS>69</PREIS>
+    <KNAME>BlueB</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>360</LEISTNR>
+    <LEISTUNG>Topanplatten</LEISTUNG>
+    <PREIS>4.8</PREIS>
+    <KNAME>Topan</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>860</LEISTNR>
+    <LEISTUNG>Styropor</LEISTUNG>
+    <PREIS>98.5</PREIS>
+    <KNAME>Styro</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>339</LEISTNR>
+    <LEISTUNG>Spanplatten 10mm</LEISTUNG>
+    <PREIS>10.5</PREIS>
+    <KNAME>Spanp</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>865</LEISTNR>
+    <LEISTUNG>Schaumstoff</LEISTUNG>
+    <PREIS>999999</PREIS>
+    <KNAME>Schau</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1203</LEISTNR>
+    <LEISTUNG>Tischbeine</LEISTUNG>
+    <PREIS>999999.9</PREIS>
+    <KNAME>Tisch</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1020</LEISTNR>
+    <LEISTUNG>Einlagerung pro qm/Monat</LEISTUNG>
+    <PREIS>5</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>945</LEISTNR>
+    <LEISTUNG>Praktikabel-Miete</LEISTUNG>
+    <PREIS>22</PREIS>
+    <KNAME>FoDac</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>28</LEISTNR>
+    <LEISTUNG>Transportkosten</LEISTUNG>
+    <PREIS>999999.99</PREIS>
+    <KNAME>Trans</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>946</LEISTNR>
+    <LEISTUNG>Lochbleche 120x200</LEISTUNG>
+    <PREIS>2.66</PREIS>
+    <KNAME>Lochb</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>925</LEISTNR>
+    <LEISTUNG>Gittertr?ger Miete</LEISTUNG>
+    <PREIS>999999.99</PREIS>
+    <KNAME>Gitte</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>820</LEISTNR>
+    <LEISTUNG>Plexi Rot  3mm  GS 568 300x200</LEISTUNG>
+    <PREIS>48.85</PREIS>
+    <KNAME>Plexi</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>821</LEISTNR>
+    <LEISTUNG>Plexi Rot  4mm  GS 568 300x200</LEISTUNG>
+    <PREIS>62.35</PREIS>
+    <KNAME>Plexi</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>822</LEISTNR>
+    <LEISTUNG>Plexi Rot  5mm  GS 568 300x200</LEISTUNG>
+    <PREIS>76.4</PREIS>
+    <KNAME>Plexi</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>823</LEISTNR>
+    <LEISTUNG>Plexi Rot  6mm  GS 568 300x200</LEISTUNG>
+    <PREIS>92</PREIS>
+    <KNAME>Plexi</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>824</LEISTNR>
+    <LEISTUNG>Plexi Rot  8mm  GS 568 300x200</LEISTUNG>
+    <PREIS>122.1</PREIS>
+    <KNAME>Plexi</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>825</LEISTNR>
+    <LEISTUNG>Plexi Rot 10mm  GS 568 300x200</LEISTUNG>
+    <PREIS>152.5</PREIS>
+    <KNAME>Plexi</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>45</LEISTNR>
+    <LEISTUNG>Herstellungskosten</LEISTUNG>
+    <PREIS>200</PREIS>
+    <KNAME>Herst</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1400</LEISTNR>
+    <LEISTUNG>Einhandwinkelschleifer</LEISTUNG>
+    <PREIS>199</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1401</LEISTNR>
+    <LEISTUNG>Scheppach Tischkreiss?ge</LEISTUNG>
+    <PREIS>1032.76</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>575</LEISTNR>
+    <LEISTUNG>Fallschirmseide</LEISTUNG>
+    <PREIS>11.75</PREIS>
+    <KNAME>Falls</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1021</LEISTNR>
+    <LEISTUNG>Einlagerung April - Oktober</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1022</LEISTNR>
+    <LEISTUNG>Einlagerung Dez.98 - Dez.99</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>13</LEISTNR>
+    <LEISTUNG>B?rokraft</LEISTUNG>
+    <PREIS>20</PREIS>
+    <KNAME>B?ro</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1550</LEISTNR>
+    <LEISTUNG>Techniker</LEISTUNG>
+    <PREIS>17</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>855</LEISTNR>
+    <LEISTUNG>Teppichboden</LEISTUNG>
+    <PREIS>28.5</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1600</LEISTNR>
+    <LEISTUNG>Steico Unterdachplatten</LEISTUNG>
+    <PREIS>6.85</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1605</LEISTNR>
+    <LEISTUNG>Werkzeugeinkauf</LEISTUNG>
+    <PREIS>6.85</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1500</LEISTNR>
+    <LEISTUNG>Auf- und Abbau</LEISTUNG>
+    <PREIS>17</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1700</LEISTNR>
+    <LEISTUNG>M?llcontainer</LEISTUNG>
+    <PREIS>6.85</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1755</LEISTNR>
+    <LEISTUNG>Kurbelstative</LEISTUNG>
+    <PREIS>30</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1756</LEISTNR>
+    <LEISTUNG>Vierpunkttraverse</LEISTUNG>
+    <PREIS>25</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>325</LEISTNR>
+    <LEISTUNG>Tischlerplatte 25mm</LEISTUNG>
+    <PREIS>37.45</PREIS>
+    <KNAME>Tipla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1204</LEISTNR>
+    <LEISTUNG>Fenster</LEISTUNG>
+    <PREIS>350</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1205</LEISTNR>
+    <LEISTUNG>Tapete</LEISTUNG>
+    <PREIS>35</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1800</LEISTNR>
+    <LEISTUNG>Mauerwerk Naturstein</LEISTUNG>
+    <PREIS>170</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1551</LEISTNR>
+    <LEISTUNG>B?hnenhandwerker</LEISTUNG>
+    <PREIS>35</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1899</LEISTNR>
+    <LEISTUNG>PVC Bodenbelag Buche</LEISTUNG>
+    <PREIS>23.35</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>344</LEISTNR>
+    <LEISTUNG>Spanplatten 19mm Ahorn besch.</LEISTUNG>
+    <PREIS>19.5</PREIS>
+    <KNAME>Spanp</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>580</LEISTNR>
+    <LEISTUNG>Vorhangschiene</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>Vorha</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>14</LEISTNR>
+    <LEISTUNG>Dekorateur</LEISTUNG>
+    <PREIS>37.5</PREIS>
+    <KNAME>Dekor</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1830</LEISTNR>
+    <LEISTUNG>Werkstattmiete</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1801</LEISTNR>
+    <LEISTUNG>Stuckleisten</LEISTUNG>
+    <PREIS>12.5</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1552</LEISTNR>
+    <LEISTUNG>Dekorateur</LEISTUNG>
+    <PREIS>37.5</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1900</LEISTNR>
+    <LEISTUNG>Betonschr?nke</LEISTUNG>
+    <PREIS>2700</PREIS>
+    <KNAME>null</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1023</LEISTNR>
+    <LEISTUNG>Einlagerung 01.03.bis 01.10.06</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>Einla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>1301</LEISTNR>
+    <LEISTUNG>Alu-U-Profil 30x26x20x2</LEISTUNG>
+    <PREIS>6.5</PREIS>
+    <KNAME>Alu</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>72</LEISTNR>
+    <LEISTUNG>B?hnengewicht 6,5 kg</LEISTUNG>
+    <PREIS>999999.9</PREIS>
+    <KNAME>B?hgw</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>73</LEISTNR>
+    <LEISTUNG>B?hnengewicht</LEISTUNG>
+    <PREIS>999999.9</PREIS>
+    <KNAME>B?hgw</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>370</LEISTNR>
+    <LEISTUNG>Sperrholz 10mm</LEISTUNG>
+    <PREIS>16</PREIS>
+    <KNAME>Sperr</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>371</LEISTNR>
+    <LEISTUNG>Sperrholz 8mm</LEISTUNG>
+    <PREIS>21</PREIS>
+    <KNAME>Sperr</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>372</LEISTNR>
+    <LEISTUNG>Sperrholz 6mm</LEISTUNG>
+    <PREIS>12.5</PREIS>
+    <KNAME>Sperr</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>373</LEISTNR>
+    <LEISTUNG>Sperrholz 4mm</LEISTUNG>
+    <PREIS>13</PREIS>
+    <KNAME>Sperr</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>380</LEISTNR>
+    <LEISTUNG>Birke Multipl. 9 mm 150x300cm</LEISTUNG>
+    <PREIS>21.9</PREIS>
+    <KNAME>Birke</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>381</LEISTNR>
+    <LEISTUNG>Birke Multipl. 18mm 150x300c</LEISTUNG>
+    <PREIS>41.9</PREIS>
+    <KNAME>Birke</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>383</LEISTNR>
+    <LEISTUNG>K?chenarbeitsplatte</LEISTUNG>
+    <PREIS>45</PREIS>
+    <KNAME>K?pla</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>384</LEISTNR>
+    <LEISTUNG>Homopal 431, 305x130cm</LEISTUNG>
+    <PREIS>60</PREIS>
+    <KNAME>Homo</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>390</LEISTNR>
+    <LEISTUNG>Hartfaserplatten 2600x2030 4mm</LEISTUNG>
+    <PREIS>5.25</PREIS>
+    <KNAME>Hartf</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>391</LEISTNR>
+    <LEISTUNG>Hartfaserplatten 2600x2030 6mm</LEISTUNG>
+    <PREIS>6.9</PREIS>
+    <KNAME>Hartf</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>404</LEISTNR>
+    <LEISTUNG>Acryl-Siegel Disbon</LEISTUNG>
+    <PREIS>24.9</PREIS>
+    <KNAME>Acryl</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>430</LEISTNR>
+    <LEISTUNG>Rauputz</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>Raup</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>455</LEISTNR>
+    <LEISTUNG>Bauharz</LEISTUNG>
+    <PREIS>18.75</PREIS>
+    <KNAME>Bauha</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>460</LEISTNR>
+    <LEISTUNG>Kannister Styroporkleber</LEISTUNG>
+    <PREIS>150</PREIS>
+    <KNAME>Styrk</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>461</LEISTNR>
+    <LEISTUNG>Kleber</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>Klebe</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>515</LEISTNR>
+    <LEISTUNG>Schleiernessel 300 breit</LEISTUNG>
+    <PREIS>11.15</PREIS>
+    <KNAME>S-Nes</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>516</LEISTNR>
+    <LEISTUNG>Schleiernessel 430 breit</LEISTUNG>
+    <PREIS>19.75</PREIS>
+    <KNAME>S-Nes</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>517</LEISTNR>
+    <LEISTUNG>Schleiernessel 600 breit</LEISTUNG>
+    <PREIS>48.65</PREIS>
+    <KNAME>S-Nes</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>518</LEISTNR>
+    <LEISTUNG>Schleiernessel 1000 breit</LEISTUNG>
+    <PREIS>97.75</PREIS>
+    <KNAME>S-Nes</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>519</LEISTNR>
+    <LEISTUNG>Schleiernessel 1220 breit</LEISTUNG>
+    <PREIS>148.5</PREIS>
+    <KNAME>S-Nes</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>522</LEISTNR>
+    <LEISTUNG>Spiegelplatten 100x250</LEISTUNG>
+    <PREIS>9.5</PREIS>
+    <KNAME>Spieg</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>567</LEISTNR>
+    <LEISTUNG>Folie 4m x 50m</LEISTUNG>
+    <PREIS>75</PREIS>
+    <KNAME>Folie</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>581</LEISTNR>
+    <LEISTUNG>Vorhang</LEISTUNG>
+    <PREIS>0</PREIS>
+    <KNAME>Vorh</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>585</LEISTNR>
+    <LEISTUNG>Mauerwerk Naturstein</LEISTUNG>
+    <PREIS>170</PREIS>
+    <KNAME>Mauer</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>586</LEISTNR>
+    <LEISTUNG>Mauerwerk Backstein</LEISTUNG>
+    <PREIS>120</PREIS>
+    <KNAME>Mauer</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>589</LEISTNR>
+    <LEISTUNG>Stuckleisten</LEISTUNG>
+    <PREIS>12.5</PREIS>
+    <KNAME>Stuck</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>832</LEISTNR>
+    <LEISTUNG>Plexiglas 4mm</LEISTUNG>
+    <PREIS>66.5</PREIS>
+    <KNAME>Plexi</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>833</LEISTNR>
+    <LEISTUNG>Plexiglas 5mm</LEISTUNG>
+    <PREIS>83</PREIS>
+    <KNAME>Plexi</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>834</LEISTNR>
+    <LEISTUNG>Plexiglas 6mm</LEISTUNG>
+    <PREIS>99.75</PREIS>
+    <KNAME>Plexi</KNAME>
+  </dataList>
+  <dataList>
+    <LEISTNR>836</LEISTNR>
+    <LEISTUNG>Waben-Plexiglas 10mm</LEISTUNG>
+    <PREIS>136.25</PREIS>
+    <KNAME>Plexi</KNAME>
+  </dataList>
+</DocumentElement>
