@@ -97,18 +97,16 @@ namespace XMLConverter
                     return false;
                 }
 
+                // if input file doesn't exists or differ from loaded we need to load it
                 if (this.OutputNode.State.DataFile == null || this.OutputNode.State.DataFile.FilePath != this.OutputNode.State.DataFilePath)
                 {
                     this.OutputNode.State.DataFile = WorkflowFileFactory.LoadFromXmlFile(this.OutputNode.State.DataFilePath);
                 }
 
-
                 Field.SetParent(this.OutputNode.State.Schema);
                 Field.ComputeXPath(this.OutputNode.State.Schema);
 
                 workInfo.Schema = this.OutputNode.State.Schema;
-
-
 
                 bool isValid = false;
                 indexer = new NodeIndexer();
@@ -137,7 +135,6 @@ namespace XMLConverter
 
                 workInfo.Log(this.DisplayName, NLog.LogLevel.Info, "Indexing process completed");
 
-
                 //string fieldXPath= FirstLevelSchemaNode.GetXPath(FirstLevelSchemaNode.Parent);
 
                 workInfo.Log(this.DisplayName, NLog.LogLevel.Info, "Starting optionality validation process, please wait....");
@@ -147,12 +144,11 @@ namespace XMLConverter
                     workInfo.Log(this.DisplayName, NLog.LogLevel.Info, $"[{nodeName}].Count = {Count} Nodes");
                 }
 
-                var workflowFile = WorkflowFileFactory.LoadFromXmlFile(this.OutputNode.State.DataFilePath);
-                workflowFile.OnValidationProgressChange += (s, e) => { workInfo.UpdateProgress(this, e); };
+                this.OutputNode.State.DataFile.OnValidationProgressChange += (s, e) => { workInfo.UpdateProgress(this, e); };
                 var validationErrors = new List<string>();
 
-                isValid = workflowFile.ValidateUsingSchema(this.OutputNode.State.Schema, indexer.GetTotalNodeCount(), out validationErrors);
-                workflowFile.OnValidationProgressChange = null;
+                isValid = this.OutputNode.State.DataFile.ValidateUsingSchema(this.OutputNode.State.Schema, indexer.GetTotalNodeCount(), out validationErrors);
+                this.OutputNode.State.DataFile.OnValidationProgressChange = null;
 
                 foreach (var message in validationErrors)
                 {

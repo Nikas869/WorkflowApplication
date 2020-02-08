@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JdSuite.Common.FileProcessing;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,71 +13,14 @@ namespace JdSuite.DataSorting
     {
         NLog.ILogger logger = NLog.LogManager.GetLogger(nameof(XMLSorter));
 
-        public string DataFile { get; set; }
-        public string OutputFileName { get; set; }
+        private WorkflowFile workflowFile;
         public List<SortingField> SortingFields { get; private set; } = new List<SortingField>();
 
-        private XElement rootNode;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public void LoadData()
+        public XMLSorter(WorkflowFile dataFile, IEnumerable<SortingField> sortingFields)
         {
-            logger.Info("Loading xml data file {0}", DataFile);
-            rootNode = XElement.Load(DataFile);
-
-            #region testdata
-            /*
-            //Test Case 1
-           SortingFields.Add(new SortingField()
-           {
-               XPath = "/Invoices/Invoice/ZIP",
-               RemoveDuplicate = true,
-               SortingType = SortingType.Ascending,
-               ComparisonMode = ComparisonMode.CaseSensitive
-           });
-
-
-
-             //Test Case 2
-           SortingFields.Add(new SortingField()
-           {
-               XPath = "/Invoices/Invoice/items/item/QTY",
-               RemoveDuplicate = true,
-               SortingType = SortingType.Ascending,
-               ComparisonMode = ComparisonMode.Integer
-           });
-
-           SortingFields.Add(new SortingField()
-           {
-               XPath = "/Invoices/Invoice/items/item/ItemNumber",
-               RemoveDuplicate = true,
-               SortingType = SortingType.Ascending,
-               ComparisonMode = ComparisonMode.Integer
-           });
-          
-
-            //Test Case 3
-            SortingFields.Add(new SortingField()
-            {
-                XPath = "/item/QTY",
-                RemoveDuplicate = true,
-                SortingType = SortingType.Ascending,
-                ComparisonMode = ComparisonMode.Integer
-            });
-
-            SortingFields.Add(new SortingField()
-            {
-                XPath = "/item/ItemNumber",
-                RemoveDuplicate = true,
-                SortingType = SortingType.Ascending,
-                ComparisonMode = ComparisonMode.Float
-            });
-             */
-            #endregion testdata
+            workflowFile = dataFile;
+            SortingFields.AddRange(sortingFields);
         }
-
 
         public void Sort()
         {
@@ -91,7 +35,7 @@ namespace JdSuite.DataSorting
 
                 SortingField rootSF = SortingFields[0];//xpath is null form grid
 
-                var endElement = rootNode.Descendants(rootSF.GetLeafName()).First();
+                var endElement = workflowFile.RootNode.Descendants(rootSF.GetLeafName()).First();
                 var parentElement = endElement.Parent;
                 var grandParentElement = parentElement.Parent;
 
@@ -107,15 +51,10 @@ namespace JdSuite.DataSorting
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "XML Sorting Error, DataFile {0}", DataFile);
+                logger.Error(ex, "XML Sorting Error, DataFile {0}", workflowFile.FilePath);
                 throw ex;
             }
             logger.Info("Leaving");
-        }
-
-        public void Save()
-        {
-            rootNode.Save(OutputFileName);
         }
 
         /// <summary>
@@ -128,7 +67,7 @@ namespace JdSuite.DataSorting
         {
             logger.Info("Sorting using xpath {0}", rootSF.XPath);
 
-            if (rootNode == grandParentElement)
+            if (workflowFile.RootNode == grandParentElement)
             {
                 logger.Info("RootNode is GrandParent element case, RootSF XPath {0}", rootSF.XPath);
 
@@ -156,7 +95,7 @@ namespace JdSuite.DataSorting
             {
                 logger.Info("RootNode <> GrandParent element case, RootSF XPath {0}", rootSF.XPath);
 
-                var grandParentNodes = rootNode.Descendants(grandParentElement.Name);
+                var grandParentNodes = workflowFile.RootNode.Descendants(grandParentElement.Name);
 
                 foreach (var gparent in grandParentNodes)
                 {
@@ -196,16 +135,16 @@ namespace JdSuite.DataSorting
 
             IOrderedEnumerable<XElement> orderNodeTree = null;
 
-            orderNodeTree = rootSF.Process(rootNode);
+            orderNodeTree = rootSF.Process(workflowFile.RootNode);
 
-            var lastElement = ApplyOrder(rootNode, orderNodeTree);
+            var lastElement = ApplyOrder(workflowFile.RootNode, orderNodeTree);
 
             for (int i = 1; i < SortingFields.Count; i++)
             {
                 var sf = SortingFields[i];
                 //logger.Info("Sorting using SF {0}", sf.XPath);
 
-                orderNodeTree = sf.Process(rootNode);
+                orderNodeTree = sf.Process(workflowFile.RootNode);
                 lastElement = ApplyOrderAfter(lastElement, orderNodeTree);
             }
 
@@ -309,11 +248,6 @@ namespace JdSuite.DataSorting
 
             return orderNodeTree;
         }
-
-
-
-
-
     }
 }
 

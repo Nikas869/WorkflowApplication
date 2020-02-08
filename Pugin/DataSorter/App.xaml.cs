@@ -15,10 +15,10 @@ namespace JdSuite.DataSorting
     {
         private void Application_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            XMLSorter sorter = new XMLSorter();
-            sorter.DataFile = @"E:\Canvas\Dropbox\BlockApp\Data\2_Customer_data_XML.xml";
-            sorter.LoadData();
-            sorter.Sort();
+            //XMLSorter sorter = new XMLSorter();
+            //sorter.DataFile = @"E:\Canvas\Dropbox\BlockApp\Data\2_Customer_data_XML.xml";
+            //sorter.LoadData();
+            //sorter.Sort();
 
         }
     }

@@ -16,7 +16,7 @@ namespace JdSuite.Common.FileProcessing
 
         public string FileExtension => Path.GetExtension(FilePath);
 
-        public XElement FileContent => xDocument.Root;
+        public XElement RootNode => xDocument.Root;
 
         public EventHandler<float> OnValidationProgressChange;
 
@@ -67,9 +67,33 @@ namespace JdSuite.Common.FileProcessing
             return isValid;
         }
 
+        public void SaveAsXml()
+        {
+            SaveAsXml(FilePath);
+        }
+
         public void SaveAsXml(string fileName)
         {
             xDocument.Save(fileName);
+        }
+
+        public Stream GetStreamFromXmlContent()
+        {
+            var stream = new MemoryStream();
+            xDocument.Save(stream);
+            stream.Seek(0, SeekOrigin.Begin);
+
+            return stream;
+        }
+
+        public void ReplaceContent(XDocument newContent, bool needToSave = false)
+        {
+            xDocument = newContent;
+
+            if (needToSave)
+            {
+                Save();
+            }
         }
 
         private IEnumerable<XElement> GetNodes(string ParentName, string ChildNodeName)
@@ -81,6 +105,11 @@ namespace JdSuite.Common.FileProcessing
                     yield return node;
                 }
             }
+        }
+
+        private void Save()
+        {
+            SaveAsXml(FilePath);
         }
     }
 }

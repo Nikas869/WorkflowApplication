@@ -264,12 +264,17 @@ namespace JdSuite.DataSorting
             }
 
             this.InputNode.State.DataFilePath = ((OutputNode)this.InputNode.Connector).State.DataFilePath;
+            this.InputNode.State.DataFile = ((OutputNode)this.InputNode.Connector).State.DataFile;
             this.InputNode.State.Schema = ((OutputNode)this.InputNode.Connector).State.Schema;
-           
 
             if (this.InputNode.State.DataFilePath == null)
             {
                 workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Halting execution as InputNode.State.DataFilePath is null");
+                return false;
+            }
+            if (this.InputNode.State.DataFile == null)
+            {
+                workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Halting execution as InputNode.State.DataFile is null");
                 return false;
             }
 
@@ -304,6 +309,7 @@ namespace JdSuite.DataSorting
                 return false;
             }
             this.OutputNode.State.Schema = this.InputNode.State.Schema;
+            this.OutputNode.State.DataFile = this.InputNode.State.DataFile;
 
             string msg = "";
             if (SortingFields.Count <= 0)
@@ -344,19 +350,12 @@ namespace JdSuite.DataSorting
 
                 this.OutputNode.State.Schema = this.InputNode.State.Schema;
 
-                XMLSorter sorter = new XMLSorter();
-                sorter.DataFile = InputNode.State.DataFilePath;
-                sorter.OutputFileName = OutputNode.State.DataFilePath;
-                sorter.SortingFields.AddRange(this.SortingFields);
-
-                workInfo.Log(this.DisplayName, NLog.LogLevel.Info, "Loading data");
-                sorter.LoadData();
+                XMLSorter sorter = new XMLSorter(this.OutputNode.State.DataFile, this.SortingFields);
                 logger.Info("Calling Sorter.Sort()");
-                
                 sorter.Sort();
 
                 workInfo.Log(this.DisplayName, NLog.LogLevel.Info, "Data sorting completed, now saving sorted data");
-                sorter.Save();
+                this.OutputNode.State.DataFile.SaveAsXml();
 
                 // JdSuite.Common.ApplicationWindowUtil.ShowStatusBarMessage($"Data Sorter Module: sorting process completed");
                 workInfo.Log(this.DisplayName, NLog.LogLevel.Info, "DataSorter module completed sorting process");

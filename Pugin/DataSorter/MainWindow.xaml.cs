@@ -177,49 +177,49 @@ namespace JdSuite.DataSorting
 
          
 
-        private void BtnSort_Click(object sender, RoutedEventArgs e)
-        {
-            SaveFileDialog dlg = new SaveFileDialog();
-            if (System.IO.Directory.Exists(WindowViewModel.DataDirectory))
-                dlg.InitialDirectory = WindowViewModel.DataDirectory;
+        //private void BtnSort_Click(object sender, RoutedEventArgs e)
+        //{
+        //    SaveFileDialog dlg = new SaveFileDialog();
+        //    if (System.IO.Directory.Exists(WindowViewModel.DataDirectory))
+        //        dlg.InitialDirectory = WindowViewModel.DataDirectory;
 
-            dlg.Filter = "XML Schema files (*.xml)|*.xml|All files (*.*)|*.*";
-            dlg.CheckPathExists = true;
-            dlg.DefaultExt = "xml";
+        //    dlg.Filter = "XML Schema files (*.xml)|*.xml|All files (*.*)|*.*";
+        //    dlg.CheckPathExists = true;
+        //    dlg.DefaultExt = "xml";
 
-            try
-            {
-                if (dlg.ShowDialog() == true)
-                {
+        //    try
+        //    {
+        //        if (dlg.ShowDialog() == true)
+        //        {
 
-                    if (!File.Exists(WindowViewModel.InputDataFile))
-                    {
-                        MessageBox.Show("Please provide a valid input xml data file");
-                        return;
-                    }
+        //            if (!File.Exists(WindowViewModel.InputDataFile))
+        //            {
+        //                MessageBox.Show("Please provide a valid input xml data file");
+        //                return;
+        //            }
 
                    
-                    XMLSorter sorter = new XMLSorter();
-                    sorter.DataFile = WindowViewModel.InputDataFile;
-                    sorter.OutputFileName =WindowViewModel.OutputDataFile;
+        //            XMLSorter sorter = new XMLSorter();
+        //            sorter.DataFile = WindowViewModel.InputDataFile;
+        //            sorter.OutputFileName =WindowViewModel.OutputDataFile;
 
-                    foreach (var item in WindowViewModel.SortingFields)
-                    {
-                        sorter.SortingFields.Add(item);
-                    }
+        //            foreach (var item in WindowViewModel.SortingFields)
+        //            {
+        //                sorter.SortingFields.Add(item);
+        //            }
 
-                    sorter.LoadData();
-                    sorter.Sort();
-                    sorter.Save();
-                    MessageBox.Show("XML sorted and saved successfully");
-                }
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex);
-                JdSuite.Common.MessageService.ShowError("XML sorting error", ex.Message);
-            }
-        }
+        //            sorter.LoadData();
+        //            sorter.Sort();
+        //            sorter.Save();
+        //            MessageBox.Show("XML sorted and saved successfully");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        logger.Error(ex);
+        //        JdSuite.Common.MessageService.ShowError("XML sorting error", ex.Message);
+        //    }
+        //}
 
         
 

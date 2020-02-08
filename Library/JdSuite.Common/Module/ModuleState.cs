@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Linq;
-using System.Xml.Schema;
-using System.Xml.Serialization;
-using JdSuite.Common.FileProcessing;
+﻿using JdSuite.Common.FileProcessing;
 using JdSuite.Common.Internal;
+using System;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace JdSuite.Common.Module
 {
@@ -42,6 +34,9 @@ namespace JdSuite.Common.Module
         [XmlAttribute]
         public string DataFilePath { get; set; } = String.Empty;
 
+        /// <summary>
+        /// Input file to work with
+        /// </summary>
         [XmlIgnore]
         public WorkflowFile DataFile { get; set; }
 
