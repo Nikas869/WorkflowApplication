@@ -355,7 +355,7 @@ namespace JdSuite.DataSorting
                 sorter.Sort();
 
                 workInfo.Log(this.DisplayName, NLog.LogLevel.Info, "Data sorting completed, now saving sorted data");
-                this.OutputNode.State.DataFile.SaveAsXml();
+                this.OutputNode.State.DataFile.SaveAsXml(this.OutputNode.State.DataFilePath);
 
                 // JdSuite.Common.ApplicationWindowUtil.ShowStatusBarMessage($"Data Sorter Module: sorting process completed");
                 workInfo.Log(this.DisplayName, NLog.LogLevel.Info, "DataSorter module completed sorting process");
