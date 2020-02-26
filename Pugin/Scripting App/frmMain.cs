@@ -1,23 +1,19 @@
 ﻿using AdvancedDataGridView;
+using JdSuite.Common.Module;
 using Microsoft.CSharp;
 using System;
-using System.CodeDom;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
-using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 
 namespace ScriptingApp
 {
@@ -39,34 +35,6 @@ namespace ScriptingApp
         #endregion
 
         #region XMLRead and AddNodes Function
-        private void ReadXML(TreeGridView grid, string Type)
-        {
-            try
-            {
-                string TopNode = Type == "Input" ? "Input_0" : Type == "Output" ? "Output_0" : "";
-                string filepath = ConfigurationManager.AppSettings["ReadFilePath"];
-                // SECTION 1. Create a DOM Document and load the XML data into it.
-                XmlDocument dom = new XmlDocument();
-                dom.Load(filepath);
-                // SECTION 2. Initialize the TreeView control.
-                grid.Nodes.Clear();
-                grid.Nodes.Add("Root");
-                TreeGridNode tNode = new TreeGridNode();
-                tNode = grid.Nodes[0];
-
-                // SECTION 3. Populate the TreeView with the DOM nodes.
-                AddNode(dom.DocumentElement, tNode, grid, TopNode);
-            }
-            catch (XmlException xmlEx)
-            {
-                MessageBox.Show(xmlEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void AddNode(XmlNode inXmlNode, TreeGridNode inTreeNode, TreeGridView grid, string Type)
         {
             XmlNode xNode;
@@ -500,39 +468,110 @@ namespace ScriptingApp
         // Form Events
         private void Form1_Load(object sender, EventArgs e)
         {
+            Field inputSchema = GetInputSchema();
+            FillTreeViewsUsingSchema(inputSchema);
+            SetSampleCode();
+
+            // How to get modified schema
+            var outputSchema = GenerateSchema(grInput);
+        }
+
+        private void FillTreeViewsUsingSchema(Field inputSchema)
+        {
             // Bind Input TreeView
-            ReadXML(grInput, "Input");
-            ExpandChildren(grInput.Nodes[0]);
-            HasTopRowAdded = false;
+            SetTreeFromSchema(grInput, inputSchema, "Input_0");
+
             // Bind OutPut Treeview
-            ReadXML(grOutput, "Output");
-            HasTopRowAdded = false;
-            ExpandChildren(grOutput.Nodes[0]);
-            // Assign Sample Code
-            txtSample.Text = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "SampleCode.txt");
-
-
+            SetTreeFromSchema(grOutput, inputSchema, "Output_0");
         }
 
-        private void grOutput_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        /// <summary>
+        /// Creates schema from visual tree
+        /// </summary>
+        /// <returns></returns>
+        private Field GenerateSchema(TreeGridView gridView)
         {
-
+            Field _schema = null;
+            foreach (TreeGridNode node in gridView.Nodes[0].Nodes[0].Nodes)
+            {
+                CreateDefinition(node, ref _schema);
+            }
+            return _schema;
         }
 
-        private void grOutput_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        /// <summary>
+        /// Creates schema nodes from tree nodes
+        /// </summary>
+        /// <param name="treeGridNode"></param>
+        /// <param name="element"></param>
+        private void CreateDefinition(TreeGridNode treeGridNode, ref Field element)
         {
-            List<string> lists = new List<string>();
-            lists.Add("int");
-            lists.Add("string");
-            lists.Add("long");
-            lists.Add("float");
-            lists.Add("decimal");
-            lists.Add("DateTime");
-            lists.Add("double");
-            lists.Add("Boolean");
-            lists.Add("subtree");
-            DataGridViewComboBoxCell box = grOutput.Rows[e.RowIndex].Cells[1] as DataGridViewComboBoxCell;
-            box.DataSource = lists;
+            Field field = new Field();
+            field.Name = treeGridNode.Cells[0].Value.ToString();
+            field.DataType = treeGridNode.Cells[1].Value.ToString();
+            field.Type = treeGridNode.Cells[2].Value.ToString();
+            field.Optionality = treeGridNode.Cells[3].Value.ToString();
+            field.Change = treeGridNode.Cells[4].Value.ToString();
+            field.Alias = treeGridNode.Cells[5].Value.ToString();
+
+            if (element == null)
+                element = field;
+            else
+                element.ChildNodes.Add(field);
+
+            foreach (TreeGridNode subNode in treeGridNode.Nodes)
+            {
+                CreateDefinition(subNode, ref field);
+            }
+        }
+
+        /// <summary>
+        /// Loads visual tree nodes from Schema node
+        /// </summary>
+        /// <param name="schema"></param>
+        private void SetTreeFromSchema(TreeGridView gridNodes, Field schema, string rootChildName)
+        {
+            gridNodes.Nodes.Clear();
+
+            var treeRootNode = gridNodes.Nodes.Add("Root");
+            var rootChildNode = treeRootNode.Nodes.Add(rootChildName);
+
+            CreateTreeChildNodes(schema, rootChildNode);
+            treeRootNode.Expand();
+            ExpandChildren(treeRootNode);
+        }
+
+        /// <summary>
+        /// Creates tree nodes from schema nodes
+        /// </summary>
+        /// <param name="schemaNode"></param>
+        /// <param name="parentTreeNode"></param>
+        private void CreateTreeChildNodes(Field schemaNode, TreeGridNode parentTreeNode)
+        {
+            string name = schemaNode.Name;
+
+            //0-Name
+            //1-Data Type
+            //2-Type [Element, Attribute, PCData]
+            //3-Optionality [One, Zero or one, Zero or more, One or more]
+            //4-Change [None, Ignore, Flatten]
+            //5-XML Name
+
+            TreeGridNode treeNode = parentTreeNode.Nodes.Add(name);
+            treeNode.Cells[0].Value = schemaNode.Name;
+            treeNode.Cells[1].Value = schemaNode.DataType;
+            treeNode.Cells[2].Value = schemaNode.Type;
+            treeNode.Cells[3].Value = schemaNode.Optionality;
+            treeNode.Cells[4].Value = schemaNode.Change;
+            treeNode.Cells[5].Value = schemaNode.Alias;
+
+            if (schemaNode.ChildNodes.Count > 0)
+            {
+                foreach (var childSchemaNode in schemaNode.ChildNodes)
+                {
+                    CreateTreeChildNodes(childSchemaNode, treeNode);
+                }
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -597,7 +636,6 @@ namespace ScriptingApp
                 // Expand Nodes
                 ExpandChildren(grOutput.Nodes[0]);
             }
-
         }
 
         private void btnUp_Click(object sender, EventArgs e)
@@ -633,7 +671,6 @@ namespace ScriptingApp
                 ExpandChildren(grOutput.Nodes[0]);
                 //currentNode.Parent.Nodes[CurrentRowIndex].Selected = true;
             }
-
         }
 
         private void btnFindError_Click(object sender, EventArgs e)
@@ -745,6 +782,27 @@ namespace ScriptingApp
         private void btnPaste_Click(object sender, EventArgs e)
         {
             txtScript.Text += Clipboard.GetText();
+        }
+
+        private void SetSampleCode()
+        {
+            var filePath = AppDomain.CurrentDomain.BaseDirectory + "SampleCode.txt";
+
+            if (File.Exists(filePath))
+            {
+                txtSample.Text = File.ReadAllText(filePath);
+            }
+            else
+            {
+                txtSample.Text = "Please, provide sample code in SampleCode.txt file";
+            }
+        }
+
+        private Field GetInputSchema()
+        {
+            var filePath = ConfigurationManager.AppSettings["ReadFilePath"];
+
+            return Field.Parse(filePath);
         }
         #endregion
 
