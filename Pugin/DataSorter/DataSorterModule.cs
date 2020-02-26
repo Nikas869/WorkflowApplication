@@ -213,6 +213,12 @@ namespace JdSuite.DataSorting
                 //3.
                 mainWindowClass.WindowViewModel.OutputDataFile = outputFile;
 
+                // Enabling panel if needed:
+                if (SortingFields.Any())
+                {
+                    mainWindowClass.WindowViewModel.IsAnyFieldSorted = true;
+                }
+
                 //4.Load Sorting Fields
                 foreach (var item in SortingFields)
                     mainWindowClass.WindowViewModel.SortingFields.Add(item);

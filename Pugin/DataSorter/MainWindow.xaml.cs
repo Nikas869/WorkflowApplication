@@ -46,8 +46,6 @@ namespace JdSuite.DataSorting
             DataContext = WindowViewModel;
 
             gridSortingField.ItemsSource = WindowViewModel.SortingFields;
-             
-
 
         }
 
@@ -75,6 +73,18 @@ namespace JdSuite.DataSorting
                 return;
             }
 
+            var fieldTypeToComparisonModeMap = new Dictionary<string, ComparisonMode>()
+            {
+                { "string", ComparisonMode.CaseSensitive },
+                { "int16", ComparisonMode.Integer },
+                { "int32", ComparisonMode.Integer },
+                { "int64", ComparisonMode.Integer },
+                { "boolean", ComparisonMode.Binary },
+                { "date/time", ComparisonMode.CaseSensitive },
+                { "double", ComparisonMode.Decimal },
+                { "single", ComparisonMode.CaseSensitive }
+            };
+
             bool Found = false;
             List<Field> Chain = new List<Field>();
 
@@ -86,12 +96,16 @@ namespace JdSuite.DataSorting
 
             var model = (ViewModel)DataContext;
 
+            var selectedFieldDataType = selectedField.DataType.ToLower();
+
             model.SortingFields.Add(new SortingField()
             {
                 // Id = selectedField.Id,
                 Name = selectedField.Name,
                 SortingType = SortingType.Ascending,
-                ComparisonMode = ComparisonMode.CaseSensitive,
+                ComparisonMode = fieldTypeToComparisonModeMap.ContainsKey(selectedFieldDataType) 
+                                    ? fieldTypeToComparisonModeMap[selectedFieldDataType] 
+                                    : ComparisonMode.CaseSensitive,
                 RemoveDuplicate = false,
                 XPath = xpathString
             });
