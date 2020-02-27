@@ -1,0 +1,140 @@
+// Variable
+int d = 3, f = 5;    /* initializing d and f. */
+byte z = 22;         /* initializes z. */
+double pi = 3.14159; /* declares an approximation of pi. */
+char x = 'x';        /* the variable x has the value 'x'. */
+	
+	// Maintain Log for Debuggin use 'Log(AnyTypeValue)' function here
+	Log("Testing");
+	
+	
+	// For Loop
+	for (int i = 0; i < 10; i++)
+	{
+		Console.WriteLine("Value of i: {0}", i);
+	}
+	
+	// While Loop
+	int number = 0;
+
+	while(number < 5)
+	{
+		Console.WriteLine(number);
+		number = number + 1;
+	}
+	
+	// Do Loop
+	int number = 0;
+	do  
+	{  
+		Console.WriteLine(number);  
+		number = number + 1;  
+	} while(number < 5);	
+	
+	// Foreach Loop
+	ArrayList list = new ArrayList();
+            list.Add("John Doe");
+            list.Add("Jane Doe");
+            list.Add("Someone Else");
+            
+	foreach(string name in list)
+	{
+		Console.WriteLine(name);
+	}
+	
+	// If
+	int number = 2;
+	if (number < 5)
+	{
+	Console.WriteLine("{0} is less than 5", number);
+	}
+	
+	// If-Else
+	int number = 12;
+	if (number < 5)
+	{
+		Console.WriteLine("{0} is less than 5", number);
+	}
+	else
+	{
+		Console.WriteLine("{0} is greater than or equal to 5", number);
+	}
+	
+	// If-Else If
+	int number = 12;
+	if (number < 5)
+	{
+		Console.WriteLine("{0} is less than 5", number);
+	}
+	else if (number > 5)
+	{
+		Console.WriteLine("{0} is greater than 5", number);
+	}
+	else
+	{
+		Console.WriteLine("{0} is equal to 5");
+	}
+	
+	// Nested If
+	int first = 7, second = -23, third = 13;
+	if (first > second)
+	{
+		if (firstNumber > third)
+		{
+			Console.WriteLine("{0} is the largest", first);
+		}
+		else
+		{
+			Console.WriteLine("{0} is the largest", third);
+		}
+	}
+	else
+	{
+		if (second > third)
+		{
+			Console.WriteLine("{0} is the largest", second);
+		}
+		else
+		{
+			Console.WriteLine("{0} is the largest", third);
+		}
+	}
+	
+	// Save File Dialog
+	SaveFileDialog saveFileDialog1 = newSaveFileDialog();  
+	saveFileDialog1.InitialDirectory = @ "C:\";  
+	saveFileDialog1.Title = "Save text Files";  
+	saveFileDialog1.CheckFileExists = true;  
+	saveFileDialog1.CheckPathExists = true;  
+	saveFileDialog1.DefaultExt = "txt";  
+	saveFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";  
+	saveFileDialog1.FilterIndex = 2;  
+	saveFileDialog1.RestoreDirectory = true;  
+	if (saveFileDialog1.ShowDialog() == DialogResult.OK) {  
+		textBox1.Text = saveFileDialog1.FileName;  
+	}  
+
+	// Open File Dialog
+	OpenFileDialog dlg = new OpenFileDialog();
+	dlg.ShowDialog();
+
+	if (dlg.ShowDialog() == DialogResult.OK)
+	{
+		string fileName;
+		fileName = dlg.FileName;
+		MessageBox.Show(fileName);
+	}
+
+	// Array Sample Code
+	 int []  n = new int[10]; /* n is an array of 10 integers */
+         int i,j;
+
+         /* initialize elements of array n */
+         for ( i = 0; i < 10; i++ ) {
+            n[ i ] = i + 100;
+         }
+         
+         /* output each array element's value */
+         for (j = 0; j < 10; j++ ) {
+            Console.WriteLine("Element[{0}] = {1}", j, n[j]);
+         }

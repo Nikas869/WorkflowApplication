@@ -1,16 +1,14 @@
 ﻿using AdvancedDataGridView;
+using JdSuite.Common.FileProcessing;
 using JdSuite.Common.Module;
-using Microsoft.CSharp;
+using ScriptingApp.Core;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
@@ -20,8 +18,6 @@ namespace ScriptingApp
     public partial class frmMain : Form
     {
         #region Data Members Global
-        List<DynamicClassProperties> DCObject = new List<DynamicClassProperties>();
-        List<string> InitializeObjects = new List<string>();
         XElement exportRoot;
         XNamespace exportNs;
         bool HasTopRowAdded = false;
@@ -316,158 +312,11 @@ namespace ScriptingApp
 
         #endregion
 
-        #region Create Input Object Class
-        // Sampe 1
-        private void CreateDefinitionData(TreeGridNode node, StringBuilder sb)
-        {
-            var n = (node as TreeGridNode);
-
-            if (n != null)
-                sb.AppendFormat("public string ")
-                       .Append(n.Cells[0].Value).Append(" { get; set; }");
-            foreach (TreeGridNode subNode in node.Nodes)
-            {
-                CreateDefinitionData(subNode, sb);
-            }
-        }
-
-        private string CreateClassObject(TreeGridView tgv)
-        {
-
-            StringBuilder builder = new StringBuilder();
-
-            var className = "DataInput";
-
-            builder.AppendFormat("public class ").Append(className).Append(" { ");
-
-            foreach (TreeGridNode node in tgv.Nodes[0].Nodes)
-            {
-                CreateDefinitionData(node, builder);
-            }
-            builder.Append(" } ");
-
-            var compilerParameters = new CompilerParameters();
-
-            compilerParameters.GenerateExecutable = false;
-            compilerParameters.GenerateInMemory = true;
-
-            var cCompiler = CSharpCodeProvider.CreateProvider("CSharp");
-            var compileResult = cCompiler.CompileAssemblyFromSource(compilerParameters, builder.ToString());
-
-            if (compileResult.Errors.HasErrors)
-            {
-                throw new Exception("There is error while building type");
-            }
-            var instanceObject = compileResult.CompiledAssembly.CreateInstance(className);
-
-            return builder.ToString();
-        }
-        //
-
-        // Sample 2--- Working Code
-        private string CreateDynamicClassObjects(TreeGridView tgv)
-        {
-            string ClassesCode = "";
-            DCObject = new List<DynamicClassProperties>();
-            foreach (TreeGridNode node in tgv.Nodes[0].Nodes)
-            {
-                CreateDefinitionDynamicClassProperties(node, DCObject);
-            }
-
-            ClassesCode = CreateDynamicClasses().ToString();
-
-            return ClassesCode;
-        }
-
-        private void CreateDefinitionDynamicClassProperties(TreeGridNode node, List<DynamicClassProperties> prop)
-        {
-            var n = (node as TreeGridNode);
-
-            if (n != null)
-            {
-                DCObject.Add(new DynamicClassProperties
-                {
-                    PropertyName = node.Cells[0].Value.ToString(),
-                    PropertyType = node.Cells[1].Value,
-                    ParentNodeName = node.Parent.Cells[0].Value.ToString(),
-                    ClassName = node.Cells[0].Value.ToString(),
-                    IsParent = node.HasChildren
-                });
-            }
-            foreach (TreeGridNode subNode in node.Nodes)
-            {
-                CreateDefinitionDynamicClassProperties(subNode, prop);
-            }
-        }
-
-        private StringBuilder CreateDynamicClasses()
-        {
-            StringBuilder builder = new StringBuilder();
-            // Get All Classess
-            var classes = DCObject.Where(x => x.IsParent == true).ToList();
-            string classNameType = classes[0].PropertyName;
-            InitializeObjects.Add(classNameType);
-            foreach (var c in classes)
-            {
-                // Set Class Name
-                string className = "";
-                if (classNameType == c.ClassName)
-                    className = c.ClassName;
-                else
-                    className = classNameType + "_" + c.ClassName;
-
-                // Create Class Object
-                builder.AppendFormat("public class ").Append(className).Append(" { ");
-                // Get Parent and Child
-                var Parent_Child = DCObject.Where(x => x.ParentNodeName == c.PropertyName).ToList();
-
-                foreach (var cp in Parent_Child)
-                {
-                    if (cp.IsParent)
-                    {
-                        builder.AppendFormat("public ").Append(classNameType + "_" + cp.PropertyName + " ").Append(cp.PropertyName).Append(" { get; set; }").Append(Environment.NewLine);
-                    }
-                    else
-                    {
-                        builder.AppendFormat("public ").Append(cp.PropertyType + " ").Append(cp.PropertyName).Append(" { get; set; }").Append(Environment.NewLine);
-                    }
-                }
-                builder.Append(" } ");
-                builder.Append(Environment.NewLine);
-            }
-
-            return builder;
-        }
-        //
-        #endregion
-
-        #region Log Method
-        
-        public string LogMethod()
-        {
-            string path = AppDomain.CurrentDomain.BaseDirectory + @"Log.txt";
-            string text = "public static void Log(object Message)";
-            text += "{";
-            text += "StreamWriter sw = null;";
-            text += "try";
-            text += "{";
-            text += "sw = new StreamWriter(@\"" + path + "\", true);";
-            text += "sw.WriteLine(Message);";
-            text += "sw.Flush();";
-            text += "sw.Close();";
-            text += "}";
-            text += "catch";
-            text += "{";
-            text += "}";
-            text += "}";
-            return text;
-        }
-        #endregion
-
         #region Events
         // Form Events
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Here you pass schema from previous module
             Field inputSchema = GetInputSchema();
             FillTreeViewsUsingSchema(inputSchema);
             SetSampleCode();
@@ -492,10 +341,11 @@ namespace ScriptingApp
         private Field GenerateSchema(TreeGridView gridView)
         {
             Field _schema = null;
-            foreach (TreeGridNode node in gridView.Nodes[0].Nodes[0].Nodes)
+            foreach (TreeGridNode node in gridView.Nodes)
             {
                 CreateDefinition(node, ref _schema);
             }
+            Field.SetParent(_schema);
             return _schema;
         }
 
@@ -508,11 +358,11 @@ namespace ScriptingApp
         {
             Field field = new Field();
             field.Name = treeGridNode.Cells[0].Value.ToString();
-            field.DataType = treeGridNode.Cells[1].Value.ToString();
-            field.Type = treeGridNode.Cells[2].Value.ToString();
-            field.Optionality = treeGridNode.Cells[3].Value.ToString();
-            field.Change = treeGridNode.Cells[4].Value.ToString();
-            field.Alias = treeGridNode.Cells[5].Value.ToString();
+            field.DataType = treeGridNode.Cells[1].Value?.ToString();
+            field.Type = treeGridNode.Cells[2].Value?.ToString();
+            field.Optionality = treeGridNode.Cells[3].Value?.ToString();
+            field.Change = treeGridNode.Cells[4].Value?.ToString();
+            field.Alias = treeGridNode.Cells[5].Value?.ToString();
 
             if (element == null)
                 element = field;
@@ -534,7 +384,7 @@ namespace ScriptingApp
             gridNodes.Nodes.Clear();
 
             var treeRootNode = gridNodes.Nodes.Add("Root");
-            var rootChildNode = treeRootNode.Nodes.Add(rootChildName);
+            var rootChildNode = treeRootNode.Nodes.Add(new[] { rootChildName, "Array" });
 
             CreateTreeChildNodes(schema, rootChildNode);
             treeRootNode.Expand();
@@ -675,55 +525,18 @@ namespace ScriptingApp
 
         private void btnFindError_Click(object sender, EventArgs e)
         {
-            //TreeView Input Class Object
-            string InpuntClassObject = CreateDynamicClassObjects(grInput);
+            // pass data.RootNode to GenerateCodeAndCompile
+            //var data = WorkflowFileFactory.LoadFromXmlFile(@"D:\Projects\WorkflowApplication\books.xml");
 
-            //TreeView Output Class Object
-            string OutputClassObject = CreateDynamicClassObjects(grOutput);
-
-            //Get Initialize Objects into String
-            string inObject = "";
-            foreach (var item in InitializeObjects)
-            {
-                inObject = inObject + item + " " + item + " = " + " new " + item + "();" + Environment.NewLine;
-            }
-            InitializeObjects = new List<string>();
-            // Code literal  
-            string code =
-                @"using System;  
-                  using System.Windows.Forms;  
-                  using System.IO;
-                  namespace WinFormCodeCompile  
-                  {  
-                    " + InpuntClassObject + @"
-                    " + OutputClassObject + @"
-                      public class Transform  
-                      {  
-                           " + inObject + @"
-                        " + LogMethod() + @"
-                           public void  UpdateText()  
-                           {
-                                " + txtScript.Text + @"  
-                                
-                           }  
-                       }  
-                   }";
-
-            // Compile code  
-            CSharpCodeProvider cProv = new CSharpCodeProvider();
-            CompilerParameters cParams = new CompilerParameters();
-            cParams.ReferencedAssemblies.Add("mscorlib.dll");
-            cParams.ReferencedAssemblies.Add("System.dll");
-            cParams.ReferencedAssemblies.Add("System.Windows.Forms.dll");
-            cParams.GenerateExecutable = false;
-            cParams.GenerateInMemory = true;
-
-            CompilerResults cResults = cProv.CompileAssemblyFromSource(cParams, code);
-            txtCompileStatus.Text = "";
+            txtCompileStatus.Text = "Compiling...";
+            var inputSchema = GenerateSchema(grInput);
+            var outputSchema = GenerateSchema(grOutput);
+            var result = CompilerService.GenerateCodeAndCompile(inputSchema, outputSchema, txtScript.Text);
+            txtCompileStatus.Text = string.Empty;
             // Check for errors  
-            if (cResults.Errors.Count > 0)
+            if (result.Errors.Count > 0)
             {
-                foreach (CompilerError CompErr in cResults.Errors)
+                foreach (CompilerError CompErr in result.Errors)
                 {
                     //lblCompileStatus.ForeColor = Color.Red;
                     txtCompileStatus.ForeColor = Color.Red;
@@ -742,26 +555,30 @@ namespace ScriptingApp
                 txtCompileStatus.ForeColor = Color.Green;
                 txtCompileStatus.Text = "Success!";
             }
-            Assembly loAssembly = cResults.CompiledAssembly;
-            // Retrieve an obj ref - generic type only
-            object loObject =
-                   loAssembly.CreateInstance("WinFormCodeCompile.Transform");
-            if (loObject == null)
-            {
-                MessageBox.Show("Couldn't load class.");
-                return;
-            }
-            object[] loCodeParms = new object[1];
-            loCodeParms[0] = "West Wind Technologies";
+
             try
             {
-                object loResult = loObject.GetType().InvokeMember("UpdateText", BindingFlags.InvokeMethod,null, loObject, null);
+                Assembly loAssembly = result.CompiledAssembly;
+                // Retrieve an obj ref - generic type only
+                object loObject =
+                       loAssembly.CreateInstance("WinFormCodeCompile.Transform");
+                if (loObject == null)
+                {
+                    MessageBox.Show("Couldn't load class.");
+                    return;
+                }
+                object[] loCodeParms = new object[1];
+                loCodeParms[0] = "West Wind Technologies";
+                try
+                {
+                    object loResult = loObject.GetType().InvokeMember("UpdateText", BindingFlags.InvokeMethod, null, loObject, null);
+                }
+                catch (Exception loError)
+                {
+                    MessageBox.Show(loError.Message, "Compiler Demo");
+                }
             }
-            catch (Exception loError)
-            {
-                MessageBox.Show(loError.Message, "Compiler Demo");
-            }
-
+            catch { }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -805,26 +622,5 @@ namespace ScriptingApp
             return Field.Parse(filePath);
         }
         #endregion
-
-
     }
-
-    #region Dynamic Class Properties Object
-    public class DynamicClassProperties
-    {
-
-        public string PropertyName { get; set; }
-
-        public object PropertyType { get; set; }
-
-        public string ClassName { get; set; }
-
-        public string ParentNodeName { get; set; }
-
-        public bool IsParent { get; set; }
-    }
-    #endregion
-
-    
-
 }
