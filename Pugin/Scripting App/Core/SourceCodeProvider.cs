@@ -56,19 +56,75 @@ namespace WinFormCodeCompile
             }
         }
 
-        internal static StringBuilder GetInitializationDataCode(List<DynamicClassProperties> inputDCObjects, XElement data)
+        internal static StringBuilder GetInitializationCode(List<DynamicClassProperties> inputDCObjects)
         {
             StringBuilder result = new StringBuilder();
             var rootObject = inputDCObjects[0];
 
-            result.AppendLine($"{rootObject.PropertyName} = new {rootObject.GetFullClassName()} {{");
-            FillData(inputDCObjects, result, rootObject, data);
-            result.Append($"}};");
+            if (string.Equals(rootObject.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
+            {
+                result.AppendLine($"{rootObject.ClassName} = new List<{rootObject.GetFullClassName()}> {{");
+                result.AppendLine($"}};");
+            }
+            else
+            {
+                result.AppendLine($"{rootObject.ClassName} = new {rootObject.GetFullClassName()} {{");
+                InitProp(inputDCObjects, result, rootObject);
+                result.AppendLine($"}};");
+            }
 
             return result;
         }
 
-        private static void FillData(List<DynamicClassProperties> inputDCObjects, StringBuilder result, DynamicClassProperties rootObject, XElement data)
+        private static void InitProp(List<DynamicClassProperties> inputDCObjects, StringBuilder result, DynamicClassProperties rootObject)
+        {
+            foreach (var child in inputDCObjects.Where(o => o.ParentNode == rootObject))
+            {
+                if (child.IsParent)
+                {
+                    if (string.Equals(child.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
+                    {
+                        result.AppendLine($"{child.ClassName} = new List<{(child.IsParent ? child.GetFullClassName() : child.PropertyType)}> {{");
+                        result.AppendLine($"}},");
+                    }
+                    else
+                    {
+                        result.AppendLine($"{child.ClassName} = new {child.GetFullClassName()} {{");
+                        InitProp(inputDCObjects, result, child);
+                        result.AppendLine($"}},");
+                    }
+                }
+                else
+                {
+                    result.AppendLine($"{child.ClassName} = default({child.PropertyType}),");
+                }
+            }
+        }
+
+        internal static StringBuilder GetInitializationCodeUsingData(List<DynamicClassProperties> inputDCObjects, XElement data)
+        {
+            StringBuilder result = new StringBuilder();
+            var rootObject = inputDCObjects[0];
+
+            if (string.Equals(rootObject.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
+            {
+                result.AppendLine($"{rootObject.ClassName} = new List<{rootObject.GetFullClassName()}> {{");
+                result.AppendLine($"new {rootObject.GetFullClassName()} {{");
+                InitPropWithData(inputDCObjects, result, rootObject, data);
+                result.AppendLine($"}},");
+                result.AppendLine($"}};");
+            }
+            else
+            {
+                result.AppendLine($"{rootObject.ClassName} = new {rootObject.GetFullClassName()} {{");
+                InitPropWithData(inputDCObjects, result, rootObject, data);
+                result.AppendLine($"}};");
+            }
+
+            return result;
+        }
+
+        private static void InitPropWithData(List<DynamicClassProperties> inputDCObjects, StringBuilder result, DynamicClassProperties rootObject, XElement data)
         {
             foreach (var child in inputDCObjects.Where(o => o.ParentNode == rootObject))
             {
@@ -77,13 +133,13 @@ namespace WinFormCodeCompile
                     if (string.Equals(child.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
                     {
                         result.AppendLine($"{child.ClassName} = new List<{child.GetFullClassName()}> {{");
-                        FillData(inputDCObjects, result, child, data);
+                        InitPropWithData(inputDCObjects, result, child, data);
                         result.AppendLine($"}}");
                     }
                     else
                     {
                         result.AppendLine($"{child.ClassName} = new {child.GetFullClassName()} {{");
-                        FillData(inputDCObjects, result, child, data);
+                        InitPropWithData(inputDCObjects, result, child, data);
                         result.AppendLine($"}}");
                     }
                 }

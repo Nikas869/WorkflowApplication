@@ -1,4 +1,5 @@
 ﻿using AdvancedDataGridView;
+using JdSuite.Common.FileProcessing;
 using JdSuite.Common.Module;
 using ScriptingApp.Core;
 using System;
@@ -473,9 +474,6 @@ namespace ScriptingApp
 
         private void btnFindError_Click(object sender, EventArgs e)
         {
-            // pass data.RootNode to GenerateCodeAndCompile
-            //var data = WorkflowFileFactory.LoadFromXmlFile(@"D:\Projects\WorkflowApplication\books.xml");
-
             txtCompileStatus.Text = "Compiling...";
             var inputSchema = GenerateSchema(grInput);
             var outputSchema = GenerateSchema(grOutput);
@@ -531,12 +529,39 @@ namespace ScriptingApp
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            var data = WorkflowFileFactory.LoadFromXmlFile(@"D:\Projects\WorkflowApplication\SwissProt.xml");
+            var inputSchema = GenerateSchema(grInput);
+            var outputSchema = GenerateSchema(grOutput);
+            var result = CompilerService.GenerateCodeAndCompile(inputSchema, outputSchema, txtScript.Text, data.RootNode);
 
+            try
+            {
+                Assembly loAssembly = result.CompiledAssembly;
+                // Retrieve an obj ref - generic type only
+                object loObject =
+                       loAssembly.CreateInstance("WinFormCodeCompile.Transform");
+                if (loObject == null)
+                {
+                    MessageBox.Show("Couldn't load class.");
+                    return;
+                }
+                object[] loCodeParms = new object[1];
+                loCodeParms[0] = "West Wind Technologies";
+                try
+                {
+                    object loResult = loObject.GetType().InvokeMember("UpdateText", BindingFlags.InvokeMethod, null, loObject, null);
+                }
+                catch (Exception loError)
+                {
+                    MessageBox.Show(loError.Message, "Compiler Demo");
+                }
+            }
+            catch { }
         }
 
         private void btnCopy_Click(object sender, EventArgs e)

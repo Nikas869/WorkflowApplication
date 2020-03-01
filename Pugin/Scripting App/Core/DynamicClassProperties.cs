@@ -2,7 +2,8 @@
 {
     public class DynamicClassProperties
     {
-        public string PropertyName { get; set; }
+        private string propertyName;
+        public string PropertyName { get { return propertyName.Replace('-', '_'); } set { propertyName = value; } }
 
         public object PropertyType { get; set; }
 
@@ -14,7 +15,7 @@
 
         public string GetFullClassName()
         {
-            return ParentNode != null ? $"{ParentNode.GetFullClassName()}_{ClassName}" : ClassName;
+            return (ParentNode != null ? $"{ParentNode.GetFullClassName()}_{ClassName}" : ClassName).Replace('-', '_');
         }
     }
 }

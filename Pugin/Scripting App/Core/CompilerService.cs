@@ -14,7 +14,7 @@ namespace ScriptingApp.Core
     {
         public static CompilerResults GenerateCodeAndCompile(Field inputSchema, Field outputSchema, string code, XElement data = null)
         {
-            List<string> initializeObjects = new List<string>();
+            List<DynamicClassProperties> initializeObjects = new List<DynamicClassProperties>();
 
             ////TreeView Input Class Object
             var (InpuntClassObject, inputDCObjects) = CreateDynamicClassObjects(inputSchema, initializeObjects);
@@ -23,21 +23,38 @@ namespace ScriptingApp.Core
             var (OutputClassObject, outputDCObjects) = CreateDynamicClassObjects(outputSchema, initializeObjects);
 
             //Get Initialize Objects into String
-            string inObject = "";
+            StringBuilder inObject = new StringBuilder();
             foreach (var item in initializeObjects)
             {
-                inObject = inObject + item + " " + item + " = " + " new " + item + "();" + Environment.NewLine;
+                if (string.Equals(item.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
+                {
+                    inObject.AppendLine($"List<{item.GetFullClassName()}> {item.GetFullClassName()} = new List<{item.GetFullClassName()}>();");
+                }
+                else
+                {
+                    inObject.AppendLine($"{item.GetFullClassName()} {item.GetFullClassName()} = new {item.GetFullClassName()}();");
+                }
             }
 
-            StringBuilder dataInitialization = null;
+            StringBuilder dataInitialization = new StringBuilder();
 
             if (data != null)
             {
-                dataInitialization = SourceCodeProvider.GetInitializationDataCode(inputDCObjects, data);
+                dataInitialization
+                    .Append(SourceCodeProvider.GetInitializationCodeUsingData(inputDCObjects, data))
+                    .Append(Environment.NewLine)
+                    .Append(SourceCodeProvider.GetInitializationCodeUsingData(outputDCObjects, data));
+            }
+            else
+            {
+                dataInitialization
+                    .Append(SourceCodeProvider.GetInitializationCode(inputDCObjects))
+                    .Append(Environment.NewLine)
+                    .Append(SourceCodeProvider.GetInitializationCode(outputDCObjects));
             }
 
             var sourceFile = ConfigurationManager.AppSettings["SourceCodeTempFile"];
-            SourceCodeProvider.WriteSourceCode(sourceFile, InpuntClassObject, OutputClassObject, inObject, dataInitialization, code);
+            SourceCodeProvider.WriteSourceCode(sourceFile, InpuntClassObject, OutputClassObject, inObject.ToString(), dataInitialization, code);
 
             return Compile(sourceFile);
         }
@@ -60,7 +77,7 @@ namespace ScriptingApp.Core
             return cProv.CompileAssemblyFromFile(cParams, filePath);
         }
 
-        private static (string, List<DynamicClassProperties>) CreateDynamicClassObjects(Field schema, List<string> initializeObjects)
+        private static (string, List<DynamicClassProperties>) CreateDynamicClassObjects(Field schema, List<DynamicClassProperties> initializeObjects)
         {
             schema.Parent = null;
             var DCObject = new List<DynamicClassProperties>();
@@ -95,13 +112,13 @@ namespace ScriptingApp.Core
             }
         }
 
-        private static StringBuilder CreateDynamicClasses(List<DynamicClassProperties> DCObject, List<string> initializeObjects)
+        private static StringBuilder CreateDynamicClasses(List<DynamicClassProperties> DCObject, List<DynamicClassProperties> initializeObjects)
         {
             StringBuilder builder = new StringBuilder();
             // Get All Classess
             var classes = DCObject.Where(x => x.IsParent == true).ToList();
             string classNameType = classes[0].PropertyName;
-            initializeObjects.Add(classNameType);
+            initializeObjects.Add(classes[0]);
             foreach (var c in classes)
             {
                 string className = c.GetFullClassName();
@@ -117,7 +134,7 @@ namespace ScriptingApp.Core
                     {
                         if (string.Equals(cp.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
                         {
-                            builder.Append(GetListProperty(cp));
+                            builder.AppendLine($"public List<{cp.GetFullClassName()}> {cp.PropertyName} {{ get; set; }} = new List<{cp.GetFullClassName()}>();");
                         }
                         else
                         {
@@ -134,11 +151,6 @@ namespace ScriptingApp.Core
             }
 
             return builder;
-        }
-
-        private static string GetListProperty(DynamicClassProperties cp)
-        {
-            return $"public List<{cp.GetFullClassName()}> {cp.PropertyName} {{ get; set; }} = new List<{cp.GetFullClassName()}>();{Environment.NewLine}";
         }
     }
 }
