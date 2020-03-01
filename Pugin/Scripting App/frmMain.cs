@@ -1,5 +1,4 @@
 ﻿using AdvancedDataGridView;
-using JdSuite.Common.FileProcessing;
 using JdSuite.Common.Module;
 using ScriptingApp.Core;
 using System;
@@ -86,17 +85,6 @@ namespace ScriptingApp
                 // type of node, whether attribute values are required, and so forth.
                 //inTreeNode.Text = (inXmlNode.OuterXml).Trim();
             }
-        }
-
-        public string FirstLetterToUpper(string str)
-        {
-            if (str == null)
-                return null;
-
-            if (str.Length > 1)
-                return char.ToUpper(str[0]) + str.Substring(1);
-
-            return str.ToUpper();
         }
         #endregion
 
@@ -198,9 +186,9 @@ namespace ScriptingApp
         {
             string NodeName = "";
             string NodeType = "";
-           // XElement childNode;
+            // XElement childNode;
             XElement el = null;
-           // string ChildNodeName = "";
+            // string ChildNodeName = "";
             bool NodeNotAdd = false;
             if (Move == "Up")
             {
@@ -440,15 +428,8 @@ namespace ScriptingApp
         private void btnSave_Click(object sender, EventArgs e)
         {
             string filename = DateTime.Now.ToString("ddMMyyyyhhmmss") + ".xml";
-            XDocument exportDoc = new XDocument(new XDeclaration("1.0", "utf-16", "yes"));
-            exportNs = "http://www.w3.org/2001/XMLSchema";
-            exportRoot = new XElement(exportNs + "Root", new XAttribute("attributeFormDefault", "unqualified"), new XAttribute("elementFormDefault", "qualified"), new XAttribute(XNamespace.Xmlns + "xs", exportNs));
-            foreach (TreeGridNode node in grOutput.Nodes[0].Nodes)
-            {
-                CreateDefinition(node, exportRoot);
-            }
-            exportDoc.Add(exportRoot);
-            exportDoc.Save(filename);
+            var outputSchema = GenerateSchema(grOutput);
+            outputSchema.Save(filename);
 
             MessageBox.Show("Schema file generated successfully!", "XML Converter", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -456,70 +437,37 @@ namespace ScriptingApp
         private void btnDown_Click(object sender, EventArgs e)
         {
             TreeGridNode currentNode = grOutput.CurrentNode;
-            string Type = "Output_0";
-            // Row Indexes
-            int CurrentRowIndex = currentNode.Index;
             int NextRowIndex = currentNode.Index + 1;
             int TotalRowCount = currentNode.Parent.Nodes.Count;
 
             if (NextRowIndex != TotalRowCount)
             {
-                string CurrentNodeName = currentNode.Parent.Nodes[CurrentRowIndex].Cells[0].Value.ToString();
-                string CurrentNodeType = currentNode.Parent.Nodes[CurrentRowIndex].Cells[1].Value.ToString();
-                string PreviousNodeName = currentNode.Parent.Nodes[NextRowIndex].Cells[0].Value.ToString();
-                string PreviousNodeType = currentNode.Parent.Nodes[NextRowIndex].Cells[1].Value.ToString();
+                var selectedNode = grOutput.CurrentNode;
+                var index = selectedNode.Index;
+                var parent = selectedNode.Parent;
 
-                XDocument doc = TreeViewConvertIntoXMLWithMoveNodes(grOutput, "Down", CurrentNodeName, CurrentNodeType, PreviousNodeName, PreviousNodeType);
-
-                // Binding Treeview again
-                XmlDocument dom = new XmlDocument();
-                dom.Load(doc.CreateReader());
-
-                // SECTION 2. Initialize the TreeView control.
-                grOutput.Nodes.Clear();
-                grOutput.Nodes.Add("Root");
-                TreeGridNode tNode = new TreeGridNode();
-                tNode = grOutput.Nodes[0];
-
-                // SECTION 3. Populate the TreeView with the DOM nodes.
-                AddNode(dom.DocumentElement, tNode, grOutput, Type);
-                // Expand Nodes
-                ExpandChildren(grOutput.Nodes[0]);
+                parent.Nodes.Remove(selectedNode);
+                parent.Nodes.Insert(index + 1, selectedNode);
+                var newSchema = GenerateSchema(grOutput);
+                SetTreeFromSchema(grOutput, newSchema.ChildNodes[0].ChildNodes[0], "Output_0");
             }
         }
 
         private void btnUp_Click(object sender, EventArgs e)
         {
             TreeGridNode currentNode = grOutput.CurrentNode;
-            string Type = "Output_0";
-            // Row Indexes
-            int CurrentRowIndex = currentNode.Index;
-            int PreviousRowIndex = currentNode.Index - 1;
-            int TotalRowCount = currentNode.Parent.Nodes.Count;
+            int NextRowIndex = currentNode.Index - 1;
 
-            string CurrentNodeName = currentNode.Parent.Nodes[CurrentRowIndex].Cells[0].Value.ToString();
-            if (CurrentNodeName != "Root")
+            if (NextRowIndex != -1)
             {
-                string CurrentNodeType = currentNode.Parent.Nodes[CurrentRowIndex].Cells[1].Value.ToString();
-                string PreviousNodeName = currentNode.Parent.Nodes[PreviousRowIndex].Cells[0].Value.ToString();
-                string PreviousNodeType = currentNode.Parent.Nodes[PreviousRowIndex].Cells[1].Value.ToString();
-                XDocument doc = TreeViewConvertIntoXMLWithMoveNodes(grOutput, "Up", CurrentNodeName, CurrentNodeType, PreviousNodeName, PreviousNodeType);
+                var selectedNode = grOutput.CurrentNode;
+                var index = selectedNode.Index;
+                var parent = selectedNode.Parent;
 
-                // Binding Treeview again
-                XmlDocument dom = new XmlDocument();
-                dom.Load(doc.CreateReader());
-
-                // SECTION 2. Initialize the TreeView control.
-                grOutput.Nodes.Clear();
-                grOutput.Nodes.Add("Root");
-                TreeGridNode tNode = new TreeGridNode();
-                tNode = grOutput.Nodes[0];
-
-                // SECTION 3. Populate the TreeView with the DOM nodes.
-                AddNode(dom.DocumentElement, tNode, grOutput, Type);
-                // Expand Nodes
-                ExpandChildren(grOutput.Nodes[0]);
-                //currentNode.Parent.Nodes[CurrentRowIndex].Selected = true;
+                parent.Nodes.Remove(selectedNode);
+                parent.Nodes.Insert(index - 1, selectedNode);
+                var newSchema = GenerateSchema(grOutput);
+                SetTreeFromSchema(grOutput, newSchema.ChildNodes[0].ChildNodes[0], "Output_0");
             }
         }
 
