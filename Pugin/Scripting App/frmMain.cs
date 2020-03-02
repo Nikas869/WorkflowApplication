@@ -502,29 +502,29 @@ namespace ScriptingApp
                 txtCompileStatus.Text = "Success!";
             }
 
-            try
-            {
-                Assembly loAssembly = result.CompiledAssembly;
-                // Retrieve an obj ref - generic type only
-                object loObject =
-                       loAssembly.CreateInstance("WinFormCodeCompile.Transform");
-                if (loObject == null)
-                {
-                    MessageBox.Show("Couldn't load class.");
-                    return;
-                }
-                object[] loCodeParms = new object[1];
-                loCodeParms[0] = "West Wind Technologies";
-                try
-                {
-                    object loResult = loObject.GetType().InvokeMember("UpdateText", BindingFlags.InvokeMethod, null, loObject, null);
-                }
-                catch (Exception loError)
-                {
-                    MessageBox.Show(loError.Message, "Compiler Demo");
-                }
-            }
-            catch { }
+            //try
+            //{
+            //    Assembly loAssembly = result.CompiledAssembly;
+            //    // Retrieve an obj ref - generic type only
+            //    object loObject =
+            //           loAssembly.CreateInstance("WinFormCodeCompile.Transform");
+            //    if (loObject == null)
+            //    {
+            //        MessageBox.Show("Couldn't load class.");
+            //        return;
+            //    }
+            //    object[] loCodeParms = new object[1];
+            //    loCodeParms[0] = "West Wind Technologies";
+            //    try
+            //    {
+            //        object loResult = loObject.GetType().InvokeMember("UpdateText", BindingFlags.InvokeMethod, null, loObject, null);
+            //    }
+            //    catch (Exception loError)
+            //    {
+            //        MessageBox.Show(loError.Message, "Compiler Demo");
+            //    }
+            //}
+            //catch { }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -539,29 +539,29 @@ namespace ScriptingApp
             var outputSchema = GenerateSchema(grOutput);
             var result = CompilerService.GenerateCodeAndCompile(inputSchema, outputSchema, txtScript.Text, data.RootNode);
 
-            try
-            {
-                Assembly loAssembly = result.CompiledAssembly;
-                // Retrieve an obj ref - generic type only
-                object loObject =
-                       loAssembly.CreateInstance("WinFormCodeCompile.Transform");
-                if (loObject == null)
-                {
-                    MessageBox.Show("Couldn't load class.");
-                    return;
-                }
-                object[] loCodeParms = new object[1];
-                loCodeParms[0] = "West Wind Technologies";
-                try
-                {
-                    object loResult = loObject.GetType().InvokeMember("UpdateText", BindingFlags.InvokeMethod, null, loObject, null);
-                }
-                catch (Exception loError)
-                {
-                    MessageBox.Show(loError.Message, "Compiler Demo");
-                }
-            }
-            catch { }
+            //try
+            //{
+            //    Assembly loAssembly = result.CompiledAssembly;
+            //    // Retrieve an obj ref - generic type only
+            //    object loObject =
+            //           loAssembly.CreateInstance("WinFormCodeCompile.Transform");
+            //    if (loObject == null)
+            //    {
+            //        MessageBox.Show("Couldn't load class.");
+            //        return;
+            //    }
+            //    object[] loCodeParms = new object[1];
+            //    loCodeParms[0] = "West Wind Technologies";
+            //    try
+            //    {
+            //        object loResult = loObject.GetType().InvokeMember("UpdateText", BindingFlags.InvokeMethod, null, loObject, null);
+            //    }
+            //    catch (Exception loError)
+            //    {
+            //        MessageBox.Show(loError.Message, "Compiler Demo");
+            //    }
+            //}
+            //catch { }
         }
 
         private void btnCopy_Click(object sender, EventArgs e)
