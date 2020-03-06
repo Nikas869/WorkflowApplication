@@ -534,34 +534,34 @@ namespace ScriptingApp
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            var data = WorkflowFileFactory.LoadFromXmlFile(@"D:\Projects\WorkflowApplication\SwissProt.xml");
+            var data = WorkflowFileFactory.LoadFromXmlFile(@"D:\Projects\WorkflowApplication\books.xml");
             var inputSchema = GenerateSchema(grInput);
             var outputSchema = GenerateSchema(grOutput);
-            var result = CompilerService.GenerateCodeAndCompile(inputSchema, outputSchema, txtScript.Text, data.RootNode);
+            var result = CompilerService.GenerateCodeAndCompile(inputSchema, outputSchema, txtScript.Text, data);
 
-            //try
-            //{
-            //    Assembly loAssembly = result.CompiledAssembly;
-            //    // Retrieve an obj ref - generic type only
-            //    object loObject =
-            //           loAssembly.CreateInstance("WinFormCodeCompile.Transform");
-            //    if (loObject == null)
-            //    {
-            //        MessageBox.Show("Couldn't load class.");
-            //        return;
-            //    }
-            //    object[] loCodeParms = new object[1];
-            //    loCodeParms[0] = "West Wind Technologies";
-            //    try
-            //    {
-            //        object loResult = loObject.GetType().InvokeMember("UpdateText", BindingFlags.InvokeMethod, null, loObject, null);
-            //    }
-            //    catch (Exception loError)
-            //    {
-            //        MessageBox.Show(loError.Message, "Compiler Demo");
-            //    }
-            //}
-            //catch { }
+            try
+            {
+                Assembly loAssembly = result.CompiledAssembly;
+                // Retrieve an obj ref - generic type only
+                object loObject =
+                       loAssembly.CreateInstance("WinFormCodeCompile.Transform");
+                if (loObject == null)
+                {
+                    MessageBox.Show("Couldn't load class.");
+                    return;
+                }
+                try
+                {
+                    var type = loObject.GetType();
+                    var method = type.GetMethod("UpdateText");
+                    var invokationResult = method.Invoke(loObject, null);
+                }
+                catch (Exception loError)
+                {
+                    MessageBox.Show(loError.Message, "Compiler");
+                }
+            }
+            catch { }
         }
 
         private void btnCopy_Click(object sender, EventArgs e)

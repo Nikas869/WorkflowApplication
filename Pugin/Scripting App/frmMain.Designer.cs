@@ -31,12 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.lblDataInput = new System.Windows.Forms.Label();
             this.grInput = new AdvancedDataGridView.TreeGridView();
-            this.NodeName = new AdvancedDataGridView.TreeGridColumn();
-            this.NodeDataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NodeType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.NodeOptionality = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.NodeChange = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.NodeXMLName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grOutput = new AdvancedDataGridView.TreeGridView();
             this.lblDataOutput = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
@@ -68,6 +62,12 @@
             this.txtScript = new System.Windows.Forms.RichTextBox();
             this.txtCompileStatus = new System.Windows.Forms.RichTextBox();
             this.lblCompileStatus = new System.Windows.Forms.Label();
+            this.NodeName = new AdvancedDataGridView.TreeGridColumn();
+            this.NodeDataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NodeType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.NodeOptionality = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.NodeChange = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.NodeXMLName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OutputNodeName = new AdvancedDataGridView.TreeGridColumn();
             this.OutputNodeDataType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -123,72 +123,6 @@
             this.grInput.RowHeadersWidth = 51;
             this.grInput.Size = new System.Drawing.Size(386, 155);
             this.grInput.TabIndex = 1;
-            // 
-            // NodeName
-            // 
-            this.NodeName.DefaultNodeImage = null;
-            this.NodeName.HeaderText = "Name";
-            this.NodeName.MinimumWidth = 6;
-            this.NodeName.Name = "NodeName";
-            this.NodeName.ReadOnly = true;
-            this.NodeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.NodeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // NodeDataType
-            // 
-            this.NodeDataType.HeaderText = "Data Type";
-            this.NodeDataType.MinimumWidth = 6;
-            this.NodeDataType.Name = "NodeDataType";
-            this.NodeDataType.ReadOnly = true;
-            this.NodeDataType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.NodeDataType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // NodeType
-            // 
-            this.NodeType.HeaderText = "Type";
-            this.NodeType.Items.AddRange(new object[] {
-            "Element",
-            "Attribute",
-            "PCData"});
-            this.NodeType.MinimumWidth = 6;
-            this.NodeType.Name = "NodeType";
-            this.NodeType.ReadOnly = true;
-            this.NodeType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.NodeType.Visible = false;
-            // 
-            // NodeOptionality
-            // 
-            this.NodeOptionality.HeaderText = "Optionality";
-            this.NodeOptionality.Items.AddRange(new object[] {
-            "One",
-            "Zero or one",
-            "Zero or more",
-            "One or more"});
-            this.NodeOptionality.MinimumWidth = 6;
-            this.NodeOptionality.Name = "NodeOptionality";
-            this.NodeOptionality.ReadOnly = true;
-            this.NodeOptionality.Visible = false;
-            // 
-            // NodeChange
-            // 
-            this.NodeChange.HeaderText = "Change";
-            this.NodeChange.Items.AddRange(new object[] {
-            "None",
-            "Ignore",
-            "Flatten"});
-            this.NodeChange.MinimumWidth = 6;
-            this.NodeChange.Name = "NodeChange";
-            this.NodeChange.ReadOnly = true;
-            this.NodeChange.Visible = false;
-            // 
-            // NodeXMLName
-            // 
-            this.NodeXMLName.HeaderText = "Alias";
-            this.NodeXMLName.MinimumWidth = 6;
-            this.NodeXMLName.Name = "NodeXMLName";
-            this.NodeXMLName.ReadOnly = true;
-            this.NodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.NodeXMLName.Visible = false;
             // 
             // grOutput
             // 
@@ -577,6 +511,71 @@
             this.lblCompileStatus.TabIndex = 23;
             this.lblCompileStatus.Text = "Compile Status:";
             // 
+            // NodeName
+            // 
+            this.NodeName.DefaultNodeImage = null;
+            this.NodeName.HeaderText = "Name";
+            this.NodeName.MinimumWidth = 6;
+            this.NodeName.Name = "NodeName";
+            this.NodeName.ReadOnly = true;
+            this.NodeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.NodeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // NodeDataType
+            // 
+            this.NodeDataType.HeaderText = "Data Type";
+            this.NodeDataType.MinimumWidth = 6;
+            this.NodeDataType.Name = "NodeDataType";
+            this.NodeDataType.ReadOnly = true;
+            this.NodeDataType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.NodeDataType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // NodeType
+            // 
+            this.NodeType.HeaderText = "Type";
+            this.NodeType.Items.AddRange(new object[] {
+            "Element",
+            "Attribute",
+            "PCData"});
+            this.NodeType.MinimumWidth = 6;
+            this.NodeType.Name = "NodeType";
+            this.NodeType.ReadOnly = true;
+            this.NodeType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // NodeOptionality
+            // 
+            this.NodeOptionality.HeaderText = "Optionality";
+            this.NodeOptionality.Items.AddRange(new object[] {
+            "One",
+            "Zero or one",
+            "Zero or more",
+            "One or more"});
+            this.NodeOptionality.MinimumWidth = 6;
+            this.NodeOptionality.Name = "NodeOptionality";
+            this.NodeOptionality.ReadOnly = true;
+            this.NodeOptionality.Visible = false;
+            // 
+            // NodeChange
+            // 
+            this.NodeChange.HeaderText = "Change";
+            this.NodeChange.Items.AddRange(new object[] {
+            "None",
+            "Ignore",
+            "Flatten"});
+            this.NodeChange.MinimumWidth = 6;
+            this.NodeChange.Name = "NodeChange";
+            this.NodeChange.ReadOnly = true;
+            this.NodeChange.Visible = false;
+            // 
+            // NodeXMLName
+            // 
+            this.NodeXMLName.HeaderText = "Alias";
+            this.NodeXMLName.MinimumWidth = 6;
+            this.NodeXMLName.Name = "NodeXMLName";
+            this.NodeXMLName.ReadOnly = true;
+            this.NodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.NodeXMLName.Visible = false;
+            // 
             // OutputNodeName
             // 
             this.OutputNodeName.DefaultNodeImage = null;
@@ -614,7 +613,6 @@
             "PCData"});
             this.dataGridViewComboBoxColumn1.MinimumWidth = 6;
             this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
-            this.dataGridViewComboBoxColumn1.Visible = false;
             // 
             // OutputNodeOptionality
             // 

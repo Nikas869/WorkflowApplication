@@ -16,9 +16,11 @@ namespace ScriptingApp.Core
             string inObject,
             StringBuilder dataInitialization,
             string code,
-            string logMethod = null)
+            string logMethod = null,
+            string saveFilePath = null)
         {
             logMethod ??= LogMethod();
+            var saveToFile = SaveToFile(saveFilePath);
             using (StreamWriter sw = new StreamWriter(tempFilePath))
             {
                 sw.Write(
@@ -26,6 +28,7 @@ $@"using System;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace WinFormCodeCompile
 {{
@@ -47,6 +50,28 @@ namespace WinFormCodeCompile
 
         {logMethod}
 
+        {saveToFile}
+
+        public static T DeserializeXMLFileToObject<T>(string XmlFilename)
+        {{
+            T returnObject = default(T);
+            if (string.IsNullOrEmpty(XmlFilename)) return default(T);
+
+            try
+            {{
+                using (var xmlStream = new StreamReader(XmlFilename))
+                {{
+                    XmlSerializer serializer = new XmlSerializer(typeof(T));
+                    returnObject = (T)serializer.Deserialize(xmlStream);
+                }}
+            }}
+            catch (Exception ex)
+            {{
+                Log(ex.Message);
+            }}
+            return returnObject;
+        }}
+
         public void  UpdateText()
         {{
             {code}
@@ -56,7 +81,7 @@ namespace WinFormCodeCompile
             }
         }
 
-        internal static StringBuilder GetInitializationCode(List<DynamicClassProperties> inputDCObjects)
+        internal static StringBuilder GetInitializationCode(List<DynamicClass> inputDCObjects)
         {
             StringBuilder result = new StringBuilder();
             var rootObject = inputDCObjects[0];
@@ -76,7 +101,7 @@ namespace WinFormCodeCompile
             return result;
         }
 
-        private static void InitProp(List<DynamicClassProperties> inputDCObjects, StringBuilder result, DynamicClassProperties rootObject)
+        private static void InitProp(List<DynamicClass> inputDCObjects, StringBuilder result, DynamicClass rootObject)
         {
             foreach (var child in inputDCObjects.Where(o => o.ParentNode == rootObject))
             {
@@ -101,7 +126,7 @@ namespace WinFormCodeCompile
             }
         }
 
-        internal static StringBuilder GetInitializationCodeUsingData(List<DynamicClassProperties> inputDCObjects, XElement data)
+        internal static StringBuilder GetInitializationCodeUsingData(List<DynamicClass> inputDCObjects, XElement data)
         {
             StringBuilder result = new StringBuilder();
             var rootObject = inputDCObjects[0];
@@ -124,7 +149,7 @@ namespace WinFormCodeCompile
             return result;
         }
 
-        private static void InitPropWithData(List<DynamicClassProperties> inputDCObjects, StringBuilder result, DynamicClassProperties rootObject, XElement data)
+        private static void InitPropWithData(List<DynamicClass> inputDCObjects, StringBuilder result, DynamicClass rootObject, XElement data)
         {
             foreach (var child in inputDCObjects.Where(o => o.ParentNode == rootObject))
             {
@@ -155,6 +180,31 @@ namespace WinFormCodeCompile
                         result.AppendLine($"}},");
                     }
                 }
+            }
+        }
+
+        private static string SaveToFile(string saveFilePath)
+        {
+            if (string.IsNullOrEmpty(saveFilePath))
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return
+$@"public static void Save(object result)
+{{
+    try
+    {{
+        using (var sw = new StreamWriter(@""{saveFilePath}""))
+        {{
+            var serializer = new XmlSerializer(result.GetType());
+            serializer.Serialize(sw, result);
+            sw.Flush();
+        }}
+    }}
+    catch (Exception ex) {{ Log(ex.Message); }}
+}}";
             }
         }
 

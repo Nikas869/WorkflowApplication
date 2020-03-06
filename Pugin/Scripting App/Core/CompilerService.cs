@@ -1,4 +1,5 @@
-﻿using JdSuite.Common.Module;
+﻿using JdSuite.Common.FileProcessing;
+using JdSuite.Common.Module;
 using Microsoft.CodeDom.Providers.DotNetCompilerPlatform;
 using System;
 using System.CodeDom.Compiler;
@@ -6,15 +7,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
-using System.Xml.Linq;
 
 namespace ScriptingApp.Core
 {
     internal static class CompilerService
     {
-        public static CompilerResults GenerateCodeAndCompile(Field inputSchema, Field outputSchema, string code, XElement data = null)
+        public static CompilerResults GenerateCodeAndCompile(Field inputSchema, Field outputSchema, string code, WorkflowFile file = null)
         {
-            List<DynamicClassProperties> initializeObjects = new List<DynamicClassProperties>();
+            List<DynamicClass> initializeObjects = new List<DynamicClass>();
 
             ////TreeView Input Class Object
             var (InpuntClassObject, inputDCObjects) = CreateDynamicClassObjects(inputSchema, initializeObjects);
@@ -38,12 +38,12 @@ namespace ScriptingApp.Core
 
             StringBuilder dataInitialization = new StringBuilder();
 
-            if (data != null)
+            if (file != null)
             {
                 dataInitialization
-                    .Append(SourceCodeProvider.GetInitializationCodeUsingData(inputDCObjects, data))
+                    .Append(SourceCodeProvider.GetInitializationCodeUsingData(inputDCObjects, file.RootNode))
                     .Append(Environment.NewLine)
-                    .Append(SourceCodeProvider.GetInitializationCodeUsingData(outputDCObjects, data));
+                    .Append(SourceCodeProvider.GetInitializationCodeUsingData(outputDCObjects, file.RootNode));
             }
             else
             {
@@ -54,7 +54,14 @@ namespace ScriptingApp.Core
             }
 
             var sourceFile = ConfigurationManager.AppSettings["SourceCodeTempFile"];
-            SourceCodeProvider.WriteSourceCode(sourceFile, InpuntClassObject, OutputClassObject, inObject.ToString(), dataInitialization, code);
+            SourceCodeProvider.WriteSourceCode(
+                sourceFile,
+                InpuntClassObject,
+                OutputClassObject,
+                inObject.ToString(),
+                dataInitialization,
+                code,
+                saveFilePath: file?.FilePath);
 
             return Compile(sourceFile);
         }
@@ -71,48 +78,50 @@ namespace ScriptingApp.Core
             cParams.ReferencedAssemblies.Add("mscorlib.dll");
             cParams.ReferencedAssemblies.Add("System.dll");
             cParams.ReferencedAssemblies.Add("System.Windows.Forms.dll");
+            cParams.ReferencedAssemblies.Add("System.Xml.dll");
             cParams.GenerateExecutable = false;
             cParams.GenerateInMemory = true;
 
             return cProv.CompileAssemblyFromFile(cParams, filePath);
         }
 
-        private static (string, List<DynamicClassProperties>) CreateDynamicClassObjects(Field schema, List<DynamicClassProperties> initializeObjects)
+        private static (string, List<DynamicClass>) CreateDynamicClassObjects(Field schema, List<DynamicClass> initializeObjects)
         {
-            schema.Parent = null;
-            var DCObject = new List<DynamicClassProperties>();
-            foreach (Field node in schema.ChildNodes)
+            var classes = new List<DynamicClass>();
+
+            foreach (Field input in schema.ChildNodes)
             {
-                CreateDefinitionDynamicClassProperties(node, null, DCObject);
+                ExtractClassInfo(input, null, classes);
             }
 
-            var classesCode = CreateDynamicClasses(DCObject, initializeObjects).ToString();
+            var classesCode = CreateDynamicClasses(classes, initializeObjects).ToString();
 
-            return (classesCode, DCObject);
+            return (classesCode, classes);
         }
 
-        private static void CreateDefinitionDynamicClassProperties(Field node, DynamicClassProperties parent, List<DynamicClassProperties> prop)
+        private static void ExtractClassInfo(Field node, DynamicClass parent, List<DynamicClass> prop)
         {
-            DynamicClassProperties newProp = null;
+            DynamicClass newProp = null;
             if (node != null)
             {
-                newProp = new DynamicClassProperties
+                newProp = new DynamicClass
                 {
                     PropertyName = node.Alias ?? node.Name,
                     PropertyType = node.DataType,
                     ParentNode = parent,
                     ClassName = node.Alias ?? node.Name,
-                    IsParent = node.HasChildNodes()
+                    IsParent = node.HasChildNodes(),
+                    XmlType = node.Type != null ? (XMLType)Enum.Parse(typeof(XMLType), node.Type) : XMLType.Element
                 };
                 prop.Add(newProp);
             }
             foreach (var subNode in node.ChildNodes)
             {
-                CreateDefinitionDynamicClassProperties(subNode, newProp, prop);
+                ExtractClassInfo(subNode, newProp, prop);
             }
         }
 
-        private static StringBuilder CreateDynamicClasses(List<DynamicClassProperties> DCObject, List<DynamicClassProperties> initializeObjects)
+        private static StringBuilder CreateDynamicClasses(List<DynamicClass> DCObject, List<DynamicClass> initializeObjects)
         {
             StringBuilder builder = new StringBuilder();
             // Get All Classess
@@ -134,15 +143,18 @@ namespace ScriptingApp.Core
                     {
                         if (string.Equals(cp.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
                         {
+                            builder.AppendLine(GetXmlAttribute(cp));
                             builder.AppendLine($"public List<{cp.GetFullClassName()}> {cp.PropertyName} {{ get; set; }} = new List<{cp.GetFullClassName()}>();");
                         }
                         else
                         {
+                            builder.AppendLine(GetXmlAttribute(cp));
                             builder.AppendFormat("public ").Append(cp.GetFullClassName()).Append($"{(string.Equals(cp.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase) ? "[] " : " ")}").Append(cp.PropertyName).Append(" { get; set; }").Append(Environment.NewLine);
                         }
                     }
                     else
                     {
+                        builder.AppendLine(GetXmlAttribute(cp));
                         builder.AppendFormat("public ").Append(cp.PropertyType + " ").Append(cp.PropertyName).Append(" { get; set; }").Append(Environment.NewLine);
                     }
                 }
@@ -151,6 +163,21 @@ namespace ScriptingApp.Core
             }
 
             return builder;
+        }
+
+        private static string GetXmlAttribute(DynamicClass prop)
+        {
+            switch (prop.XmlType)
+            {
+                case XMLType.Element:
+                    return $@"[XmlElement(""{prop.PropertyName}"")]";
+                case XMLType.Attribute:
+                    return $@"[XmlAttribute(""{prop.PropertyName}"")]";
+                case XMLType.PCData:
+                    return string.Empty;
+                default:
+                    return string.Empty;
+            }
         }
     }
 }
