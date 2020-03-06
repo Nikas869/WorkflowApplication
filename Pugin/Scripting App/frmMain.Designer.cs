@@ -63,17 +63,17 @@
             this.txtCompileStatus = new System.Windows.Forms.RichTextBox();
             this.lblCompileStatus = new System.Windows.Forms.Label();
             this.NodeName = new AdvancedDataGridView.TreeGridColumn();
+            this.NodeXMLName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NodeDataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NodeType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.NodeOptionality = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.NodeChange = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.NodeXMLName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OutputNodeName = new AdvancedDataGridView.TreeGridColumn();
+            this.OutputNodeXMLName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OutputNodeDataType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.OutputNodeOptionality = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.OutputNodeChange = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.OutputNodeXMLName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdatainputcount)).BeginInit();
@@ -108,11 +108,11 @@
             this.grInput.ColumnHeadersHeight = 29;
             this.grInput.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NodeName,
+            this.NodeXMLName,
             this.NodeDataType,
             this.NodeType,
             this.NodeOptionality,
-            this.NodeChange,
-            this.NodeXMLName});
+            this.NodeChange});
             this.grInput.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.grInput.ImageList = null;
             this.grInput.Location = new System.Drawing.Point(3, 20);
@@ -137,11 +137,11 @@
             this.grOutput.ColumnHeadersHeight = 29;
             this.grOutput.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OutputNodeName,
+            this.OutputNodeXMLName,
             this.OutputNodeDataType,
             this.dataGridViewComboBoxColumn1,
             this.OutputNodeOptionality,
-            this.OutputNodeChange,
-            this.OutputNodeXMLName});
+            this.OutputNodeChange});
             this.grOutput.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.grOutput.ImageList = null;
             this.grOutput.Location = new System.Drawing.Point(3, 213);
@@ -521,6 +521,14 @@
             this.NodeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.NodeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // NodeXMLName
+            // 
+            this.NodeXMLName.HeaderText = "Alias";
+            this.NodeXMLName.MinimumWidth = 6;
+            this.NodeXMLName.Name = "NodeXMLName";
+            this.NodeXMLName.ReadOnly = true;
+            this.NodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // NodeDataType
             // 
             this.NodeDataType.HeaderText = "Data Type";
@@ -567,15 +575,6 @@
             this.NodeChange.ReadOnly = true;
             this.NodeChange.Visible = false;
             // 
-            // NodeXMLName
-            // 
-            this.NodeXMLName.HeaderText = "Alias";
-            this.NodeXMLName.MinimumWidth = 6;
-            this.NodeXMLName.Name = "NodeXMLName";
-            this.NodeXMLName.ReadOnly = true;
-            this.NodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.NodeXMLName.Visible = false;
-            // 
             // OutputNodeName
             // 
             this.OutputNodeName.DefaultNodeImage = null;
@@ -584,6 +583,13 @@
             this.OutputNodeName.Name = "OutputNodeName";
             this.OutputNodeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.OutputNodeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // OutputNodeXMLName
+            // 
+            this.OutputNodeXMLName.HeaderText = "Alias";
+            this.OutputNodeXMLName.MinimumWidth = 6;
+            this.OutputNodeXMLName.Name = "OutputNodeXMLName";
+            this.OutputNodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // OutputNodeDataType
             // 
@@ -636,14 +642,6 @@
             this.OutputNodeChange.MinimumWidth = 6;
             this.OutputNodeChange.Name = "OutputNodeChange";
             this.OutputNodeChange.Visible = false;
-            // 
-            // OutputNodeXMLName
-            // 
-            this.OutputNodeXMLName.HeaderText = "Alias";
-            this.OutputNodeXMLName.MinimumWidth = 6;
-            this.OutputNodeXMLName.Name = "OutputNodeXMLName";
-            this.OutputNodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.OutputNodeXMLName.Visible = false;
             // 
             // frmMain
             // 
@@ -733,17 +731,17 @@
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.Button btnPaste;
         private AdvancedDataGridView.TreeGridColumn NodeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NodeXMLName;
         private System.Windows.Forms.DataGridViewTextBoxColumn NodeDataType;
         private System.Windows.Forms.DataGridViewComboBoxColumn NodeType;
         private System.Windows.Forms.DataGridViewComboBoxColumn NodeOptionality;
         private System.Windows.Forms.DataGridViewComboBoxColumn NodeChange;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NodeXMLName;
         private AdvancedDataGridView.TreeGridColumn OutputNodeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OutputNodeXMLName;
         private System.Windows.Forms.DataGridViewComboBoxColumn OutputNodeDataType;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn OutputNodeOptionality;
         private System.Windows.Forms.DataGridViewComboBoxColumn OutputNodeChange;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OutputNodeXMLName;
     }
 }
 

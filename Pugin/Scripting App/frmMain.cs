@@ -105,7 +105,8 @@ namespace ScriptingApp
                 else
                     node = grOutput.CurrentNode.Nodes.Add(addnode.NodeName);
 
-                node.Cells[1].Value = addnode.DataType;
+                node.Cells[1].Value = addnode.NodeName;
+                node.Cells[2].Value = addnode.DataType;
             }
         }
 
@@ -347,11 +348,11 @@ namespace ScriptingApp
         {
             Field field = new Field();
             field.Name = treeGridNode.Cells[0].Value.ToString();
-            field.DataType = treeGridNode.Cells[1].Value?.ToString();
-            field.Type = treeGridNode.Cells[2].Value?.ToString();
-            field.Optionality = treeGridNode.Cells[3].Value?.ToString();
-            field.Change = treeGridNode.Cells[4].Value?.ToString();
-            field.Alias = treeGridNode.Cells[5].Value?.ToString();
+            field.Alias = treeGridNode.Cells[1].Value?.ToString();
+            field.DataType = treeGridNode.Cells[2].Value?.ToString();
+            field.Type = treeGridNode.Cells[3].Value?.ToString();
+            field.Optionality = treeGridNode.Cells[4].Value?.ToString();
+            field.Change = treeGridNode.Cells[5].Value?.ToString();
 
             if (element == null)
                 element = field;
@@ -373,7 +374,7 @@ namespace ScriptingApp
             gridNodes.Nodes.Clear();
 
             var treeRootNode = gridNodes.Nodes.Add("Root");
-            var rootChildNode = treeRootNode.Nodes.Add(new[] { rootChildName, "Array" });
+            var rootChildNode = treeRootNode.Nodes.Add(new[] { rootChildName, rootChildName, "Array" });
 
             CreateTreeChildNodes(schema, rootChildNode);
             treeRootNode.Expand();
@@ -391,18 +392,18 @@ namespace ScriptingApp
 
             //0-Name
             //1-Data Type
-            //2-Type [Element, Attribute, PCData]
-            //3-Optionality [One, Zero or one, Zero or more, One or more]
-            //4-Change [None, Ignore, Flatten]
-            //5-XML Name
+            //2-Xml Name
+            //3-Type [Element, Attribute, PCData]
+            //4-Optionality [One, Zero or one, Zero or more, One or more]
+            //5-Change [None, Ignore, Flatten]
 
             TreeGridNode treeNode = parentTreeNode.Nodes.Add(name);
             treeNode.Cells[0].Value = schemaNode.Name;
-            treeNode.Cells[1].Value = schemaNode.DataType;
-            treeNode.Cells[2].Value = schemaNode.Type;
-            treeNode.Cells[3].Value = schemaNode.Optionality;
-            treeNode.Cells[4].Value = schemaNode.Change;
-            treeNode.Cells[5].Value = schemaNode.Alias;
+            treeNode.Cells[1].Value = schemaNode.Alias;
+            treeNode.Cells[2].Value = schemaNode.DataType;
+            treeNode.Cells[3].Value = schemaNode.Type;
+            treeNode.Cells[4].Value = schemaNode.Optionality;
+            treeNode.Cells[5].Value = schemaNode.Change;
 
             if (schemaNode.ChildNodes.Count > 0)
             {

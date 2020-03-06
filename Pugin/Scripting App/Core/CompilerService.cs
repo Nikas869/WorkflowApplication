@@ -106,10 +106,10 @@ namespace ScriptingApp.Core
             {
                 newProp = new DynamicClass
                 {
-                    PropertyName = node.Alias ?? node.Name,
+                    PropertyName = node.Name,
                     PropertyType = node.DataType,
                     ParentNode = parent,
-                    ClassName = node.Alias ?? node.Name,
+                    ClassName = node.Alias,
                     IsParent = node.HasChildNodes(),
                     XmlType = node.Type != null ? (XMLType)Enum.Parse(typeof(XMLType), node.Type) : XMLType.Element
                 };
@@ -170,9 +170,9 @@ namespace ScriptingApp.Core
             switch (prop.XmlType)
             {
                 case XMLType.Element:
-                    return $@"[XmlElement(""{prop.PropertyName}"")]";
+                    return $@"[XmlElement(""{prop.ClassName}"")]";
                 case XMLType.Attribute:
-                    return $@"[XmlAttribute(""{prop.PropertyName}"")]";
+                    return $@"[XmlAttribute(""{prop.ClassName}"")]";
                 case XMLType.PCData:
                     return string.Empty;
                 default:
