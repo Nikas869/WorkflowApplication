@@ -535,7 +535,7 @@ namespace ScriptingApp
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            var data = WorkflowFileFactory.LoadFromXmlFile(@"D:\Projects\WorkflowApplication\books.xml");
+            var data = WorkflowFileFactory.LoadFromXmlFile(GetInputXml());
             var inputSchema = GenerateSchema(grInput);
             var outputSchema = GenerateSchema(grOutput);
             var result = CompilerService.GenerateCodeAndCompile(inputSchema, outputSchema, txtScript.Text, data);
@@ -591,9 +591,14 @@ namespace ScriptingApp
 
         private Field GetInputSchema()
         {
-            var filePath = ConfigurationManager.AppSettings["ReadFilePath"];
+            var filePath = ConfigurationManager.AppSettings["FileSchemaPath"];
 
             return Field.Parse(filePath);
+        }
+
+        private string GetInputXml()
+        {
+            return ConfigurationManager.AppSettings["InputFilePath"];
         }
         #endregion
     }
