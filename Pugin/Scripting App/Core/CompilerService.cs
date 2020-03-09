@@ -61,7 +61,7 @@ namespace ScriptingApp.Core
                 inObject.ToString(),
                 dataInitialization,
                 code,
-                saveFilePath: file?.FilePath);
+                saveFilePath: ConfigurationManager.AppSettings["OutputFilePath"]);
 
             return Compile(sourceFile);
         }
