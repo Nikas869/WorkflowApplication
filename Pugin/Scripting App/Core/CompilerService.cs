@@ -133,6 +133,7 @@ namespace ScriptingApp.Core
                 string className = c.GetFullClassName();
 
                 // Create Class Object
+                builder.AppendLine($"[XmlRoot(ElementName = \"{c.ClassName}\")]");
                 builder.AppendFormat("public class ").Append(className).Append(" { ");
                 // Get Parent and Child
                 var Parent_Child = DCObject.Where(x => x.ParentNode == c).ToList();
