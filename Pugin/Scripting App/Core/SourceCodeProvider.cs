@@ -158,7 +158,10 @@ namespace WinFormCodeCompile
                     if (string.Equals(child.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
                     {
                         result.AppendLine($"{child.ClassName} = new List<{child.GetFullClassName()}> {{");
-                        InitPropWithData(inputDCObjects, result, child, data);
+                        foreach (var dataItem in data.Elements(child.ClassName))
+                        {
+                            FillProp(inputDCObjects, result, child, dataItem);
+                        }
                         result.AppendLine($"}}");
                     }
                     else
@@ -168,19 +171,17 @@ namespace WinFormCodeCompile
                         result.AppendLine($"}}");
                     }
                 }
-                else
-                {
-                    foreach (var dataItem in data.Elements(rootObject.ClassName))
-                    {
-                        result.AppendLine($"new {rootObject.GetFullClassName()} {{");
-                        foreach (var prop in inputDCObjects.Where(o => o.ParentNode == rootObject))
-                        {
-                            result.AppendLine($"{prop.ClassName} = @\"{dataItem.Element(prop.ClassName)?.Value ?? dataItem.Attribute(prop.ClassName)?.Value ?? string.Empty}\",");
-                        }
-                        result.AppendLine($"}},");
-                    }
-                }
             }
+        }
+
+        private static void FillProp(List<DynamicClass> inputDCObjects, StringBuilder result, DynamicClass rootObject, XElement data)
+        {
+            result.AppendLine($"new {rootObject.GetFullClassName()} {{");
+            foreach (var prop in inputDCObjects.Where(o => o.ParentNode == rootObject))
+            {
+                result.AppendLine($"{prop.ClassName} = @\"{data.Element(prop.ClassName)?.Value ?? data.Attribute(prop.ClassName)?.Value ?? string.Empty}\",");
+            }
+            result.AppendLine($"}},");
         }
 
         private static string SaveToFile(string saveFilePath)
