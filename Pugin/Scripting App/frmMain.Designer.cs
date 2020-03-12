@@ -85,6 +85,7 @@
             this.groupBoxCompileStatus = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.grInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdatainputcount)).BeginInit();
@@ -116,6 +117,7 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grInput
@@ -361,16 +363,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSample.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSample.Location = new System.Drawing.Point(6, 32);
+            this.txtSample.Location = new System.Drawing.Point(3, 32);
             this.txtSample.Name = "txtSample";
             this.txtSample.ReadOnly = true;
-            this.txtSample.Size = new System.Drawing.Size(644, 259);
+            this.txtSample.Size = new System.Drawing.Size(650, 531);
             this.txtSample.TabIndex = 17;
             this.txtSample.Text = ";";
             // 
             // btnCancel
             // 
-            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCancel.AutoSize = true;
             this.btnCancel.Location = new System.Drawing.Point(629, 704);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(101, 29);
@@ -382,9 +385,9 @@
             // btnFindError
             // 
             this.btnFindError.AutoSize = true;
-            this.btnFindError.Location = new System.Drawing.Point(731, 662);
+            this.btnFindError.Location = new System.Drawing.Point(3, 3);
             this.btnFindError.Name = "btnFindError";
-            this.btnFindError.Size = new System.Drawing.Size(101, 23);
+            this.btnFindError.Size = new System.Drawing.Size(101, 29);
             this.btnFindError.TabIndex = 20;
             this.btnFindError.Text = "Find Error";
             this.btnFindError.UseVisualStyleBackColor = true;
@@ -408,7 +411,7 @@
             this.tabSample.Location = new System.Drawing.Point(4, 27);
             this.tabSample.Name = "tabSample";
             this.tabSample.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSample.Size = new System.Drawing.Size(656, 335);
+            this.tabSample.Size = new System.Drawing.Size(656, 569);
             this.tabSample.TabIndex = 0;
             this.tabSample.Text = "Sample";
             this.tabSample.UseVisualStyleBackColor = true;
@@ -449,11 +452,14 @@
             // 
             // txtScript
             // 
+            this.txtScript.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtScript.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtScript.EnableAutoDragDrop = true;
-            this.txtScript.Location = new System.Drawing.Point(6, 32);
+            this.txtScript.Location = new System.Drawing.Point(6, 33);
             this.txtScript.Name = "txtScript";
-            this.txtScript.Size = new System.Drawing.Size(638, 583);
+            this.txtScript.Size = new System.Drawing.Size(647, 533);
             this.txtScript.TabIndex = 18;
             this.txtScript.Text = "";
             this.txtScript.WordWrap = false;
@@ -642,27 +648,26 @@
             // 
             // tableLayoutPanelCode
             // 
-            this.tableLayoutPanelCode.ColumnCount = 4;
+            this.tableLayoutPanelCode.ColumnCount = 3;
             this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelCode.Controls.Add(this.btnOk, 0, 0);
+            this.tableLayoutPanelCode.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanelCode.Controls.Add(this.btnCancel, 1, 0);
-            this.tableLayoutPanelCode.Controls.Add(this.btnFindError, 2, 0);
-            this.tableLayoutPanelCode.Controls.Add(this.groupBoxCompileStatus, 3, 0);
+            this.tableLayoutPanelCode.Controls.Add(this.groupBoxCompileStatus, 2, 0);
             this.tableLayoutPanelCode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelCode.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelCode.Name = "tableLayoutPanelCode";
-            this.tableLayoutPanelCode.RowCount = 1;
-            this.tableLayoutPanelCode.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelCode.RowCount = 2;
+            this.tableLayoutPanelCode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelCode.Size = new System.Drawing.Size(664, 129);
             this.tableLayoutPanelCode.TabIndex = 24;
             // 
             // btnOk
             // 
+            this.btnOk.AutoSize = true;
             this.btnOk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnOk.Location = new System.Drawing.Point(3, 716);
+            this.btnOk.Location = new System.Drawing.Point(3, 38);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(101, 29);
             this.btnOk.TabIndex = 19;
@@ -829,6 +834,7 @@
             // 
             // groupBoxCompileStatus
             // 
+            this.groupBoxCompileStatus.AutoSize = true;
             this.groupBoxCompileStatus.Controls.Add(this.txtCompileStatus);
             this.groupBoxCompileStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxCompileStatus.Location = new System.Drawing.Point(0, 0);
@@ -864,6 +870,18 @@
             this.splitContainer2.Size = new System.Drawing.Size(664, 733);
             this.splitContainer2.SplitterDistance = 600;
             this.splitContainer2.TabIndex = 23;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.btnFindError);
+            this.flowLayoutPanel1.Controls.Add(this.btnOk);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel1.TabIndex = 22;
             // 
             // frmMain
             // 
@@ -919,6 +937,8 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -980,6 +1000,7 @@
         private System.Windows.Forms.GroupBox groupBoxCompileStatus;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 
