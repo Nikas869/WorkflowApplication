@@ -528,6 +528,7 @@
             this.NodeXMLName.Name = "NodeXMLName";
             this.NodeXMLName.ReadOnly = true;
             this.NodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.NodeXMLName.Visible = false;
             // 
             // NodeDataType
             // 
@@ -590,6 +591,7 @@
             this.OutputNodeXMLName.MinimumWidth = 6;
             this.OutputNodeXMLName.Name = "OutputNodeXMLName";
             this.OutputNodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.OutputNodeXMLName.Visible = false;
             // 
             // OutputNodeDataType
             // 

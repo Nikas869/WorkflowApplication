@@ -348,7 +348,7 @@ namespace ScriptingApp
         {
             Field field = new Field();
             field.Name = treeGridNode.Cells[0].Value.ToString();
-            field.Alias = treeGridNode.Cells[1].Value?.ToString();
+            field.Alias = treeGridNode.Cells[0].Value?.ToString();
             field.DataType = treeGridNode.Cells[2].Value?.ToString();
             field.Type = treeGridNode.Cells[3].Value?.ToString();
             field.Optionality = treeGridNode.Cells[4].Value?.ToString();
@@ -398,7 +398,7 @@ namespace ScriptingApp
             //5-Change [None, Ignore, Flatten]
 
             TreeGridNode treeNode = parentTreeNode.Nodes.Add(name);
-            treeNode.Cells[0].Value = schemaNode.Name;
+            treeNode.Cells[0].Value = schemaNode.Alias;
             treeNode.Cells[1].Value = schemaNode.Alias;
             treeNode.Cells[2].Value = schemaNode.DataType;
             treeNode.Cells[3].Value = schemaNode.Type;
