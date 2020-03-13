@@ -30,100 +30,89 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.grInput = new AdvancedDataGridView.TreeGridView();
-            this.grOutput = new AdvancedDataGridView.TreeGridView();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnUp = new System.Windows.Forms.Button();
-            this.btnDown = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.txtdatainputcount = new System.Windows.Forms.NumericUpDown();
-            this.txtdataoutputcount = new System.Windows.Forms.NumericUpDown();
-            this.txtSheetoutputcount = new System.Windows.Forms.NumericUpDown();
-            this.lblSheetoutputcount = new System.Windows.Forms.Label();
-            this.txtSheetinputcount = new System.Windows.Forms.NumericUpDown();
-            this.lblSheetinputcount = new System.Windows.Forms.Label();
-            this.chkindexsheet = new System.Windows.Forms.CheckBox();
-            this.chkpreprocess = new System.Windows.Forms.CheckBox();
-            this.tblLayoutPane1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtSample = new System.Windows.Forms.RichTextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnFindError = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabSample = new System.Windows.Forms.TabPage();
-            this.btnCopy = new System.Windows.Forms.Button();
-            this.tabScript = new System.Windows.Forms.TabPage();
-            this.btnPaste = new System.Windows.Forms.Button();
-            this.txtScript = new System.Windows.Forms.RichTextBox();
-            this.txtCompileStatus = new System.Windows.Forms.RichTextBox();
-            this.groupBoxInput = new System.Windows.Forms.GroupBox();
-            this.groupBoxOutput = new System.Windows.Forms.GroupBox();
-            this.groupBoxSettings = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanelActions = new System.Windows.Forms.FlowLayoutPanel();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tableLayoutPanelSettings = new System.Windows.Forms.TableLayoutPanel();
-            this.labelDataInputCount = new System.Windows.Forms.Label();
-            this.tableLayoutPanelDataInputCount = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanelDataOutputCount = new System.Windows.Forms.TableLayoutPanel();
-            this.labelDataOutputCount = new System.Windows.Forms.Label();
-            this.tableLayoutPanelSheets = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanelSheetInputCount = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanelCode = new System.Windows.Forms.TableLayoutPanel();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.tableLayoutPanelSheetOutputCount = new System.Windows.Forms.TableLayoutPanel();
             this.NodeName = new AdvancedDataGridView.TreeGridColumn();
             this.NodeXMLName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NodeDataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NodeType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.NodeOptionality = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.NodeChange = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.grOutput = new AdvancedDataGridView.TreeGridView();
             this.OutputNodeName = new AdvancedDataGridView.TreeGridColumn();
             this.OutputNodeXMLName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OutputNodeDataType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.OutputNodeOptionality = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.OutputNodeChange = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.groupBoxCompileStatus = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnUp = new System.Windows.Forms.Button();
+            this.btnDown = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.txtdataoutputcount = new System.Windows.Forms.NumericUpDown();
+            this.txtSheetoutputcount = new System.Windows.Forms.NumericUpDown();
+            this.lblSheetoutputcount = new System.Windows.Forms.Label();
+            this.tblLayoutPane1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelDataOutputCount = new System.Windows.Forms.Label();
+            this.tableLayoutPanelSheetOutputCount = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBoxOutput = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanelActions = new System.Windows.Forms.FlowLayoutPanel();
+            this.txtSample = new System.Windows.Forms.RichTextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnFindError = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabSample = new System.Windows.Forms.TabPage();
+            this.tabScript = new System.Windows.Forms.TabPage();
+            this.txtScript = new System.Windows.Forms.RichTextBox();
+            this.txtCompileStatus = new System.Windows.Forms.RichTextBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanelCode = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.groupBoxCompileStatus = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanelDataInputCount = new System.Windows.Forms.TableLayoutPanel();
+            this.txtSheetinputcount = new System.Windows.Forms.NumericUpDown();
+            this.lblSheetinputcount = new System.Windows.Forms.Label();
+            this.txtdatainputcount = new System.Windows.Forms.NumericUpDown();
+            this.labelDataInputCount = new System.Windows.Forms.Label();
+            this.groupBoxInput = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.grInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grOutput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtdatainputcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdataoutputcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSheetoutputcount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSheetinputcount)).BeginInit();
             this.tblLayoutPane1.SuspendLayout();
+            this.tableLayoutPanelSheetOutputCount.SuspendLayout();
+            this.groupBoxOutput.SuspendLayout();
+            this.flowLayoutPanelActions.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabSample.SuspendLayout();
             this.tabScript.SuspendLayout();
-            this.groupBoxInput.SuspendLayout();
-            this.groupBoxOutput.SuspendLayout();
-            this.groupBoxSettings.SuspendLayout();
-            this.flowLayoutPanelActions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.tableLayoutPanelSettings.SuspendLayout();
-            this.tableLayoutPanelDataInputCount.SuspendLayout();
-            this.tableLayoutPanelDataOutputCount.SuspendLayout();
-            this.tableLayoutPanelSheets.SuspendLayout();
-            this.tableLayoutPanelSheetInputCount.SuspendLayout();
-            this.tableLayoutPanelCode.SuspendLayout();
-            this.tableLayoutPanelSheetOutputCount.SuspendLayout();
-            this.groupBoxCompileStatus.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tableLayoutPanelCode.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.groupBoxCompileStatus.SuspendLayout();
+            this.tableLayoutPanelDataInputCount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSheetinputcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtdatainputcount)).BeginInit();
+            this.groupBoxInput.SuspendLayout();
             this.SuspendLayout();
             // 
             // grInput
             // 
             this.grInput.AllowUserToAddRows = false;
             this.grInput.AllowUserToDeleteRows = false;
+            this.grInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grInput.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grInput.BackgroundColor = System.Drawing.Color.White;
             this.grInput.ColumnHeadersHeight = 29;
@@ -134,23 +123,93 @@
             this.NodeType,
             this.NodeOptionality,
             this.NodeChange});
-            this.grInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grInput.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.grInput.ImageList = null;
-            this.grInput.Location = new System.Drawing.Point(3, 22);
+            this.grInput.Location = new System.Drawing.Point(3, 57);
             this.grInput.MultiSelect = false;
             this.grInput.Name = "grInput";
             this.grInput.ReadOnly = true;
             this.grInput.RowHeadersVisible = false;
             this.grInput.RowHeadersWidth = 51;
-            this.grInput.Size = new System.Drawing.Size(321, 196);
+            this.grInput.Size = new System.Drawing.Size(321, 349);
             this.grInput.TabIndex = 1;
+            // 
+            // NodeName
+            // 
+            this.NodeName.DefaultNodeImage = null;
+            this.NodeName.FillWeight = 152.7174F;
+            this.NodeName.HeaderText = "Name";
+            this.NodeName.MinimumWidth = 6;
+            this.NodeName.Name = "NodeName";
+            this.NodeName.ReadOnly = true;
+            this.NodeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.NodeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // NodeXMLName
+            // 
+            this.NodeXMLName.HeaderText = "Alias";
+            this.NodeXMLName.MinimumWidth = 6;
+            this.NodeXMLName.Name = "NodeXMLName";
+            this.NodeXMLName.ReadOnly = true;
+            this.NodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.NodeXMLName.Visible = false;
+            // 
+            // NodeDataType
+            // 
+            this.NodeDataType.FillWeight = 83.1115F;
+            this.NodeDataType.HeaderText = "Data Type";
+            this.NodeDataType.MinimumWidth = 6;
+            this.NodeDataType.Name = "NodeDataType";
+            this.NodeDataType.ReadOnly = true;
+            this.NodeDataType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.NodeDataType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // NodeType
+            // 
+            this.NodeType.FillWeight = 64.17112F;
+            this.NodeType.HeaderText = "Type";
+            this.NodeType.Items.AddRange(new object[] {
+            "Element",
+            "Attribute",
+            "PCData"});
+            this.NodeType.MinimumWidth = 6;
+            this.NodeType.Name = "NodeType";
+            this.NodeType.ReadOnly = true;
+            this.NodeType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // NodeOptionality
+            // 
+            this.NodeOptionality.HeaderText = "Optionality";
+            this.NodeOptionality.Items.AddRange(new object[] {
+            "One",
+            "Zero or one",
+            "Zero or more",
+            "One or more"});
+            this.NodeOptionality.MinimumWidth = 6;
+            this.NodeOptionality.Name = "NodeOptionality";
+            this.NodeOptionality.ReadOnly = true;
+            this.NodeOptionality.Visible = false;
+            // 
+            // NodeChange
+            // 
+            this.NodeChange.HeaderText = "Change";
+            this.NodeChange.Items.AddRange(new object[] {
+            "None",
+            "Ignore",
+            "Flatten"});
+            this.NodeChange.MinimumWidth = 6;
+            this.NodeChange.Name = "NodeChange";
+            this.NodeChange.ReadOnly = true;
+            this.NodeChange.Visible = false;
             // 
             // grOutput
             // 
             this.grOutput.AllowDrop = true;
             this.grOutput.AllowUserToAddRows = false;
             this.grOutput.AllowUserToDeleteRows = false;
+            this.grOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grOutput.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grOutput.BackgroundColor = System.Drawing.Color.White;
             this.grOutput.ColumnHeadersHeight = 29;
@@ -161,15 +220,86 @@
             this.dataGridViewComboBoxColumn1,
             this.OutputNodeOptionality,
             this.OutputNodeChange});
-            this.grOutput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grOutput.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.grOutput.ImageList = null;
-            this.grOutput.Location = new System.Drawing.Point(3, 22);
+            this.grOutput.Location = new System.Drawing.Point(3, 60);
             this.grOutput.Name = "grOutput";
             this.grOutput.RowHeadersVisible = false;
             this.grOutput.RowHeadersWidth = 51;
-            this.grOutput.Size = new System.Drawing.Size(321, 196);
+            this.grOutput.Size = new System.Drawing.Size(321, 272);
             this.grOutput.TabIndex = 3;
+            // 
+            // OutputNodeName
+            // 
+            this.OutputNodeName.DefaultNodeImage = null;
+            this.OutputNodeName.FillWeight = 152.7174F;
+            this.OutputNodeName.HeaderText = "Name";
+            this.OutputNodeName.MinimumWidth = 6;
+            this.OutputNodeName.Name = "OutputNodeName";
+            this.OutputNodeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.OutputNodeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // OutputNodeXMLName
+            // 
+            this.OutputNodeXMLName.HeaderText = "Alias";
+            this.OutputNodeXMLName.MinimumWidth = 6;
+            this.OutputNodeXMLName.Name = "OutputNodeXMLName";
+            this.OutputNodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.OutputNodeXMLName.Visible = false;
+            // 
+            // OutputNodeDataType
+            // 
+            this.OutputNodeDataType.FillWeight = 83.1115F;
+            this.OutputNodeDataType.HeaderText = "Data Type";
+            this.OutputNodeDataType.Items.AddRange(new object[] {
+            "String",
+            "Array",
+            "Int16",
+            "Int32",
+            "Int64",
+            "Boolean",
+            "DateTime",
+            "Double",
+            "Single"});
+            this.OutputNodeDataType.MinimumWidth = 6;
+            this.OutputNodeDataType.Name = "OutputNodeDataType";
+            this.OutputNodeDataType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dataGridViewComboBoxColumn1
+            // 
+            this.dataGridViewComboBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.dataGridViewComboBoxColumn1.DisplayStyleForCurrentCellOnly = true;
+            this.dataGridViewComboBoxColumn1.FillWeight = 64.17112F;
+            this.dataGridViewComboBoxColumn1.HeaderText = "Type";
+            this.dataGridViewComboBoxColumn1.Items.AddRange(new object[] {
+            "Element",
+            "Attribute",
+            "PCData"});
+            this.dataGridViewComboBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
+            // 
+            // OutputNodeOptionality
+            // 
+            this.OutputNodeOptionality.HeaderText = "Optionality";
+            this.OutputNodeOptionality.Items.AddRange(new object[] {
+            "One",
+            "Zero or one",
+            "Zero or more",
+            "One or more"});
+            this.OutputNodeOptionality.MinimumWidth = 6;
+            this.OutputNodeOptionality.Name = "OutputNodeOptionality";
+            this.OutputNodeOptionality.Visible = false;
+            // 
+            // OutputNodeChange
+            // 
+            this.OutputNodeChange.HeaderText = "Change";
+            this.OutputNodeChange.Items.AddRange(new object[] {
+            "None",
+            "Ignore",
+            "Flatten"});
+            this.OutputNodeChange.MinimumWidth = 6;
+            this.OutputNodeChange.Name = "OutputNodeChange";
+            this.OutputNodeChange.Visible = false;
             // 
             // btnSave
             // 
@@ -260,15 +390,6 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // txtdatainputcount
-            // 
-            this.txtdatainputcount.AutoSize = true;
-            this.txtdatainputcount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtdatainputcount.Location = new System.Drawing.Point(142, 3);
-            this.txtdatainputcount.Name = "txtdatainputcount";
-            this.txtdatainputcount.Size = new System.Drawing.Size(56, 26);
-            this.txtdatainputcount.TabIndex = 8;
-            // 
             // txtdataoutputcount
             // 
             this.txtdataoutputcount.AutoSize = true;
@@ -284,89 +405,103 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSheetoutputcount.AutoSize = true;
             this.txtSheetoutputcount.Enabled = false;
-            this.txtSheetoutputcount.Location = new System.Drawing.Point(150, 3);
+            this.txtSheetoutputcount.Location = new System.Drawing.Point(351, 3);
             this.txtSheetoutputcount.Name = "txtSheetoutputcount";
             this.txtSheetoutputcount.Size = new System.Drawing.Size(56, 26);
             this.txtSheetoutputcount.TabIndex = 14;
             // 
             // lblSheetoutputcount
             // 
-            this.lblSheetoutputcount.Location = new System.Drawing.Point(3, 0);
+            this.lblSheetoutputcount.Location = new System.Drawing.Point(204, 0);
             this.lblSheetoutputcount.Name = "lblSheetoutputcount";
             this.lblSheetoutputcount.Size = new System.Drawing.Size(141, 26);
             this.lblSheetoutputcount.TabIndex = 13;
             this.lblSheetoutputcount.Text = "Sheet output count:";
-            // 
-            // txtSheetinputcount
-            // 
-            this.txtSheetinputcount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSheetinputcount.AutoSize = true;
-            this.txtSheetinputcount.Enabled = false;
-            this.txtSheetinputcount.Location = new System.Drawing.Point(150, 3);
-            this.txtSheetinputcount.Name = "txtSheetinputcount";
-            this.txtSheetinputcount.Size = new System.Drawing.Size(56, 26);
-            this.txtSheetinputcount.TabIndex = 12;
-            // 
-            // lblSheetinputcount
-            // 
-            this.lblSheetinputcount.Location = new System.Drawing.Point(3, 0);
-            this.lblSheetinputcount.Name = "lblSheetinputcount";
-            this.lblSheetinputcount.Size = new System.Drawing.Size(141, 26);
-            this.lblSheetinputcount.TabIndex = 11;
-            this.lblSheetinputcount.Text = "Sheet input count:";
-            // 
-            // chkindexsheet
-            // 
-            this.chkindexsheet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkindexsheet.AutoSize = true;
-            this.chkindexsheet.Location = new System.Drawing.Point(6, 3);
-            this.chkindexsheet.Name = "chkindexsheet";
-            this.chkindexsheet.Size = new System.Drawing.Size(247, 23);
-            this.chkindexsheet.TabIndex = 15;
-            this.chkindexsheet.Text = "Index sheet names from zero ";
-            this.chkindexsheet.UseVisualStyleBackColor = true;
-            // 
-            // chkpreprocess
-            // 
-            this.chkpreprocess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkpreprocess.AutoSize = true;
-            this.chkpreprocess.Location = new System.Drawing.Point(3, 32);
-            this.chkpreprocess.Name = "chkpreprocess";
-            this.chkpreprocess.Size = new System.Drawing.Size(250, 23);
-            this.chkpreprocess.TabIndex = 16;
-            this.chkpreprocess.Text = "Preprocess Inputs on demand";
-            this.chkpreprocess.UseVisualStyleBackColor = true;
+            this.lblSheetoutputcount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tblLayoutPane1
             // 
             this.tblLayoutPane1.ColumnCount = 1;
             this.tblLayoutPane1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblLayoutPane1.Controls.Add(this.groupBoxSettings, 0, 0);
-            this.tblLayoutPane1.Controls.Add(this.groupBoxInput, 0, 1);
-            this.tblLayoutPane1.Controls.Add(this.groupBoxOutput, 0, 2);
-            this.tblLayoutPane1.Controls.Add(this.flowLayoutPanelActions, 0, 3);
+            this.tblLayoutPane1.Controls.Add(this.groupBoxInput, 0, 0);
+            this.tblLayoutPane1.Controls.Add(this.groupBoxOutput, 0, 1);
+            this.tblLayoutPane1.Controls.Add(this.flowLayoutPanelActions, 0, 2);
             this.tblLayoutPane1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblLayoutPane1.Location = new System.Drawing.Point(0, 0);
             this.tblLayoutPane1.Name = "tblLayoutPane1";
-            this.tblLayoutPane1.RowCount = 4;
-            this.tblLayoutPane1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tblLayoutPane1.RowCount = 3;
+            this.tblLayoutPane1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.99999F));
             this.tblLayoutPane1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblLayoutPane1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00001F));
             this.tblLayoutPane1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tblLayoutPane1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblLayoutPane1.Size = new System.Drawing.Size(333, 733);
             this.tblLayoutPane1.TabIndex = 2;
             // 
+            // labelDataOutputCount
+            // 
+            this.labelDataOutputCount.Location = new System.Drawing.Point(3, 0);
+            this.labelDataOutputCount.Name = "labelDataOutputCount";
+            this.labelDataOutputCount.Size = new System.Drawing.Size(133, 26);
+            this.labelDataOutputCount.TabIndex = 24;
+            this.labelDataOutputCount.Text = "Data output count:";
+            this.labelDataOutputCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanelSheetOutputCount
+            // 
+            this.tableLayoutPanelSheetOutputCount.AutoSize = true;
+            this.tableLayoutPanelSheetOutputCount.ColumnCount = 4;
+            this.tableLayoutPanelSheetOutputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelSheetOutputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelSheetOutputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelSheetOutputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelSheetOutputCount.Controls.Add(this.labelDataOutputCount, 0, 0);
+            this.tableLayoutPanelSheetOutputCount.Controls.Add(this.txtdataoutputcount, 1, 0);
+            this.tableLayoutPanelSheetOutputCount.Controls.Add(this.lblSheetoutputcount, 2, 0);
+            this.tableLayoutPanelSheetOutputCount.Controls.Add(this.txtSheetoutputcount, 3, 0);
+            this.tableLayoutPanelSheetOutputCount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanelSheetOutputCount.Location = new System.Drawing.Point(3, 22);
+            this.tableLayoutPanelSheetOutputCount.Name = "tableLayoutPanelSheetOutputCount";
+            this.tableLayoutPanelSheetOutputCount.RowCount = 1;
+            this.tableLayoutPanelSheetOutputCount.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelSheetOutputCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelSheetOutputCount.Size = new System.Drawing.Size(321, 32);
+            this.tableLayoutPanelSheetOutputCount.TabIndex = 26;
+            // 
+            // groupBoxOutput
+            // 
+            this.groupBoxOutput.Controls.Add(this.tableLayoutPanelSheetOutputCount);
+            this.groupBoxOutput.Controls.Add(this.grOutput);
+            this.groupBoxOutput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxOutput.Location = new System.Drawing.Point(3, 343);
+            this.groupBoxOutput.Name = "groupBoxOutput";
+            this.groupBoxOutput.Size = new System.Drawing.Size(327, 335);
+            this.groupBoxOutput.TabIndex = 24;
+            this.groupBoxOutput.TabStop = false;
+            this.groupBoxOutput.Text = "Data output";
+            // 
+            // flowLayoutPanelActions
+            // 
+            this.flowLayoutPanelActions.AutoSize = true;
+            this.flowLayoutPanelActions.Controls.Add(this.btnSave);
+            this.flowLayoutPanelActions.Controls.Add(this.btnDelete);
+            this.flowLayoutPanelActions.Controls.Add(this.btnDown);
+            this.flowLayoutPanelActions.Controls.Add(this.btnUp);
+            this.flowLayoutPanelActions.Controls.Add(this.btnAdd);
+            this.flowLayoutPanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelActions.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanelActions.Location = new System.Drawing.Point(3, 684);
+            this.flowLayoutPanelActions.Name = "flowLayoutPanelActions";
+            this.flowLayoutPanelActions.Size = new System.Drawing.Size(327, 46);
+            this.flowLayoutPanelActions.TabIndex = 24;
+            // 
             // txtSample
             // 
-            this.txtSample.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSample.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSample.Location = new System.Drawing.Point(3, 32);
+            this.txtSample.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSample.Location = new System.Drawing.Point(3, 3);
             this.txtSample.Name = "txtSample";
             this.txtSample.ReadOnly = true;
-            this.txtSample.Size = new System.Drawing.Size(650, 531);
+            this.txtSample.Size = new System.Drawing.Size(650, 563);
             this.txtSample.TabIndex = 17;
             this.txtSample.Text = ";";
             // 
@@ -374,7 +509,7 @@
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancel.AutoSize = true;
-            this.btnCancel.Location = new System.Drawing.Point(629, 704);
+            this.btnCancel.Location = new System.Drawing.Point(116, 77);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(101, 29);
             this.btnCancel.TabIndex = 20;
@@ -406,7 +541,6 @@
             // 
             // tabSample
             // 
-            this.tabSample.Controls.Add(this.btnCopy);
             this.tabSample.Controls.Add(this.txtSample);
             this.tabSample.Location = new System.Drawing.Point(4, 27);
             this.tabSample.Name = "tabSample";
@@ -416,20 +550,8 @@
             this.tabSample.Text = "Sample";
             this.tabSample.UseVisualStyleBackColor = true;
             // 
-            // btnCopy
-            // 
-            this.btnCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCopy.Location = new System.Drawing.Point(549, 3);
-            this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(101, 23);
-            this.btnCopy.TabIndex = 21;
-            this.btnCopy.Text = "Copy";
-            this.btnCopy.UseVisualStyleBackColor = true;
-            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
-            // 
             // tabScript
             // 
-            this.tabScript.Controls.Add(this.btnPaste);
             this.tabScript.Controls.Add(this.txtScript);
             this.tabScript.Location = new System.Drawing.Point(4, 27);
             this.tabScript.Name = "tabScript";
@@ -439,27 +561,14 @@
             this.tabScript.Text = "Script";
             this.tabScript.UseVisualStyleBackColor = true;
             // 
-            // btnPaste
-            // 
-            this.btnPaste.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPaste.Location = new System.Drawing.Point(549, 3);
-            this.btnPaste.Name = "btnPaste";
-            this.btnPaste.Size = new System.Drawing.Size(101, 23);
-            this.btnPaste.TabIndex = 22;
-            this.btnPaste.Text = "Paste";
-            this.btnPaste.UseVisualStyleBackColor = true;
-            this.btnPaste.Click += new System.EventHandler(this.btnPaste_Click);
-            // 
             // txtScript
             // 
-            this.txtScript.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtScript.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtScript.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtScript.EnableAutoDragDrop = true;
-            this.txtScript.Location = new System.Drawing.Point(6, 33);
+            this.txtScript.Location = new System.Drawing.Point(3, 3);
             this.txtScript.Name = "txtScript";
-            this.txtScript.Size = new System.Drawing.Size(647, 533);
+            this.txtScript.Size = new System.Drawing.Size(650, 563);
             this.txtScript.TabIndex = 18;
             this.txtScript.Text = "";
             this.txtScript.WordWrap = false;
@@ -469,58 +578,9 @@
             this.txtCompileStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCompileStatus.Location = new System.Drawing.Point(3, 22);
             this.txtCompileStatus.Name = "txtCompileStatus";
-            this.txtCompileStatus.Size = new System.Drawing.Size(194, 75);
+            this.txtCompileStatus.Size = new System.Drawing.Size(432, 78);
             this.txtCompileStatus.TabIndex = 22;
             this.txtCompileStatus.Text = "";
-            // 
-            // groupBoxInput
-            // 
-            this.groupBoxInput.Controls.Add(this.grInput);
-            this.groupBoxInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxInput.Location = new System.Drawing.Point(3, 230);
-            this.groupBoxInput.Name = "groupBoxInput";
-            this.groupBoxInput.Size = new System.Drawing.Size(327, 221);
-            this.groupBoxInput.TabIndex = 24;
-            this.groupBoxInput.TabStop = false;
-            this.groupBoxInput.Text = "Data input";
-            // 
-            // groupBoxOutput
-            // 
-            this.groupBoxOutput.Controls.Add(this.grOutput);
-            this.groupBoxOutput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxOutput.Location = new System.Drawing.Point(3, 457);
-            this.groupBoxOutput.Name = "groupBoxOutput";
-            this.groupBoxOutput.Size = new System.Drawing.Size(327, 221);
-            this.groupBoxOutput.TabIndex = 24;
-            this.groupBoxOutput.TabStop = false;
-            this.groupBoxOutput.Text = "Data output";
-            // 
-            // groupBoxSettings
-            // 
-            this.groupBoxSettings.AutoSize = true;
-            this.groupBoxSettings.Controls.Add(this.tableLayoutPanelSettings);
-            this.groupBoxSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxSettings.Location = new System.Drawing.Point(3, 3);
-            this.groupBoxSettings.Name = "groupBoxSettings";
-            this.groupBoxSettings.Size = new System.Drawing.Size(327, 221);
-            this.groupBoxSettings.TabIndex = 24;
-            this.groupBoxSettings.TabStop = false;
-            this.groupBoxSettings.Text = "Settings";
-            // 
-            // flowLayoutPanelActions
-            // 
-            this.flowLayoutPanelActions.AutoSize = true;
-            this.flowLayoutPanelActions.Controls.Add(this.btnSave);
-            this.flowLayoutPanelActions.Controls.Add(this.btnDelete);
-            this.flowLayoutPanelActions.Controls.Add(this.btnDown);
-            this.flowLayoutPanelActions.Controls.Add(this.btnUp);
-            this.flowLayoutPanelActions.Controls.Add(this.btnAdd);
-            this.flowLayoutPanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelActions.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanelActions.Location = new System.Drawing.Point(3, 684);
-            this.flowLayoutPanelActions.Name = "flowLayoutPanelActions";
-            this.flowLayoutPanelActions.Size = new System.Drawing.Size(327, 46);
-            this.flowLayoutPanelActions.TabIndex = 24;
             // 
             // splitContainer1
             // 
@@ -540,319 +600,6 @@
             this.splitContainer1.SplitterDistance = 335;
             this.splitContainer1.TabIndex = 4;
             // 
-            // tableLayoutPanelSettings
-            // 
-            this.tableLayoutPanelSettings.AutoSize = true;
-            this.tableLayoutPanelSettings.ColumnCount = 2;
-            this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelSettings.Controls.Add(this.tableLayoutPanelDataInputCount, 0, 0);
-            this.tableLayoutPanelSettings.Controls.Add(this.tableLayoutPanelDataOutputCount, 0, 1);
-            this.tableLayoutPanelSettings.Controls.Add(this.tableLayoutPanelSheetInputCount, 0, 2);
-            this.tableLayoutPanelSettings.Controls.Add(this.tableLayoutPanelSheetOutputCount, 0, 3);
-            this.tableLayoutPanelSettings.Controls.Add(this.tableLayoutPanelSheets, 1, 0);
-            this.tableLayoutPanelSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelSettings.Location = new System.Drawing.Point(3, 22);
-            this.tableLayoutPanelSettings.Name = "tableLayoutPanelSettings";
-            this.tableLayoutPanelSettings.RowCount = 4;
-            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelSettings.Size = new System.Drawing.Size(321, 196);
-            this.tableLayoutPanelSettings.TabIndex = 0;
-            // 
-            // labelDataInputCount
-            // 
-            this.labelDataInputCount.Location = new System.Drawing.Point(3, 0);
-            this.labelDataInputCount.Name = "labelDataInputCount";
-            this.labelDataInputCount.Size = new System.Drawing.Size(133, 26);
-            this.labelDataInputCount.TabIndex = 24;
-            this.labelDataInputCount.Text = "Data input count:";
-            this.labelDataInputCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanelDataInputCount
-            // 
-            this.tableLayoutPanelDataInputCount.AutoSize = true;
-            this.tableLayoutPanelDataInputCount.ColumnCount = 2;
-            this.tableLayoutPanelDataInputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelDataInputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelDataInputCount.Controls.Add(this.labelDataInputCount, 0, 0);
-            this.tableLayoutPanelDataInputCount.Controls.Add(this.txtdatainputcount, 1, 0);
-            this.tableLayoutPanelDataInputCount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelDataInputCount.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanelDataInputCount.Name = "tableLayoutPanelDataInputCount";
-            this.tableLayoutPanelDataInputCount.RowCount = 1;
-            this.tableLayoutPanelDataInputCount.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelDataInputCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelDataInputCount.Size = new System.Drawing.Size(109, 100);
-            this.tableLayoutPanelDataInputCount.TabIndex = 24;
-            // 
-            // tableLayoutPanelDataOutputCount
-            // 
-            this.tableLayoutPanelDataOutputCount.AutoSize = true;
-            this.tableLayoutPanelDataOutputCount.ColumnCount = 2;
-            this.tableLayoutPanelDataOutputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelDataOutputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelDataOutputCount.Controls.Add(this.labelDataOutputCount, 0, 0);
-            this.tableLayoutPanelDataOutputCount.Controls.Add(this.txtdataoutputcount, 1, 0);
-            this.tableLayoutPanelDataOutputCount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelDataOutputCount.Location = new System.Drawing.Point(3, 109);
-            this.tableLayoutPanelDataOutputCount.Name = "tableLayoutPanelDataOutputCount";
-            this.tableLayoutPanelDataOutputCount.RowCount = 1;
-            this.tableLayoutPanelDataOutputCount.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelDataOutputCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelDataOutputCount.Size = new System.Drawing.Size(109, 52);
-            this.tableLayoutPanelDataOutputCount.TabIndex = 25;
-            // 
-            // labelDataOutputCount
-            // 
-            this.labelDataOutputCount.Location = new System.Drawing.Point(3, 0);
-            this.labelDataOutputCount.Name = "labelDataOutputCount";
-            this.labelDataOutputCount.Size = new System.Drawing.Size(133, 26);
-            this.labelDataOutputCount.TabIndex = 24;
-            this.labelDataOutputCount.Text = "Data output count:";
-            this.labelDataOutputCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanelSheets
-            // 
-            this.tableLayoutPanelSheets.ColumnCount = 1;
-            this.tableLayoutPanelSheets.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelSheets.Controls.Add(this.chkindexsheet, 0, 0);
-            this.tableLayoutPanelSheets.Controls.Add(this.chkpreprocess, 0, 1);
-            this.tableLayoutPanelSheets.Location = new System.Drawing.Point(118, 3);
-            this.tableLayoutPanelSheets.Name = "tableLayoutPanelSheets";
-            this.tableLayoutPanelSheets.RowCount = 2;
-            this.tableLayoutPanelSettings.SetRowSpan(this.tableLayoutPanelSheets, 4);
-            this.tableLayoutPanelSheets.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelSheets.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelSheets.Size = new System.Drawing.Size(200, 100);
-            this.tableLayoutPanelSheets.TabIndex = 24;
-            // 
-            // tableLayoutPanelSheetInputCount
-            // 
-            this.tableLayoutPanelSheetInputCount.AutoSize = true;
-            this.tableLayoutPanelSheetInputCount.ColumnCount = 2;
-            this.tableLayoutPanelSheetInputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelSheetInputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelSheetInputCount.Controls.Add(this.lblSheetinputcount, 0, 0);
-            this.tableLayoutPanelSheetInputCount.Controls.Add(this.txtSheetinputcount, 1, 0);
-            this.tableLayoutPanelSheetInputCount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelSheetInputCount.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanelSheetInputCount.Name = "tableLayoutPanelSheetInputCount";
-            this.tableLayoutPanelSheetInputCount.RowCount = 1;
-            this.tableLayoutPanelSheetInputCount.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelSheetInputCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelSheetInputCount.Size = new System.Drawing.Size(200, 100);
-            this.tableLayoutPanelSheetInputCount.TabIndex = 24;
-            // 
-            // tableLayoutPanelCode
-            // 
-            this.tableLayoutPanelCode.ColumnCount = 3;
-            this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelCode.Controls.Add(this.flowLayoutPanel1, 0, 0);
-            this.tableLayoutPanelCode.Controls.Add(this.btnCancel, 1, 0);
-            this.tableLayoutPanelCode.Controls.Add(this.groupBoxCompileStatus, 2, 0);
-            this.tableLayoutPanelCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelCode.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanelCode.Name = "tableLayoutPanelCode";
-            this.tableLayoutPanelCode.RowCount = 2;
-            this.tableLayoutPanelCode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelCode.Size = new System.Drawing.Size(664, 129);
-            this.tableLayoutPanelCode.TabIndex = 24;
-            // 
-            // btnOk
-            // 
-            this.btnOk.AutoSize = true;
-            this.btnOk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnOk.Location = new System.Drawing.Point(3, 38);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(101, 29);
-            this.btnOk.TabIndex = 19;
-            this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
-            // tableLayoutPanelSheetOutputCount
-            // 
-            this.tableLayoutPanelSheetOutputCount.AutoSize = true;
-            this.tableLayoutPanelSheetOutputCount.ColumnCount = 2;
-            this.tableLayoutPanelSheetOutputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelSheetOutputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelSheetOutputCount.Controls.Add(this.lblSheetoutputcount, 0, 0);
-            this.tableLayoutPanelSheetOutputCount.Controls.Add(this.txtSheetoutputcount, 1, 0);
-            this.tableLayoutPanelSheetOutputCount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelSheetOutputCount.Location = new System.Drawing.Point(60, 48);
-            this.tableLayoutPanelSheetOutputCount.Name = "tableLayoutPanelSheetOutputCount";
-            this.tableLayoutPanelSheetOutputCount.RowCount = 1;
-            this.tableLayoutPanelSheetOutputCount.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelSheetOutputCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelSheetOutputCount.Size = new System.Drawing.Size(200, 100);
-            this.tableLayoutPanelSheetOutputCount.TabIndex = 26;
-            // 
-            // NodeName
-            // 
-            this.NodeName.DefaultNodeImage = null;
-            this.NodeName.FillWeight = 152.7174F;
-            this.NodeName.HeaderText = "Name";
-            this.NodeName.MinimumWidth = 6;
-            this.NodeName.Name = "NodeName";
-            this.NodeName.ReadOnly = true;
-            this.NodeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.NodeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // NodeXMLName
-            // 
-            this.NodeXMLName.HeaderText = "Alias";
-            this.NodeXMLName.MinimumWidth = 6;
-            this.NodeXMLName.Name = "NodeXMLName";
-            this.NodeXMLName.ReadOnly = true;
-            this.NodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.NodeXMLName.Visible = false;
-            // 
-            // NodeDataType
-            // 
-            this.NodeDataType.FillWeight = 83.1115F;
-            this.NodeDataType.HeaderText = "Data Type";
-            this.NodeDataType.MinimumWidth = 6;
-            this.NodeDataType.Name = "NodeDataType";
-            this.NodeDataType.ReadOnly = true;
-            this.NodeDataType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.NodeDataType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // NodeType
-            // 
-            this.NodeType.FillWeight = 64.17112F;
-            this.NodeType.HeaderText = "Type";
-            this.NodeType.Items.AddRange(new object[] {
-            "Element",
-            "Attribute",
-            "PCData"});
-            this.NodeType.MinimumWidth = 6;
-            this.NodeType.Name = "NodeType";
-            this.NodeType.ReadOnly = true;
-            this.NodeType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // NodeOptionality
-            // 
-            this.NodeOptionality.HeaderText = "Optionality";
-            this.NodeOptionality.Items.AddRange(new object[] {
-            "One",
-            "Zero or one",
-            "Zero or more",
-            "One or more"});
-            this.NodeOptionality.MinimumWidth = 6;
-            this.NodeOptionality.Name = "NodeOptionality";
-            this.NodeOptionality.ReadOnly = true;
-            this.NodeOptionality.Visible = false;
-            // 
-            // NodeChange
-            // 
-            this.NodeChange.HeaderText = "Change";
-            this.NodeChange.Items.AddRange(new object[] {
-            "None",
-            "Ignore",
-            "Flatten"});
-            this.NodeChange.MinimumWidth = 6;
-            this.NodeChange.Name = "NodeChange";
-            this.NodeChange.ReadOnly = true;
-            this.NodeChange.Visible = false;
-            // 
-            // OutputNodeName
-            // 
-            this.OutputNodeName.DefaultNodeImage = null;
-            this.OutputNodeName.FillWeight = 152.7174F;
-            this.OutputNodeName.HeaderText = "Name";
-            this.OutputNodeName.MinimumWidth = 6;
-            this.OutputNodeName.Name = "OutputNodeName";
-            this.OutputNodeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.OutputNodeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // OutputNodeXMLName
-            // 
-            this.OutputNodeXMLName.HeaderText = "Alias";
-            this.OutputNodeXMLName.MinimumWidth = 6;
-            this.OutputNodeXMLName.Name = "OutputNodeXMLName";
-            this.OutputNodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.OutputNodeXMLName.Visible = false;
-            // 
-            // OutputNodeDataType
-            // 
-            this.OutputNodeDataType.FillWeight = 83.1115F;
-            this.OutputNodeDataType.HeaderText = "Data Type";
-            this.OutputNodeDataType.Items.AddRange(new object[] {
-            "String",
-            "Array",
-            "Int16",
-            "Int32",
-            "Int64",
-            "Boolean",
-            "DateTime",
-            "Double",
-            "Single"});
-            this.OutputNodeDataType.MinimumWidth = 6;
-            this.OutputNodeDataType.Name = "OutputNodeDataType";
-            this.OutputNodeDataType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // dataGridViewComboBoxColumn1
-            // 
-            this.dataGridViewComboBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.dataGridViewComboBoxColumn1.DisplayStyleForCurrentCellOnly = true;
-            this.dataGridViewComboBoxColumn1.FillWeight = 64.17112F;
-            this.dataGridViewComboBoxColumn1.HeaderText = "Type";
-            this.dataGridViewComboBoxColumn1.Items.AddRange(new object[] {
-            "Element",
-            "Attribute",
-            "PCData"});
-            this.dataGridViewComboBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
-            // 
-            // OutputNodeOptionality
-            // 
-            this.OutputNodeOptionality.HeaderText = "Optionality";
-            this.OutputNodeOptionality.Items.AddRange(new object[] {
-            "One",
-            "Zero or one",
-            "Zero or more",
-            "One or more"});
-            this.OutputNodeOptionality.MinimumWidth = 6;
-            this.OutputNodeOptionality.Name = "OutputNodeOptionality";
-            this.OutputNodeOptionality.Visible = false;
-            // 
-            // OutputNodeChange
-            // 
-            this.OutputNodeChange.HeaderText = "Change";
-            this.OutputNodeChange.Items.AddRange(new object[] {
-            "None",
-            "Ignore",
-            "Flatten"});
-            this.OutputNodeChange.MinimumWidth = 6;
-            this.OutputNodeChange.Name = "OutputNodeChange";
-            this.OutputNodeChange.Visible = false;
-            // 
-            // groupBoxCompileStatus
-            // 
-            this.groupBoxCompileStatus.AutoSize = true;
-            this.groupBoxCompileStatus.Controls.Add(this.txtCompileStatus);
-            this.groupBoxCompileStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxCompileStatus.Location = new System.Drawing.Point(0, 0);
-            this.groupBoxCompileStatus.Name = "groupBoxCompileStatus";
-            this.groupBoxCompileStatus.Size = new System.Drawing.Size(200, 100);
-            this.groupBoxCompileStatus.TabIndex = 23;
-            this.groupBoxCompileStatus.TabStop = false;
-            this.groupBoxCompileStatus.Text = "Compile status";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.tabControl1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(664, 600);
-            this.panel1.TabIndex = 23;
-            // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -871,6 +618,33 @@
             this.splitContainer2.SplitterDistance = 600;
             this.splitContainer2.TabIndex = 23;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tabControl1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(664, 600);
+            this.panel1.TabIndex = 23;
+            // 
+            // tableLayoutPanelCode
+            // 
+            this.tableLayoutPanelCode.ColumnCount = 3;
+            this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelCode.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanelCode.Controls.Add(this.btnCancel, 1, 0);
+            this.tableLayoutPanelCode.Controls.Add(this.groupBoxCompileStatus, 2, 0);
+            this.tableLayoutPanelCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelCode.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelCode.Name = "tableLayoutPanelCode";
+            this.tableLayoutPanelCode.RowCount = 2;
+            this.tableLayoutPanelCode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelCode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelCode.Size = new System.Drawing.Size(664, 129);
+            this.tableLayoutPanelCode.TabIndex = 24;
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -878,10 +652,106 @@
             this.flowLayoutPanel1.Controls.Add(this.btnFindError);
             this.flowLayoutPanel1.Controls.Add(this.btnOk);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 39);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(107, 67);
             this.flowLayoutPanel1.TabIndex = 22;
+            // 
+            // btnOk
+            // 
+            this.btnOk.AutoSize = true;
+            this.btnOk.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnOk.Location = new System.Drawing.Point(3, 38);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(101, 29);
+            this.btnOk.TabIndex = 19;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // groupBoxCompileStatus
+            // 
+            this.groupBoxCompileStatus.AutoSize = true;
+            this.groupBoxCompileStatus.Controls.Add(this.txtCompileStatus);
+            this.groupBoxCompileStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxCompileStatus.Location = new System.Drawing.Point(223, 3);
+            this.groupBoxCompileStatus.Name = "groupBoxCompileStatus";
+            this.groupBoxCompileStatus.Size = new System.Drawing.Size(438, 103);
+            this.groupBoxCompileStatus.TabIndex = 23;
+            this.groupBoxCompileStatus.TabStop = false;
+            this.groupBoxCompileStatus.Text = "Compile status";
+            // 
+            // tableLayoutPanelDataInputCount
+            // 
+            this.tableLayoutPanelDataInputCount.AutoSize = true;
+            this.tableLayoutPanelDataInputCount.ColumnCount = 4;
+            this.tableLayoutPanelDataInputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelDataInputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelDataInputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelDataInputCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelDataInputCount.Controls.Add(this.labelDataInputCount, 0, 0);
+            this.tableLayoutPanelDataInputCount.Controls.Add(this.txtdatainputcount, 1, 0);
+            this.tableLayoutPanelDataInputCount.Controls.Add(this.lblSheetinputcount, 2, 0);
+            this.tableLayoutPanelDataInputCount.Controls.Add(this.txtSheetinputcount, 3, 0);
+            this.tableLayoutPanelDataInputCount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanelDataInputCount.Location = new System.Drawing.Point(3, 22);
+            this.tableLayoutPanelDataInputCount.Name = "tableLayoutPanelDataInputCount";
+            this.tableLayoutPanelDataInputCount.RowCount = 1;
+            this.tableLayoutPanelDataInputCount.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelDataInputCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelDataInputCount.Size = new System.Drawing.Size(321, 32);
+            this.tableLayoutPanelDataInputCount.TabIndex = 24;
+            // 
+            // txtSheetinputcount
+            // 
+            this.txtSheetinputcount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSheetinputcount.AutoSize = true;
+            this.txtSheetinputcount.Enabled = false;
+            this.txtSheetinputcount.Location = new System.Drawing.Point(351, 3);
+            this.txtSheetinputcount.Name = "txtSheetinputcount";
+            this.txtSheetinputcount.Size = new System.Drawing.Size(56, 26);
+            this.txtSheetinputcount.TabIndex = 12;
+            // 
+            // lblSheetinputcount
+            // 
+            this.lblSheetinputcount.Location = new System.Drawing.Point(204, 0);
+            this.lblSheetinputcount.Name = "lblSheetinputcount";
+            this.lblSheetinputcount.Size = new System.Drawing.Size(141, 26);
+            this.lblSheetinputcount.TabIndex = 11;
+            this.lblSheetinputcount.Text = "Sheet input count:";
+            this.lblSheetinputcount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtdatainputcount
+            // 
+            this.txtdatainputcount.AutoSize = true;
+            this.txtdatainputcount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtdatainputcount.Location = new System.Drawing.Point(142, 3);
+            this.txtdatainputcount.Name = "txtdatainputcount";
+            this.txtdatainputcount.Size = new System.Drawing.Size(56, 26);
+            this.txtdatainputcount.TabIndex = 8;
+            // 
+            // labelDataInputCount
+            // 
+            this.labelDataInputCount.Location = new System.Drawing.Point(3, 0);
+            this.labelDataInputCount.Name = "labelDataInputCount";
+            this.labelDataInputCount.Size = new System.Drawing.Size(133, 26);
+            this.labelDataInputCount.TabIndex = 24;
+            this.labelDataInputCount.Text = "Data input count:";
+            this.labelDataInputCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // groupBoxInput
+            // 
+            this.groupBoxInput.Controls.Add(this.tableLayoutPanelDataInputCount);
+            this.groupBoxInput.Controls.Add(this.grInput);
+            this.groupBoxInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxInput.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxInput.Name = "groupBoxInput";
+            this.groupBoxInput.Size = new System.Drawing.Size(327, 334);
+            this.groupBoxInput.TabIndex = 24;
+            this.groupBoxInput.TabStop = false;
+            this.groupBoxInput.Text = "Data input";
             // 
             // frmMain
             // 
@@ -899,46 +769,38 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grOutput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtdatainputcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdataoutputcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSheetoutputcount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSheetinputcount)).EndInit();
             this.tblLayoutPane1.ResumeLayout(false);
             this.tblLayoutPane1.PerformLayout();
+            this.tableLayoutPanelSheetOutputCount.ResumeLayout(false);
+            this.tableLayoutPanelSheetOutputCount.PerformLayout();
+            this.groupBoxOutput.ResumeLayout(false);
+            this.groupBoxOutput.PerformLayout();
+            this.flowLayoutPanelActions.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabSample.ResumeLayout(false);
             this.tabScript.ResumeLayout(false);
-            this.groupBoxInput.ResumeLayout(false);
-            this.groupBoxOutput.ResumeLayout(false);
-            this.groupBoxSettings.ResumeLayout(false);
-            this.groupBoxSettings.PerformLayout();
-            this.flowLayoutPanelActions.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.tableLayoutPanelSettings.ResumeLayout(false);
-            this.tableLayoutPanelSettings.PerformLayout();
-            this.tableLayoutPanelDataInputCount.ResumeLayout(false);
-            this.tableLayoutPanelDataInputCount.PerformLayout();
-            this.tableLayoutPanelDataOutputCount.ResumeLayout(false);
-            this.tableLayoutPanelDataOutputCount.PerformLayout();
-            this.tableLayoutPanelSheets.ResumeLayout(false);
-            this.tableLayoutPanelSheets.PerformLayout();
-            this.tableLayoutPanelSheetInputCount.ResumeLayout(false);
-            this.tableLayoutPanelSheetInputCount.PerformLayout();
-            this.tableLayoutPanelCode.ResumeLayout(false);
-            this.tableLayoutPanelCode.PerformLayout();
-            this.tableLayoutPanelSheetOutputCount.ResumeLayout(false);
-            this.tableLayoutPanelSheetOutputCount.PerformLayout();
-            this.groupBoxCompileStatus.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanelCode.ResumeLayout(false);
+            this.tableLayoutPanelCode.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.groupBoxCompileStatus.ResumeLayout(false);
+            this.tableLayoutPanelDataInputCount.ResumeLayout(false);
+            this.tableLayoutPanelDataInputCount.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSheetinputcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtdatainputcount)).EndInit();
+            this.groupBoxInput.ResumeLayout(false);
+            this.groupBoxInput.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -951,14 +813,9 @@
         private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.NumericUpDown txtdatainputcount;
         private System.Windows.Forms.NumericUpDown txtdataoutputcount;
         private System.Windows.Forms.NumericUpDown txtSheetoutputcount;
         private System.Windows.Forms.Label lblSheetoutputcount;
-        private System.Windows.Forms.NumericUpDown txtSheetinputcount;
-        private System.Windows.Forms.Label lblSheetinputcount;
-        private System.Windows.Forms.CheckBox chkindexsheet;
-        private System.Windows.Forms.CheckBox chkpreprocess;
         private System.Windows.Forms.TableLayoutPanel tblLayoutPane1;
         private System.Windows.Forms.RichTextBox txtSample;
         private System.Windows.Forms.Button btnCancel;
@@ -968,20 +825,10 @@
         private System.Windows.Forms.TabPage tabScript;
         private System.Windows.Forms.RichTextBox txtScript;
         private System.Windows.Forms.RichTextBox txtCompileStatus;
-        private System.Windows.Forms.Button btnCopy;
-        private System.Windows.Forms.Button btnPaste;
-        private System.Windows.Forms.GroupBox groupBoxSettings;
-        private System.Windows.Forms.GroupBox groupBoxInput;
         private System.Windows.Forms.GroupBox groupBoxOutput;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelActions;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSettings;
-        private System.Windows.Forms.Label labelDataInputCount;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDataInputCount;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDataOutputCount;
         private System.Windows.Forms.Label labelDataOutputCount;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSheets;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSheetInputCount;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCode;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSheetOutputCount;
@@ -1001,6 +848,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.GroupBox groupBoxInput;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDataInputCount;
+        private System.Windows.Forms.Label labelDataInputCount;
+        private System.Windows.Forms.NumericUpDown txtdatainputcount;
+        private System.Windows.Forms.Label lblSheetinputcount;
+        private System.Windows.Forms.NumericUpDown txtSheetinputcount;
     }
 }
 
