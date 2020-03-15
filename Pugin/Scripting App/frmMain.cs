@@ -27,6 +27,8 @@ namespace ScriptingApp
         public frmMain()
         {
             InitializeComponent();
+
+            tabControl1.SelectedTab = tabScript;
         }
         #endregion
 
