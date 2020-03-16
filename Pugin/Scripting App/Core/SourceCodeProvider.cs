@@ -126,62 +126,28 @@ namespace WinFormCodeCompile
             }
         }
 
-        internal static StringBuilder GetInitializationCodeUsingData(List<DynamicClass> inputDCObjects, XElement data)
+        internal static StringBuilder GetInitializationCodeUsingData(List<DynamicClass> inputDCObjects, string filePath)
         {
             StringBuilder result = new StringBuilder();
             var rootObject = inputDCObjects[0];
+            var childRootObject = inputDCObjects.FirstOrDefault(x => x.ParentNode == rootObject);
 
             if (string.Equals(rootObject.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
             {
                 result.AppendLine($"{rootObject.ClassName} = new List<{rootObject.GetFullClassName()}> {{");
                 result.AppendLine($"new {rootObject.GetFullClassName()} {{");
-                InitPropWithData(inputDCObjects, result, rootObject, data);
+                result.AppendLine($"{childRootObject.PropertyName} = DeserializeXMLFileToObject<{childRootObject.GetFullClassName()}>(\"{filePath.Replace(@"\", @"\\")}\")");
                 result.AppendLine($"}},");
                 result.AppendLine($"}};");
             }
             else
             {
                 result.AppendLine($"{rootObject.ClassName} = new {rootObject.GetFullClassName()} {{");
-                InitPropWithData(inputDCObjects, result, rootObject, data);
+                result.AppendLine($"{childRootObject.PropertyName} = DeserializeXMLFileToObject<{childRootObject.GetFullClassName()}>(\"{filePath.Replace(@"\", @"\\")}\")");
                 result.AppendLine($"}};");
             }
 
             return result;
-        }
-
-        private static void InitPropWithData(List<DynamicClass> inputDCObjects, StringBuilder result, DynamicClass rootObject, XElement data)
-        {
-            foreach (var child in inputDCObjects.Where(o => o.ParentNode == rootObject))
-            {
-                if (child.IsParent)
-                {
-                    if (string.Equals(child.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
-                    {
-                        result.AppendLine($"{child.ClassName} = new List<{child.GetFullClassName()}> {{");
-                        foreach (var dataItem in data.Elements(child.ClassName))
-                        {
-                            FillProp(inputDCObjects, result, child, dataItem);
-                        }
-                        result.AppendLine($"}}");
-                    }
-                    else
-                    {
-                        result.AppendLine($"{child.ClassName} = new {child.GetFullClassName()} {{");
-                        InitPropWithData(inputDCObjects, result, child, data);
-                        result.AppendLine($"}}");
-                    }
-                }
-            }
-        }
-
-        private static void FillProp(List<DynamicClass> inputDCObjects, StringBuilder result, DynamicClass rootObject, XElement data)
-        {
-            result.AppendLine($"new {rootObject.GetFullClassName()} {{");
-            foreach (var prop in inputDCObjects.Where(o => o.ParentNode == rootObject))
-            {
-                result.AppendLine($"{prop.ClassName} = @\"{data.Element(prop.ClassName)?.Value ?? data.Attribute(prop.ClassName)?.Value ?? string.Empty}\",");
-            }
-            result.AppendLine($"}},");
         }
 
         private static string SaveToFile(string saveFilePath)

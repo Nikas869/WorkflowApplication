@@ -41,9 +41,9 @@ namespace ScriptingApp.Core
             if (file != null)
             {
                 dataInitialization
-                    .Append(SourceCodeProvider.GetInitializationCodeUsingData(inputDCObjects, file.RootNode))
+                    .Append(SourceCodeProvider.GetInitializationCodeUsingData(inputDCObjects, file.FilePath))
                     .Append(Environment.NewLine)
-                    .Append(SourceCodeProvider.GetInitializationCodeUsingData(outputDCObjects, file.RootNode));
+                    .Append(SourceCodeProvider.GetInitializationCodeUsingData(outputDCObjects, file.FilePath));
             }
             else
             {
