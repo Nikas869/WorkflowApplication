@@ -397,9 +397,20 @@
             this.txtdataoutputcount.AutoSize = true;
             this.txtdataoutputcount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtdataoutputcount.Location = new System.Drawing.Point(142, 3);
+            this.txtdataoutputcount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtdataoutputcount.Name = "txtdataoutputcount";
-            this.txtdataoutputcount.Size = new System.Drawing.Size(56, 26);
+            this.txtdataoutputcount.Size = new System.Drawing.Size(45, 22);
             this.txtdataoutputcount.TabIndex = 10;
+            this.txtdataoutputcount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtdataoutputcount.ValueChanged += new System.EventHandler(this.txtdataoutputcount_ValueChanged);
             // 
             // txtSheetoutputcount
             // 
@@ -407,14 +418,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSheetoutputcount.AutoSize = true;
             this.txtSheetoutputcount.Enabled = false;
-            this.txtSheetoutputcount.Location = new System.Drawing.Point(351, 3);
+            this.txtSheetoutputcount.Location = new System.Drawing.Point(340, 3);
             this.txtSheetoutputcount.Name = "txtSheetoutputcount";
-            this.txtSheetoutputcount.Size = new System.Drawing.Size(56, 26);
+            this.txtSheetoutputcount.Size = new System.Drawing.Size(45, 22);
             this.txtSheetoutputcount.TabIndex = 14;
             // 
             // lblSheetoutputcount
             // 
-            this.lblSheetoutputcount.Location = new System.Drawing.Point(204, 0);
+            this.lblSheetoutputcount.Location = new System.Drawing.Point(193, 0);
             this.lblSheetoutputcount.Name = "lblSheetoutputcount";
             this.lblSheetoutputcount.Size = new System.Drawing.Size(141, 26);
             this.lblSheetoutputcount.TabIndex = 13;
@@ -464,12 +475,12 @@
             this.tableLayoutPanelDataInputCount.Controls.Add(this.lblSheetinputcount, 2, 0);
             this.tableLayoutPanelDataInputCount.Controls.Add(this.txtSheetinputcount, 3, 0);
             this.tableLayoutPanelDataInputCount.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanelDataInputCount.Location = new System.Drawing.Point(3, 22);
+            this.tableLayoutPanelDataInputCount.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanelDataInputCount.Name = "tableLayoutPanelDataInputCount";
             this.tableLayoutPanelDataInputCount.RowCount = 1;
             this.tableLayoutPanelDataInputCount.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelDataInputCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanelDataInputCount.Size = new System.Drawing.Size(321, 32);
+            this.tableLayoutPanelDataInputCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanelDataInputCount.Size = new System.Drawing.Size(321, 28);
             this.tableLayoutPanelDataInputCount.TabIndex = 24;
             // 
             // labelDataInputCount
@@ -486,13 +497,24 @@
             this.txtdatainputcount.AutoSize = true;
             this.txtdatainputcount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtdatainputcount.Location = new System.Drawing.Point(142, 3);
+            this.txtdatainputcount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtdatainputcount.Name = "txtdatainputcount";
-            this.txtdatainputcount.Size = new System.Drawing.Size(56, 26);
+            this.txtdatainputcount.Size = new System.Drawing.Size(45, 22);
             this.txtdatainputcount.TabIndex = 8;
+            this.txtdatainputcount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtdatainputcount.ValueChanged += new System.EventHandler(this.txtdatainputcount_ValueChanged);
             // 
             // lblSheetinputcount
             // 
-            this.lblSheetinputcount.Location = new System.Drawing.Point(204, 0);
+            this.lblSheetinputcount.Location = new System.Drawing.Point(193, 0);
             this.lblSheetinputcount.Name = "lblSheetinputcount";
             this.lblSheetinputcount.Size = new System.Drawing.Size(141, 26);
             this.lblSheetinputcount.TabIndex = 11;
@@ -505,9 +527,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSheetinputcount.AutoSize = true;
             this.txtSheetinputcount.Enabled = false;
-            this.txtSheetinputcount.Location = new System.Drawing.Point(351, 3);
+            this.txtSheetinputcount.Location = new System.Drawing.Point(340, 3);
             this.txtSheetinputcount.Name = "txtSheetinputcount";
-            this.txtSheetinputcount.Size = new System.Drawing.Size(56, 26);
+            this.txtSheetinputcount.Size = new System.Drawing.Size(45, 22);
             this.txtSheetinputcount.TabIndex = 12;
             // 
             // groupBoxOutput
@@ -535,12 +557,12 @@
             this.tableLayoutPanelSheetOutputCount.Controls.Add(this.lblSheetoutputcount, 2, 0);
             this.tableLayoutPanelSheetOutputCount.Controls.Add(this.txtSheetoutputcount, 3, 0);
             this.tableLayoutPanelSheetOutputCount.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanelSheetOutputCount.Location = new System.Drawing.Point(3, 22);
+            this.tableLayoutPanelSheetOutputCount.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanelSheetOutputCount.Name = "tableLayoutPanelSheetOutputCount";
             this.tableLayoutPanelSheetOutputCount.RowCount = 1;
             this.tableLayoutPanelSheetOutputCount.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelSheetOutputCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanelSheetOutputCount.Size = new System.Drawing.Size(321, 32);
+            this.tableLayoutPanelSheetOutputCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanelSheetOutputCount.Size = new System.Drawing.Size(321, 28);
             this.tableLayoutPanelSheetOutputCount.TabIndex = 26;
             // 
             // labelDataOutputCount
@@ -574,7 +596,7 @@
             this.txtSample.Location = new System.Drawing.Point(3, 3);
             this.txtSample.Name = "txtSample";
             this.txtSample.ReadOnly = true;
-            this.txtSample.Size = new System.Drawing.Size(650, 563);
+            this.txtSample.Size = new System.Drawing.Size(650, 565);
             this.txtSample.TabIndex = 17;
             this.txtSample.Text = ";";
             // 
@@ -614,10 +636,10 @@
             // tabSample
             // 
             this.tabSample.Controls.Add(this.txtSample);
-            this.tabSample.Location = new System.Drawing.Point(4, 27);
+            this.tabSample.Location = new System.Drawing.Point(4, 25);
             this.tabSample.Name = "tabSample";
             this.tabSample.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSample.Size = new System.Drawing.Size(656, 569);
+            this.tabSample.Size = new System.Drawing.Size(656, 571);
             this.tabSample.TabIndex = 0;
             this.tabSample.Text = "Sample";
             this.tabSample.UseVisualStyleBackColor = true;
@@ -625,10 +647,10 @@
             // tabScript
             // 
             this.tabScript.Controls.Add(this.txtScript);
-            this.tabScript.Location = new System.Drawing.Point(4, 27);
+            this.tabScript.Location = new System.Drawing.Point(4, 22);
             this.tabScript.Name = "tabScript";
             this.tabScript.Padding = new System.Windows.Forms.Padding(3);
-            this.tabScript.Size = new System.Drawing.Size(656, 569);
+            this.tabScript.Size = new System.Drawing.Size(656, 574);
             this.tabScript.TabIndex = 1;
             this.tabScript.Text = "Script";
             this.tabScript.UseVisualStyleBackColor = true;
@@ -640,7 +662,7 @@
             this.txtScript.EnableAutoDragDrop = true;
             this.txtScript.Location = new System.Drawing.Point(3, 3);
             this.txtScript.Name = "txtScript";
-            this.txtScript.Size = new System.Drawing.Size(650, 563);
+            this.txtScript.Size = new System.Drawing.Size(650, 568);
             this.txtScript.TabIndex = 18;
             this.txtScript.Text = "";
             this.txtScript.WordWrap = false;
@@ -648,9 +670,9 @@
             // txtCompileStatus
             // 
             this.txtCompileStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCompileStatus.Location = new System.Drawing.Point(3, 22);
+            this.txtCompileStatus.Location = new System.Drawing.Point(3, 18);
             this.txtCompileStatus.Name = "txtCompileStatus";
-            this.txtCompileStatus.Size = new System.Drawing.Size(336, 98);
+            this.txtCompileStatus.Size = new System.Drawing.Size(336, 102);
             this.txtCompileStatus.TabIndex = 22;
             this.txtCompileStatus.Text = "";
             // 
@@ -716,7 +738,7 @@
             this.tableLayoutPanelCode.Name = "tableLayoutPanelCode";
             this.tableLayoutPanelCode.RowCount = 1;
             this.tableLayoutPanelCode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelCode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelCode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 129F));
             this.tableLayoutPanelCode.Size = new System.Drawing.Size(664, 129);
             this.tableLayoutPanelCode.TabIndex = 24;
             // 
@@ -761,7 +783,7 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1005, 735);

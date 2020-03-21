@@ -124,11 +124,10 @@ namespace ScriptingApp.Core
         private static StringBuilder CreateDynamicClasses(List<DynamicClass> DCObject, List<DynamicClass> initializeObjects)
         {
             StringBuilder builder = new StringBuilder();
-            // Get All Classess
-            var classes = DCObject.Where(x => x.IsParent == true).ToList();
-            string classNameType = classes[0].PropertyName;
-            initializeObjects.Add(classes[0]);
-            foreach (var c in classes)
+
+            string classNameType = DCObject[0].PropertyName;
+            initializeObjects.Add(DCObject[0]);
+            foreach (var c in DCObject)
             {
                 string className = c.GetFullClassName();
 
