@@ -69,14 +69,13 @@
             this.tabSample = new System.Windows.Forms.TabPage();
             this.tabScript = new System.Windows.Forms.TabPage();
             this.txtScript = new System.Windows.Forms.RichTextBox();
-            this.txtCompileStatus = new System.Windows.Forms.RichTextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanelCode = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnOk = new System.Windows.Forms.Button();
             this.groupBoxCompileStatus = new System.Windows.Forms.GroupBox();
+            this.txtCompileStatus = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdataoutputcount)).BeginInit();
@@ -604,7 +603,7 @@
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancel.AutoSize = true;
-            this.btnCancel.Location = new System.Drawing.Point(186, 88);
+            this.btnCancel.Location = new System.Drawing.Point(3, 82);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(127, 38);
             this.btnCancel.TabIndex = 20;
@@ -614,9 +613,9 @@
             // 
             // btnFindError
             // 
-            this.btnFindError.Location = new System.Drawing.Point(3, 41);
+            this.btnFindError.Location = new System.Drawing.Point(3, 38);
             this.btnFindError.Name = "btnFindError";
-            this.btnFindError.Size = new System.Drawing.Size(171, 38);
+            this.btnFindError.Size = new System.Drawing.Size(127, 38);
             this.btnFindError.TabIndex = 20;
             this.btnFindError.Text = "Find Error";
             this.btnFindError.UseVisualStyleBackColor = true;
@@ -647,10 +646,10 @@
             // tabScript
             // 
             this.tabScript.Controls.Add(this.txtScript);
-            this.tabScript.Location = new System.Drawing.Point(4, 22);
+            this.tabScript.Location = new System.Drawing.Point(4, 25);
             this.tabScript.Name = "tabScript";
             this.tabScript.Padding = new System.Windows.Forms.Padding(3);
-            this.tabScript.Size = new System.Drawing.Size(656, 574);
+            this.tabScript.Size = new System.Drawing.Size(656, 571);
             this.tabScript.TabIndex = 1;
             this.tabScript.Text = "Script";
             this.tabScript.UseVisualStyleBackColor = true;
@@ -662,19 +661,10 @@
             this.txtScript.EnableAutoDragDrop = true;
             this.txtScript.Location = new System.Drawing.Point(3, 3);
             this.txtScript.Name = "txtScript";
-            this.txtScript.Size = new System.Drawing.Size(650, 568);
+            this.txtScript.Size = new System.Drawing.Size(650, 565);
             this.txtScript.TabIndex = 18;
             this.txtScript.Text = "";
             this.txtScript.WordWrap = false;
-            // 
-            // txtCompileStatus
-            // 
-            this.txtCompileStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCompileStatus.Location = new System.Drawing.Point(3, 18);
-            this.txtCompileStatus.Name = "txtCompileStatus";
-            this.txtCompileStatus.Size = new System.Drawing.Size(336, 102);
-            this.txtCompileStatus.TabIndex = 22;
-            this.txtCompileStatus.Text = "";
             // 
             // splitContainer1
             // 
@@ -726,19 +716,17 @@
             // 
             // tableLayoutPanelCode
             // 
-            this.tableLayoutPanelCode.ColumnCount = 3;
+            this.tableLayoutPanelCode.ColumnCount = 2;
             this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelCode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelCode.Controls.Add(this.flowLayoutPanel1, 0, 0);
-            this.tableLayoutPanelCode.Controls.Add(this.btnCancel, 1, 0);
-            this.tableLayoutPanelCode.Controls.Add(this.groupBoxCompileStatus, 2, 0);
+            this.tableLayoutPanelCode.Controls.Add(this.groupBoxCompileStatus, 1, 0);
             this.tableLayoutPanelCode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelCode.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelCode.Name = "tableLayoutPanelCode";
             this.tableLayoutPanelCode.RowCount = 1;
             this.tableLayoutPanelCode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelCode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 129F));
             this.tableLayoutPanelCode.Size = new System.Drawing.Size(664, 129);
             this.tableLayoutPanelCode.TabIndex = 24;
             // 
@@ -748,38 +736,35 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.Controls.Add(this.btnOk);
+            this.flowLayoutPanel1.Controls.Add(this.btnCancel);
             this.flowLayoutPanel1.Controls.Add(this.btnFindError);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(0, 66);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(177, 123);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(133, 123);
             this.flowLayoutPanel1.TabIndex = 22;
-            // 
-            // btnOk
-            // 
-            this.btnOk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnOk.Location = new System.Drawing.Point(3, 85);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(171, 38);
-            this.btnOk.TabIndex = 19;
-            this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // groupBoxCompileStatus
             // 
             this.groupBoxCompileStatus.AutoSize = true;
             this.groupBoxCompileStatus.Controls.Add(this.txtCompileStatus);
             this.groupBoxCompileStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxCompileStatus.Location = new System.Drawing.Point(319, 3);
+            this.groupBoxCompileStatus.Location = new System.Drawing.Point(142, 3);
             this.groupBoxCompileStatus.Name = "groupBoxCompileStatus";
-            this.groupBoxCompileStatus.Size = new System.Drawing.Size(342, 123);
+            this.groupBoxCompileStatus.Size = new System.Drawing.Size(519, 123);
             this.groupBoxCompileStatus.TabIndex = 23;
             this.groupBoxCompileStatus.TabStop = false;
             this.groupBoxCompileStatus.Text = "Compile status";
+            // 
+            // txtCompileStatus
+            // 
+            this.txtCompileStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCompileStatus.Location = new System.Drawing.Point(3, 18);
+            this.txtCompileStatus.Name = "txtCompileStatus";
+            this.txtCompileStatus.Size = new System.Drawing.Size(513, 102);
+            this.txtCompileStatus.TabIndex = 22;
+            this.txtCompileStatus.Text = "";
             // 
             // frmMain
             // 
@@ -827,6 +812,7 @@
             this.tableLayoutPanelCode.ResumeLayout(false);
             this.tableLayoutPanelCode.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.groupBoxCompileStatus.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -851,13 +837,11 @@
         private System.Windows.Forms.TabPage tabSample;
         private System.Windows.Forms.TabPage tabScript;
         private System.Windows.Forms.RichTextBox txtScript;
-        private System.Windows.Forms.RichTextBox txtCompileStatus;
         private System.Windows.Forms.GroupBox groupBoxOutput;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelActions;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label labelDataOutputCount;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCode;
-        private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSheetOutputCount;
         private AdvancedDataGridView.TreeGridColumn OutputNodeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn OutputNodeXMLName;
@@ -865,7 +849,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn OutputNodeOptionality;
         private System.Windows.Forms.DataGridViewComboBoxColumn OutputNodeChange;
-        private System.Windows.Forms.GroupBox groupBoxCompileStatus;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -881,6 +864,8 @@
 		private System.Windows.Forms.DataGridViewComboBoxColumn NodeType;
 		private System.Windows.Forms.DataGridViewComboBoxColumn NodeOptionality;
 		private System.Windows.Forms.DataGridViewComboBoxColumn NodeChange;
-	}
+        private System.Windows.Forms.GroupBox groupBoxCompileStatus;
+        private System.Windows.Forms.RichTextBox txtCompileStatus;
+    }
 }
 

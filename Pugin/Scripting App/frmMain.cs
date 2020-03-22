@@ -22,20 +22,44 @@ namespace ScriptingApp
         public IList<BaseOutputNode> OutputNodes { get; set; }
         public IList<Field> OutputSchemas => OutputNodes.Select(node => node.State?.Schema).ToList();
 
+        public Field OutputSchema { get; set; }
+
         public delegate void NodesCountHandler(int newValue);
         public event NodesCountHandler OnInputNodesValueChanged;
         public event NodesCountHandler OnOutputNodesValueChanged;
 
-        public frmMain(IList<BaseInputNode> inputNodes, IList<BaseOutputNode> outputNodes)
+        public frmMain(
+            IList<BaseInputNode> inputNodes,
+            IList<BaseOutputNode> outputNodes,
+            string code = "",
+            Field outputSchema = null)
         {
             InitializeComponent();
 
             tabControl1.SelectedTab = tabScript;
             txtdatainputcount.Value = inputNodes.Count;
             txtdataoutputcount.Value = outputNodes.Count;
+            txtScript.Text = code;
 
             InputNodes = inputNodes;
             OutputNodes = outputNodes;
+
+            OutputSchema = outputSchema;
+        }
+
+        public string GetCode()
+        {
+            return txtScript.Text;
+        }
+
+        public Field GetFullInputSchema()
+        {
+            return GenerateSchema(grInput);
+        }
+
+        public Field GetFullOutputSchema()
+        {
+            return GenerateSchema(grOutput);
         }
 
         #region Node Function 
@@ -126,11 +150,25 @@ namespace ScriptingApp
         private void Form1_Load(object sender, EventArgs e)
         {
             InitializeTreeViewsWithRoot();
-            FillTreeViewsUsingSchemas(InputSchemas, OutputSchemas);
-            SetSampleCode();
+            FillTreeViewsUsingSchemas(grInput, InputSchemas, "Input");
 
-            // How to get modified schema
-            //var outputSchema = GenerateSchema(grInput);
+            if (OutputSchema != null)
+            {
+                // Root alredy exist, so we fill only his children
+                grOutput.Nodes.Clear();
+                var root = grOutput.Nodes.Add(OutputSchema.Name);
+                foreach (var child in OutputSchema.ChildNodes)
+                {
+                    CreateTreeChildNodes(child, root);
+                }
+                ExpandChildren(grOutput.Nodes[0]);
+            }
+            else
+            {
+                FillTreeViewsUsingSchemas(grOutput, OutputSchemas, "Output");
+            }
+
+            SetSampleCode();
         }
 
         private void InitializeTreeViewsWithRoot()
@@ -142,24 +180,14 @@ namespace ScriptingApp
             grOutput.Nodes.Add("Root");
         }
 
-        private void FillTreeViewsUsingSchemas(IEnumerable<Field> inputSchemas, IEnumerable<Field> outputSchemas)
+        private void FillTreeViewsUsingSchemas(TreeGridView tree, IEnumerable<Field> schemas, string namePrefix)
         {
-            var inputRoot = grInput.Nodes[0];
-            var outputRoot = grOutput.Nodes[0];
+            var root = tree.Nodes[0];
 
             int index = 0;
-            foreach (var schema in inputSchemas)
+            foreach (var schema in schemas)
             {
-                // Bind Input TreeView
-                SetTreeFromSchema(inputRoot, schema, $"Input_{index}");
-
-                index++;
-            }
-            index = 0;
-            foreach (var schema in outputSchemas)
-            {
-                // Bind OutPut Treeview
-                SetTreeFromSchema(outputRoot, schema, $"Output_{index}");
+                SetTreeFromSchema(root, schema, $"{namePrefix}_{index}");
 
                 index++;
             }
@@ -351,50 +379,6 @@ namespace ScriptingApp
             this.Close();
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-            var data = WorkflowFileFactory.LoadFromXmlFile(GetInputXml());
-            var inputSchema = GenerateSchema(grInput);
-            var outputSchema = GenerateSchema(grOutput);
-            var result = CompilerService.GenerateCodeAndCompile(inputSchema, outputSchema, txtScript.Text, data);
-
-            try
-            {
-                Assembly loAssembly = result.CompiledAssembly;
-                // Retrieve an obj ref - generic type only
-                object loObject =
-                       loAssembly.CreateInstance("WinFormCodeCompile.Transform");
-                if (loObject == null)
-                {
-                    MessageBox.Show("Couldn't load class.");
-                    return;
-                }
-                try
-                {
-                    var type = loObject.GetType();
-                    var method = type.GetMethod("UpdateText");
-                    var invokationResult = method.Invoke(loObject, null);
-                }
-                catch (Exception loError)
-                {
-                    MessageBox.Show(loError.Message, "Compiler");
-                }
-            }
-            catch { }
-        }
-
-        private void btnCopy_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(txtSample.SelectedText);
-        }
-
-        private void btnPaste_Click(object sender, EventArgs e)
-        {
-            txtScript.Text += Clipboard.GetText();
-        }
-
         private void SetSampleCode()
         {
             var filePath = AppDomain.CurrentDomain.BaseDirectory + "SampleCode.txt";
@@ -424,6 +408,7 @@ namespace ScriptingApp
         {
             OnOutputNodesValueChanged?.Invoke((int)txtdataoutputcount.Value);
         }
+
         private Field GetSchemaOrNull(BaseInputNode node)
         {
             if (node == null || node.Connector == null)
