@@ -10,6 +10,9 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 using System.Xml.XPath;
 
 namespace ScriptingApp
@@ -264,6 +267,41 @@ namespace ScriptingApp
                     }
                 }
             };
+        }
+
+        public override void ReadParameter(XElement BaseModuleNode)
+        {
+            var parameterNode = BaseModuleNode.XPathSelectElement("//Parameters");
+
+            if (parameterNode != null && parameterNode.HasElements)
+            {
+                var reader = parameterNode.CreateReader();
+                reader.MoveToContent();
+                reader.Read();
+                reader.MoveToContent();
+
+                logger.Info("Loading parameter");
+
+                var xmlSerializer = new XmlSerializer(typeof(string));
+                CodeText = (string)xmlSerializer.Deserialize(reader);
+                xmlSerializer = new XmlSerializer(typeof(Field));
+                FullInputSchema = (Field)xmlSerializer.Deserialize(reader);
+                FullOutputSchema = (Field)xmlSerializer.Deserialize(reader);
+            }
+        }
+
+        public override void WriteParameter(XmlWriter writer)
+        {
+            writer.WriteStartElement("Parameters");
+
+            var xmlSerializer = new XmlSerializer(typeof(string));
+            xmlSerializer.Serialize(writer, CodeText);
+
+            xmlSerializer = new XmlSerializer(typeof(Field));
+            xmlSerializer.Serialize(writer, FullInputSchema);
+            xmlSerializer.Serialize(writer, FullOutputSchema);
+
+            writer.WriteEndElement();
         }
     }
 }
