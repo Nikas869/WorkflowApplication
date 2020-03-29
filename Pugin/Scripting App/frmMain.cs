@@ -1,15 +1,12 @@
 ﻿using AdvancedDataGridView;
-using JdSuite.Common.FileProcessing;
 using JdSuite.Common.Module;
 using ScriptingApp.Core;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace ScriptingApp
@@ -133,7 +130,6 @@ namespace ScriptingApp
         }
         #endregion
 
-        #region ExpandNodes
         private void ExpandChildren(TreeGridNode parent)
         {
             parent.Expand();
@@ -142,8 +138,6 @@ namespace ScriptingApp
                 ExpandChildren(node);
             }
         }
-
-        #endregion
 
         #region Events
         // Form Events
@@ -392,21 +386,48 @@ namespace ScriptingApp
                 txtSample.Text = "Please, provide sample code in SampleCode.txt file";
             }
         }
-
-        private string GetInputXml()
-        {
-            return ConfigurationManager.AppSettings["InputFilePath"];
-        }
         #endregion
 
         private void txtdatainputcount_ValueChanged(object sender, EventArgs e)
         {
+            if (InputNodes == null)
+            {
+                return;
+            }
+
+            var nodesBefore = InputNodes.Count;
+
             OnInputNodesValueChanged?.Invoke((int)txtdatainputcount.Value);
+
+            if (nodesBefore < (int)txtdatainputcount.Value)
+            {
+                grInput.Nodes[0].Nodes.Add(new[] { $"Input_{InputNodes.Count - 1}", $"Input_{InputNodes.Count - 1}", "Array" });
+            }
+            else if (nodesBefore > (int)txtdatainputcount.Value)
+            {
+                grInput.Nodes[0].Nodes.RemoveAt(InputNodes.Count);
+            }
         }
 
         private void txtdataoutputcount_ValueChanged(object sender, EventArgs e)
         {
+            if (OutputNodes == null)
+            {
+                return;
+            }
+
+            var nodesBefore = OutputNodes.Count;
+
             OnOutputNodesValueChanged?.Invoke((int)txtdataoutputcount.Value);
+
+            if (nodesBefore < (int)txtdataoutputcount.Value)
+            {
+                grOutput.Nodes[0].Nodes.Add(new[] { $"Output_{OutputNodes.Count - 1}", $"Output_{OutputNodes.Count - 1}", "Array" });
+            }
+            else if (nodesBefore > (int)txtdataoutputcount.Value)
+            {
+                grOutput.Nodes[0].Nodes.RemoveAt(OutputNodes.Count);
+            }
         }
 
         private Field GetSchemaOrNull(BaseInputNode node)
