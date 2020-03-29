@@ -26,14 +26,7 @@ namespace ScriptingApp.Core
             StringBuilder inObject = new StringBuilder();
             foreach (var item in initializeObjects)
             {
-                if (string.Equals(item.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
-                {
-                    inObject.AppendLine($"List<{item.GetFullClassName()}> {item.GetFullClassName()} = new List<{item.GetFullClassName()}>();");
-                }
-                else
-                {
-                    inObject.AppendLine($"{item.GetFullClassName()} {item.GetFullClassName()} = new {item.GetFullClassName()}();");
-                }
+                inObject.AppendLine($"{item.GetFullClassName()} {item.GetFullClassName()} = new {item.GetFullClassName()}();");
             }
 
             StringBuilder dataInitialization = new StringBuilder();
