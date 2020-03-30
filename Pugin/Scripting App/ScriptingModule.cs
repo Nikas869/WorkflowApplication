@@ -113,6 +113,43 @@ namespace ScriptingApp
                 workInfo.Log(this.DisplayName, NLog.LogLevel.Info, "Starting Scripting process");
 
                 // TODO: place all logic here
+                var inputFiles = new Dictionary<string, string>();
+                //var outputFiles = new Dictionary<string, string>();
+
+                for (int i = 0; i < InputNodes.Count; i++)
+                {
+                    inputFiles.Add($"Input_{i}", InputNodes[i].State.DataFilePath);
+                }
+
+                //for (int i = 0; i < OutputNodes.Count; i++)
+                //{
+                //    inputFiles.Add($"Output_{i}", OutputNodes[i].State.DataFilePath);
+                //}
+
+                var result = CompilerService.GenerateCodeAndCompile(FullInputSchema, FullOutputSchema, CodeText, inputFiles, ((OutputNode)workInfo.OutPutModule.InputNodes[0].Connector).State.DataFilePath);
+
+                try
+                {
+                    Assembly loAssembly = result.CompiledAssembly;
+                    // Retrieve an obj ref - generic type only
+                    object loObject = loAssembly.CreateInstance("WinFormCodeCompile.Transform");
+                    if (loObject == null)
+                    {
+                        MessageService.ShowError("Critical", "Couldn't load class.");
+                        return false;
+                    }
+                    try
+                    {
+                        var type = loObject.GetType();
+                        var method = type.GetMethod("UpdateText");
+                        var invokationResult = method.Invoke(loObject, null);
+                    }
+                    catch (Exception loError)
+                    {
+                        MessageService.ShowError("Critical", loError.Message);
+                    }
+                }
+                catch { }
 
                 bStatus = true;
 

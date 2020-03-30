@@ -127,7 +127,7 @@ namespace WinFormCodeCompile
             }
         }
 
-        internal static StringBuilder GetInitializationCodeUsingData(List<DynamicClass> inputDCObjects, string filePath)
+        internal static StringBuilder GetInitializationCodeUsingData(List<DynamicClass> inputDCObjects, Dictionary<string, string> inputFiles)
         {
             StringBuilder result = new StringBuilder();
             foreach (var rootObject in inputDCObjects.Where(o => o.ParentNode == null))
@@ -138,14 +138,14 @@ namespace WinFormCodeCompile
                 {
                     result.AppendLine($"{rootObject.ClassName} = new List<{rootObject.GetFullClassName()}> {{");
                     result.AppendLine($"new {rootObject.GetFullClassName()} {{");
-                    result.AppendLine($"{childRootObject.PropertyName} = DeserializeXMLFileToObject<{childRootObject.GetFullClassName()}>(\"{filePath.Replace(@"\", @"\\")}\")");
+                    result.AppendLine($"{childRootObject.PropertyName} = DeserializeXMLFileToObject<{childRootObject.GetFullClassName()}>(\"{inputFiles[rootObject.ClassName].Replace(@"\", @"\\")}\")");
                     result.AppendLine($"}},");
                     result.AppendLine($"}};");
                 }
                 else
                 {
                     result.AppendLine($"{rootObject.ClassName} = new {rootObject.GetFullClassName()} {{");
-                    result.AppendLine($"{childRootObject.PropertyName} = DeserializeXMLFileToObject<{childRootObject.GetFullClassName()}>(\"{filePath.Replace(@"\", @"\\")}\")");
+                    result.AppendLine($"{childRootObject.PropertyName} = DeserializeXMLFileToObject<{childRootObject.GetFullClassName()}>(\"{inputFiles[rootObject.ClassName].Replace(@"\", @"\\")}\")");
                     result.AppendLine($"}};");
                 }
             }

@@ -12,7 +12,12 @@ namespace ScriptingApp.Core
 {
     internal static class CompilerService
     {
-        public static CompilerResults GenerateCodeAndCompile(Field inputSchema, Field outputSchema, string code, WorkflowFile file = null)
+        public static CompilerResults GenerateCodeAndCompile(
+            Field inputSchema,
+            Field outputSchema,
+            string code,
+            Dictionary<string, string> inputFiles = null,
+            string outputFile = null)
         {
             List<DynamicClass> initializeObjects = new List<DynamicClass>();
 
@@ -31,10 +36,10 @@ namespace ScriptingApp.Core
 
             StringBuilder dataInitialization = new StringBuilder();
 
-            if (file != null)
+            if (inputFiles != null)
             {
                 dataInitialization
-                    .Append(SourceCodeProvider.GetInitializationCodeUsingData(inputDCObjects, file.FilePath))
+                    .Append(SourceCodeProvider.GetInitializationCodeUsingData(inputDCObjects, inputFiles))
                     .Append(Environment.NewLine)
                     .Append(SourceCodeProvider.GetInitializationCode(outputDCObjects));
             }
@@ -54,7 +59,7 @@ namespace ScriptingApp.Core
                 inObject.ToString(),
                 dataInitialization,
                 code,
-                saveFilePath: ConfigurationManager.AppSettings["OutputFilePath"]);
+                saveFilePath: outputFile);
 
             return Compile(sourceFile);
         }
