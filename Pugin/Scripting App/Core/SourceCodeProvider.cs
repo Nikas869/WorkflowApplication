@@ -83,18 +83,20 @@ namespace WinFormCodeCompile
         internal static StringBuilder GetInitializationCode(List<DynamicClass> inputDCObjects)
         {
             StringBuilder result = new StringBuilder();
-            var rootObject = inputDCObjects[0];
 
-            if (string.Equals(rootObject.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
+            foreach (var rootObject in inputDCObjects.Where(o => o.ParentNode == null))
             {
-                result.AppendLine($"{rootObject.ClassName} = new List<{rootObject.GetFullClassName()}> {{");
-                result.AppendLine($"}};");
-            }
-            else
-            {
-                result.AppendLine($"{rootObject.ClassName} = new {rootObject.GetFullClassName()} {{");
-                InitProp(inputDCObjects, result, rootObject);
-                result.AppendLine($"}};");
+                if (string.Equals(rootObject.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
+                {
+                    result.AppendLine($"{rootObject.ClassName} = new List<{rootObject.GetFullClassName()}> {{");
+                    result.AppendLine($"}};");
+                }
+                else
+                {
+                    result.AppendLine($"{rootObject.ClassName} = new {rootObject.GetFullClassName()} {{");
+                    InitProp(inputDCObjects, result, rootObject);
+                    result.AppendLine($"}};");
+                }
             }
 
             return result;
@@ -128,22 +130,24 @@ namespace WinFormCodeCompile
         internal static StringBuilder GetInitializationCodeUsingData(List<DynamicClass> inputDCObjects, string filePath)
         {
             StringBuilder result = new StringBuilder();
-            var rootObject = inputDCObjects[0];
-            var childRootObject = inputDCObjects.FirstOrDefault(x => x.ParentNode == rootObject);
+            foreach (var rootObject in inputDCObjects.Where(o => o.ParentNode == null))
+            {
+                var childRootObject = inputDCObjects.FirstOrDefault(x => x.ParentNode == rootObject);
 
-            if (string.Equals(rootObject.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
-            {
-                result.AppendLine($"{rootObject.ClassName} = new List<{rootObject.GetFullClassName()}> {{");
-                result.AppendLine($"new {rootObject.GetFullClassName()} {{");
-                result.AppendLine($"{childRootObject.PropertyName} = DeserializeXMLFileToObject<{childRootObject.GetFullClassName()}>(\"{filePath.Replace(@"\", @"\\")}\")");
-                result.AppendLine($"}},");
-                result.AppendLine($"}};");
-            }
-            else
-            {
-                result.AppendLine($"{rootObject.ClassName} = new {rootObject.GetFullClassName()} {{");
-                result.AppendLine($"{childRootObject.PropertyName} = DeserializeXMLFileToObject<{childRootObject.GetFullClassName()}>(\"{filePath.Replace(@"\", @"\\")}\")");
-                result.AppendLine($"}};");
+                if (string.Equals(rootObject.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
+                {
+                    result.AppendLine($"{rootObject.ClassName} = new List<{rootObject.GetFullClassName()}> {{");
+                    result.AppendLine($"new {rootObject.GetFullClassName()} {{");
+                    result.AppendLine($"{childRootObject.PropertyName} = DeserializeXMLFileToObject<{childRootObject.GetFullClassName()}>(\"{filePath.Replace(@"\", @"\\")}\")");
+                    result.AppendLine($"}},");
+                    result.AppendLine($"}};");
+                }
+                else
+                {
+                    result.AppendLine($"{rootObject.ClassName} = new {rootObject.GetFullClassName()} {{");
+                    result.AppendLine($"{childRootObject.PropertyName} = DeserializeXMLFileToObject<{childRootObject.GetFullClassName()}>(\"{filePath.Replace(@"\", @"\\")}\")");
+                    result.AppendLine($"}};");
+                }
             }
 
             return result;

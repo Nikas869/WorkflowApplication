@@ -5,6 +5,7 @@ using JdSuite.Common.Module.MefMetadata;
 using ScriptingApp.Core;
 using ScriptingApp.Properties;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Drawing;
 using System.IO;
@@ -109,7 +110,7 @@ namespace ScriptingApp
                 }
 
                 logger.Trace($"Creating [{DisplayName}] Scripting object");
-                workInfo.Log(this.DisplayName, NLog.LogLevel.Info, "Starting XmlFilter process");
+                workInfo.Log(this.DisplayName, NLog.LogLevel.Info, "Starting Scripting process");
 
                 // TODO: place all logic here
 
@@ -147,7 +148,6 @@ namespace ScriptingApp
             string prevModuleName = workInfo.NextModuleRTL(this).DisplayName;
             if (workInfo.Schema == null)
             {
-
                 workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Halting execution as Previous Module {prevModuleName} dis not pass Schema");
                 return false;
             }
@@ -162,6 +162,7 @@ namespace ScriptingApp
 
                 node.State.DataFilePath = ((OutputNode)node.Connector).State.DataFilePath;
                 node.State.Schema = ((OutputNode)node.Connector).State.Schema;
+                node.State.DataFile = ((OutputNode)node.Connector).State.DataFile;
 
                 if (node.State.DataFilePath == null)
                 {
@@ -174,6 +175,32 @@ namespace ScriptingApp
                     workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Halting execution as {node.State.DataFilePath} does not exist ");
                     return false;
                 }
+
+                if (node.State.DataFile == null)
+                {
+                    workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Halting execution as DataFile is null");
+                    return false;
+                }
+            }
+
+            for (int i = 0; i < OutputNodes.Count; i++)
+            {
+                if (OutputNodes[i].IsConnected() == false)
+                {
+                    workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Halting execution as OutputNode is not connected");
+                    return false;
+                }
+
+                if (OutputNodes[i].State == null)
+                {
+                    workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Halting execution as OutputNode.State is null");
+                    return false;
+                }
+
+                OutputNodes[i].State.Schema = GetOutputSchema(i);
+                OutputNodes[i].State.DataFile = null;
+                var outputFile = DataDir + "Scripting_" + DisplayName + "_" + DateTime.Now.ToString("yyMMddHHmmssfff") + ".xml";
+                OutputNodes[i].State.DataFilePath = outputFile;
             }
 
             return true;
@@ -208,9 +235,7 @@ namespace ScriptingApp
             foreach (var node in InputNodes)
             {
                 string prevModName = node.DisplayName;
-                var workFlow = node.GetModule().GetState(node.GetModule());
                 var state = ((OutputNode)node.Connector).State;
-                var schema = ((OutputNode)node.Connector).GetSchema();
 
                 if (state == null)
                 {
@@ -302,6 +327,11 @@ namespace ScriptingApp
             xmlSerializer.Serialize(writer, FullOutputSchema);
 
             writer.WriteEndElement();
+        }
+
+        public Field GetOutputSchema(int index)
+        {
+            return FullOutputSchema.ChildNodes.SingleOrDefault(node => node.Name == $"Output_{index}");
         }
     }
 }

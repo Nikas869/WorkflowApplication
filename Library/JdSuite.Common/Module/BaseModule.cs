@@ -56,10 +56,13 @@ namespace JdSuite.Common.Module
             ModuleList.Add(this);
             if (this.InputNodes.Count > 0)
             {
-                var inputModule = this.InputNodes[0]?.Connector?.Module;
-                if(inputModule!=null)
+                foreach (var input in InputNodes)
                 {
-                    inputModule.Register(this, ModuleList);
+                    var inputModule = input?.Connector?.Module;
+                    if (inputModule != null)
+                    {
+                        inputModule.Register(this, ModuleList);
+                    }
                 }
             }
         }

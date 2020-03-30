@@ -36,7 +36,7 @@ namespace ScriptingApp.Core
                 dataInitialization
                     .Append(SourceCodeProvider.GetInitializationCodeUsingData(inputDCObjects, file.FilePath))
                     .Append(Environment.NewLine)
-                    .Append(SourceCodeProvider.GetInitializationCodeUsingData(outputDCObjects, file.FilePath));
+                    .Append(SourceCodeProvider.GetInitializationCode(outputDCObjects));
             }
             else
             {
@@ -87,7 +87,9 @@ namespace ScriptingApp.Core
                 ExtractClassInfo(input, null, classes);
             }
 
-            var classesCode = CreateDynamicClasses(classes, initializeObjects).ToString();
+            initializeObjects.AddRange(classes.Where(cl => cl.ParentNode == null));
+
+            var classesCode = CreateDynamicClasses(classes).ToString();
 
             return (classesCode, classes);
         }
@@ -114,12 +116,11 @@ namespace ScriptingApp.Core
             }
         }
 
-        private static StringBuilder CreateDynamicClasses(List<DynamicClass> DCObject, List<DynamicClass> initializeObjects)
+        private static StringBuilder CreateDynamicClasses(List<DynamicClass> DCObject)
         {
             StringBuilder builder = new StringBuilder();
 
             string classNameType = DCObject[0].PropertyName;
-            initializeObjects.Add(DCObject[0]);
             foreach (var c in DCObject)
             {
                 string className = c.GetFullClassName();

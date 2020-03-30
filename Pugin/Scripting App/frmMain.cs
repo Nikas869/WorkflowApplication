@@ -234,7 +234,7 @@ namespace ScriptingApp
         /// <param name="schema"></param>
         private void SetTreeFromSchema(TreeGridNode gridNode, Field schema, string rootChildName)
         {
-            var rootChildNode = gridNode.Nodes.Add(new[] { rootChildName, rootChildName, "Object" });
+            var rootChildNode = gridNode.Nodes.Add(new[] { rootChildName, rootChildName, "String" });
 
             if (schema != null)
             {
@@ -401,7 +401,7 @@ namespace ScriptingApp
 
             if (nodesBefore < (int)txtdatainputcount.Value)
             {
-                grInput.Nodes[0].Nodes.Add(new[] { $"Input_{InputNodes.Count - 1}", $"Input_{InputNodes.Count - 1}", "Object" });
+                grInput.Nodes[0].Nodes.Add(new[] { $"Input_{InputNodes.Count - 1}", $"Input_{InputNodes.Count - 1}", "String" });
             }
             else if (nodesBefore > (int)txtdatainputcount.Value)
             {
@@ -422,7 +422,7 @@ namespace ScriptingApp
 
             if (nodesBefore < (int)txtdataoutputcount.Value)
             {
-                grOutput.Nodes[0].Nodes.Add(new[] { $"Output_{OutputNodes.Count - 1}", $"Output_{OutputNodes.Count - 1}", "Object" });
+                grOutput.Nodes[0].Nodes.Add(new[] { $"Output_{OutputNodes.Count - 1}", $"Output_{OutputNodes.Count - 1}", "String" });
             }
             else if (nodesBefore > (int)txtdataoutputcount.Value)
             {
