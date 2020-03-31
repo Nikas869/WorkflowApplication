@@ -15,11 +15,11 @@ namespace ScriptingApp.Core
             string inObject,
             StringBuilder dataInitialization,
             string code,
-            string logMethod = null,
-            string saveFilePath = null)
+            Dictionary<string, string> outputFiles = null)
         {
-            logMethod ??= LogMethod();
-            var saveToFile = SaveToFile(saveFilePath);
+            var logMethod = LogMethod();
+            var saveToFile = SaveToFile();
+            var saves = Saves(outputFiles);
             using (StreamWriter sw = new StreamWriter(tempFilePath))
             {
                 sw.Write(
@@ -74,10 +74,27 @@ namespace WinFormCodeCompile
         public void  UpdateText()
         {{
             {code}
+            {saves}
         }}
     }}
 }}");
             }
+        }
+
+        private static string Saves(Dictionary<string, string> outputFiles)
+        {
+            if (outputFiles == null || outputFiles.Count == 0)
+            {
+                return string.Empty;
+            }
+
+            var sb = new StringBuilder();
+            foreach (var output in outputFiles)
+            {
+                sb.AppendLine($"Save({output.Key}, @\"{output.Value}\");");
+            }
+
+            return sb.ToString();
         }
 
         internal static StringBuilder GetInitializationCode(List<DynamicClass> inputDCObjects)
@@ -153,20 +170,14 @@ namespace WinFormCodeCompile
             return result;
         }
 
-        private static string SaveToFile(string saveFilePath)
+        private static string SaveToFile()
         {
-            if (string.IsNullOrEmpty(saveFilePath))
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return
-$@"public static void Save(object result)
+            return
+$@"public static void Save(object result, string path)
 {{
     try
     {{
-        using (var sw = new StreamWriter(@""{saveFilePath}""))
+        using (var sw = new StreamWriter($@""{{path}}""))
         {{
             var serializer = new XmlSerializer(result.GetType());
             serializer.Serialize(sw, result);
@@ -175,7 +186,6 @@ $@"public static void Save(object result)
     }}
     catch (Exception ex) {{ Log(ex.Message); }}
 }}";
-            }
         }
 
         private static string LogMethod()

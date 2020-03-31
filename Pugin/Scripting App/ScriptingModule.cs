@@ -112,30 +112,27 @@ namespace ScriptingApp
                 logger.Trace($"Creating [{DisplayName}] Scripting object");
                 workInfo.Log(this.DisplayName, NLog.LogLevel.Info, "Starting Scripting process");
 
-                // TODO: place all logic here
                 var inputFiles = new Dictionary<string, string>();
-                //var outputFiles = new Dictionary<string, string>();
+                var outputFiles = new Dictionary<string, string>();
 
                 for (int i = 0; i < InputNodes.Count; i++)
                 {
                     inputFiles.Add($"Input_{i}", InputNodes[i].State.DataFilePath);
                 }
 
-                //for (int i = 0; i < OutputNodes.Count; i++)
-                //{
-                //    inputFiles.Add($"Output_{i}", OutputNodes[i].State.DataFilePath);
-                //}
+                for (int i = 0; i < OutputNodes.Count; i++)
+                {
+                    outputFiles.Add($"Output_{i}", ((InputNode)OutputNodes[i].Connector).State.DataFilePath);
+                }
 
-                var result = CompilerService.GenerateCodeAndCompile(FullInputSchema, FullOutputSchema, CodeText, inputFiles, ((OutputNode)workInfo.OutPutModule.InputNodes[0].Connector).State.DataFilePath);
+                var result = CompilerService.GenerateCodeAndCompile(FullInputSchema, FullOutputSchema, CodeText, inputFiles, outputFiles);
 
                 try
                 {
                     Assembly loAssembly = result.CompiledAssembly;
-                    // Retrieve an obj ref - generic type only
                     object loObject = loAssembly.CreateInstance("WinFormCodeCompile.Transform");
                     if (loObject == null)
                     {
-                        MessageService.ShowError("Critical", "Couldn't load class.");
                         return false;
                     }
                     try
@@ -144,12 +141,15 @@ namespace ScriptingApp
                         var method = type.GetMethod("UpdateText");
                         var invokationResult = method.Invoke(loObject, null);
                     }
-                    catch (Exception loError)
+                    catch
                     {
-                        MessageService.ShowError("Critical", loError.Message);
+                        return false;
                     }
                 }
-                catch { }
+                catch
+                {
+                    return false;
+                }
 
                 bStatus = true;
 
@@ -222,22 +222,22 @@ namespace ScriptingApp
 
             for (int i = 0; i < OutputNodes.Count; i++)
             {
-                if (OutputNodes[i].IsConnected() == false)
+                if (OutputNodes[i].Connector.IsConnected() == false)
                 {
                     workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Halting execution as OutputNode is not connected");
                     return false;
                 }
 
-                if (OutputNodes[i].State == null)
+                if (((InputNode)OutputNodes[i].Connector).State == null)
                 {
                     workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Halting execution as OutputNode.State is null");
                     return false;
                 }
 
-                OutputNodes[i].State.Schema = GetOutputSchema(i);
-                OutputNodes[i].State.DataFile = null;
-                var outputFile = DataDir + "Scripting_" + DisplayName + "_" + DateTime.Now.ToString("yyMMddHHmmssfff") + ".xml";
-                OutputNodes[i].State.DataFilePath = outputFile;
+                ((InputNode)OutputNodes[i].Connector).State.Schema = GetOutputSchema(i);
+                ((InputNode)OutputNodes[i].Connector).State.DataFile = null;
+                var outputFile = DataDir + "Scripting_" + DisplayName + "_" + DateTime.Now.ToString("yyMMddHHmmssfff") + i.ToString() + ".xml";
+                ((InputNode)OutputNodes[i].Connector).State.DataFilePath = outputFile;
             }
 
             return true;

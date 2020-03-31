@@ -17,7 +17,7 @@ namespace ScriptingApp.Core
             Field outputSchema,
             string code,
             Dictionary<string, string> inputFiles = null,
-            string outputFile = null)
+            Dictionary<string, string> outputFiles = null)
         {
             List<DynamicClass> initializeObjects = new List<DynamicClass>();
 
@@ -59,7 +59,7 @@ namespace ScriptingApp.Core
                 inObject.ToString(),
                 dataInitialization,
                 code,
-                saveFilePath: outputFile);
+                outputFiles);
 
             return Compile(sourceFile);
         }
