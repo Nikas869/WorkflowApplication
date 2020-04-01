@@ -219,8 +219,11 @@ namespace DataOutput
             try
             {
                 var connectorState = ((OutputNode)this.InputNode.Connector).State;
-                InputNode.State.DataFilePath = connectorState.DataFilePath;
-                InputNode.State.Schema = connectorState.Schema;
+                if (!string.IsNullOrEmpty(connectorState.DataFilePath) && connectorState.Schema != null)
+                {
+                    InputNode.State.DataFilePath = connectorState.DataFilePath;
+                    InputNode.State.Schema = connectorState.Schema;
+                }
 
                 if (!File.Exists(InputNode.State.DataFilePath))
                 {
@@ -228,7 +231,7 @@ namespace DataOutput
                     return false;
                 }
 
-                if (InputNode.State.Schema==null)
+                if (InputNode.State.Schema == null)
                 {
                     workInfo.Log(this.DisplayName, LogLevel.Error, $"Schema is not passed to OutputModule from previous module");
                     return false;
