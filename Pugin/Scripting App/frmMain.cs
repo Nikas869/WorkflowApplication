@@ -368,11 +368,6 @@ namespace ScriptingApp
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void SetSampleCode()
         {
             var filePath = AppDomain.CurrentDomain.BaseDirectory + "SampleCode.txt";
@@ -438,6 +433,16 @@ namespace ScriptingApp
             }
 
             return ((OutputNode)node.Connector).State?.Schema;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

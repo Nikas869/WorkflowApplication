@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.grInput = new AdvancedDataGridView.TreeGridView();
+            this.NodeName = new AdvancedDataGridView.TreeGridColumn();
+            this.NodeXMLName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NodeDataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NodeType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.NodeOptionality = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.NodeChange = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.grOutput = new AdvancedDataGridView.TreeGridView();
             this.OutputNodeName = new AdvancedDataGridView.TreeGridColumn();
             this.OutputNodeXMLName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,12 +76,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxCompileStatus = new System.Windows.Forms.GroupBox();
             this.txtCompileStatus = new System.Windows.Forms.RichTextBox();
-            this.NodeName = new AdvancedDataGridView.TreeGridColumn();
-            this.NodeXMLName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NodeDataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NodeType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.NodeOptionality = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.NodeChange = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.okButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdataoutputcount)).BeginInit();
@@ -131,6 +132,72 @@
             this.grInput.RowHeadersWidth = 51;
             this.grInput.Size = new System.Drawing.Size(321, 271);
             this.grInput.TabIndex = 1;
+            // 
+            // NodeName
+            // 
+            this.NodeName.DefaultNodeImage = null;
+            this.NodeName.FillWeight = 152.7174F;
+            this.NodeName.HeaderText = "Name";
+            this.NodeName.MinimumWidth = 6;
+            this.NodeName.Name = "NodeName";
+            this.NodeName.ReadOnly = true;
+            this.NodeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.NodeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // NodeXMLName
+            // 
+            this.NodeXMLName.HeaderText = "Alias";
+            this.NodeXMLName.MinimumWidth = 6;
+            this.NodeXMLName.Name = "NodeXMLName";
+            this.NodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.NodeXMLName.Visible = false;
+            // 
+            // NodeDataType
+            // 
+            this.NodeDataType.FillWeight = 83.1115F;
+            this.NodeDataType.HeaderText = "Data Type";
+            this.NodeDataType.MinimumWidth = 6;
+            this.NodeDataType.Name = "NodeDataType";
+            this.NodeDataType.ReadOnly = true;
+            this.NodeDataType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.NodeDataType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // NodeType
+            // 
+            this.NodeType.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.NodeType.FillWeight = 64.17112F;
+            this.NodeType.HeaderText = "Type";
+            this.NodeType.Items.AddRange(new object[] {
+            "Element",
+            "Attribute",
+            "PCData"});
+            this.NodeType.MinimumWidth = 6;
+            this.NodeType.Name = "NodeType";
+            this.NodeType.ReadOnly = true;
+            this.NodeType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // NodeOptionality
+            // 
+            this.NodeOptionality.HeaderText = "Optionality";
+            this.NodeOptionality.Items.AddRange(new object[] {
+            "One",
+            "Zero or one",
+            "Zero or more",
+            "One or more"});
+            this.NodeOptionality.MinimumWidth = 6;
+            this.NodeOptionality.Name = "NodeOptionality";
+            this.NodeOptionality.Visible = false;
+            // 
+            // NodeChange
+            // 
+            this.NodeChange.HeaderText = "Change";
+            this.NodeChange.Items.AddRange(new object[] {
+            "None",
+            "Ignore",
+            "Flatten"});
+            this.NodeChange.MinimumWidth = 6;
+            this.NodeChange.Name = "NodeChange";
+            this.NodeChange.Visible = false;
             // 
             // grOutput
             // 
@@ -532,9 +599,9 @@
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancel.AutoSize = true;
-            this.btnCancel.Location = new System.Drawing.Point(3, 82);
+            this.btnCancel.Location = new System.Drawing.Point(3, 90);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(127, 38);
+            this.btnCancel.Size = new System.Drawing.Size(127, 30);
             this.btnCancel.TabIndex = 20;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -542,9 +609,9 @@
             // 
             // btnFindError
             // 
-            this.btnFindError.Location = new System.Drawing.Point(3, 38);
+            this.btnFindError.Location = new System.Drawing.Point(3, 18);
             this.btnFindError.Name = "btnFindError";
-            this.btnFindError.Size = new System.Drawing.Size(127, 38);
+            this.btnFindError.Size = new System.Drawing.Size(127, 30);
             this.btnFindError.TabIndex = 20;
             this.btnFindError.Text = "Find Error";
             this.btnFindError.UseVisualStyleBackColor = true;
@@ -666,6 +733,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.btnCancel);
+            this.flowLayoutPanel1.Controls.Add(this.okButton);
             this.flowLayoutPanel1.Controls.Add(this.btnFindError);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -695,71 +763,15 @@
             this.txtCompileStatus.TabIndex = 22;
             this.txtCompileStatus.Text = "";
             // 
-            // NodeName
+            // okButton
             // 
-            this.NodeName.DefaultNodeImage = null;
-            this.NodeName.FillWeight = 152.7174F;
-            this.NodeName.HeaderText = "Name";
-            this.NodeName.MinimumWidth = 6;
-            this.NodeName.Name = "NodeName";
-            this.NodeName.ReadOnly = true;
-            this.NodeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.NodeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // NodeXMLName
-            // 
-            this.NodeXMLName.HeaderText = "Alias";
-            this.NodeXMLName.MinimumWidth = 6;
-            this.NodeXMLName.Name = "NodeXMLName";
-            this.NodeXMLName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.NodeXMLName.Visible = false;
-            // 
-            // NodeDataType
-            // 
-            this.NodeDataType.FillWeight = 83.1115F;
-            this.NodeDataType.HeaderText = "Data Type";
-            this.NodeDataType.MinimumWidth = 6;
-            this.NodeDataType.Name = "NodeDataType";
-            this.NodeDataType.ReadOnly = true;
-            this.NodeDataType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.NodeDataType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // NodeType
-            // 
-            this.NodeType.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.NodeType.FillWeight = 64.17112F;
-            this.NodeType.HeaderText = "Type";
-            this.NodeType.Items.AddRange(new object[] {
-            "Element",
-            "Attribute",
-            "PCData"});
-            this.NodeType.MinimumWidth = 6;
-            this.NodeType.Name = "NodeType";
-            this.NodeType.ReadOnly = true;
-            this.NodeType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // NodeOptionality
-            // 
-            this.NodeOptionality.HeaderText = "Optionality";
-            this.NodeOptionality.Items.AddRange(new object[] {
-            "One",
-            "Zero or one",
-            "Zero or more",
-            "One or more"});
-            this.NodeOptionality.MinimumWidth = 6;
-            this.NodeOptionality.Name = "NodeOptionality";
-            this.NodeOptionality.Visible = false;
-            // 
-            // NodeChange
-            // 
-            this.NodeChange.HeaderText = "Change";
-            this.NodeChange.Items.AddRange(new object[] {
-            "None",
-            "Ignore",
-            "Flatten"});
-            this.NodeChange.MinimumWidth = 6;
-            this.NodeChange.Name = "NodeChange";
-            this.NodeChange.Visible = false;
+            this.okButton.Location = new System.Drawing.Point(3, 54);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(127, 30);
+            this.okButton.TabIndex = 21;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // frmMain
             // 
@@ -861,6 +873,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn NodeType;
         private System.Windows.Forms.DataGridViewComboBoxColumn NodeOptionality;
         private System.Windows.Forms.DataGridViewComboBoxColumn NodeChange;
+        private System.Windows.Forms.Button okButton;
     }
 }
 
