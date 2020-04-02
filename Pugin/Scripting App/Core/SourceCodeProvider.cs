@@ -184,8 +184,10 @@ $@"public static void Save(object result, string path)
     {{
         using (var sw = new StreamWriter($@""{{path}}""))
         {{
+            XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
+            ns.Add("""", """");
             var serializer = new XmlSerializer(result.GetType());
-            serializer.Serialize(sw, result);
+            serializer.Serialize(sw, result, ns);
             sw.Flush();
         }}
     }}
