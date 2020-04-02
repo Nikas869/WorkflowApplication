@@ -125,7 +125,7 @@ namespace ScriptingApp
 
                 for (int i = 0; i < OutputNodes.Count; i++)
                 {
-                    outputFiles.Add($"Output_{i}", ((InputNode)OutputNodes[i].Connector).State.DataFilePath);
+                    outputFiles.Add($"Output_{i}.{FullOutputSchema.ChildNodes[i].ChildNodes[0].Name}", ((InputNode)OutputNodes[i].Connector).State.DataFilePath);
                 }
 
                 var tempFile = Path.GetTempFileName();
