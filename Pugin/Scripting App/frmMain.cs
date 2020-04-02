@@ -342,7 +342,11 @@ namespace ScriptingApp
             txtCompileStatus.Text = "Compiling...";
             var inputSchema = GenerateSchema(grInput);
             var outputSchema = GenerateSchema(grOutput);
-            var result = CompilerService.GenerateCodeAndCompile(inputSchema, outputSchema, txtScript.Text);
+
+            var tempFile = Path.GetTempFileName();
+            var result = CompilerService.GenerateCodeAndCompile(tempFile, inputSchema, outputSchema, txtScript.Text);
+            File.Delete(tempFile);
+
             txtCompileStatus.Text = string.Empty;
             // Check for errors  
             if (result.Errors.Count > 0)

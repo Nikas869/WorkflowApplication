@@ -65,7 +65,9 @@ namespace ScriptingApp
             if (!ValidateInputSchemas())
                 return null;
 
-            var result = CompilerService.GenerateCodeAndCompile(FullInputSchema, FullOutputSchema, CodeText);
+            var tempFile = Path.GetTempFileName();
+            var result = CompilerService.GenerateCodeAndCompile(tempFile, FullInputSchema, FullOutputSchema, CodeText);
+            File.Delete(tempFile);
 
             try
             {
@@ -126,7 +128,9 @@ namespace ScriptingApp
                     outputFiles.Add($"Output_{i}", ((InputNode)OutputNodes[i].Connector).State.DataFilePath);
                 }
 
-                var result = CompilerService.GenerateCodeAndCompile(FullInputSchema, FullOutputSchema, CodeText, inputFiles, outputFiles);
+                var tempFile = Path.GetTempFileName();
+                var result = CompilerService.GenerateCodeAndCompile(tempFile, FullInputSchema, FullOutputSchema, CodeText, inputFiles, outputFiles);
+                File.Delete(tempFile);
 
                 try
                 {

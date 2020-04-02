@@ -1,10 +1,8 @@
-﻿using JdSuite.Common.FileProcessing;
-using JdSuite.Common.Module;
+﻿using JdSuite.Common.Module;
 using Microsoft.CodeDom.Providers.DotNetCompilerPlatform;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 
@@ -13,6 +11,7 @@ namespace ScriptingApp.Core
     internal static class CompilerService
     {
         public static CompilerResults GenerateCodeAndCompile(
+            string sourceFile,
             Field inputSchema,
             Field outputSchema,
             string code,
@@ -51,7 +50,6 @@ namespace ScriptingApp.Core
                     .Append(SourceCodeProvider.GetInitializationCode(outputDCObjects));
             }
 
-            var sourceFile = ConfigurationManager.AppSettings["SourceCodeTempFile"];
             SourceCodeProvider.WriteSourceCode(
                 sourceFile,
                 InpuntClassObject,
