@@ -45,6 +45,7 @@ namespace ScriptingApp
             AddInputNode(inNode);
 
             var outNode = new OutputNode(this, "Schema", "DataLocation");
+            outNode.State = new ModuleState();
             AddOutputNode(outNode);
         }
 

@@ -151,6 +151,11 @@ namespace WinFormCodeCompile
             {
                 var childRootObject = inputDCObjects.FirstOrDefault(x => x.ParentNode == rootObject);
 
+                if (childRootObject == null)
+                {
+                    continue;
+                }
+
                 if (string.Equals(rootObject.PropertyType.ToString(), "Array", StringComparison.OrdinalIgnoreCase))
                 {
                     result.AppendLine($"{rootObject.ClassName} = new List<{rootObject.GetFullClassName()}> {{");
