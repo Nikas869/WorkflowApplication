@@ -269,7 +269,7 @@ namespace ScriptingApp
         {
             for (int i = 0; i < OutputNodes.Count; i++)
             {
-                OutputNodes[i].State.Schema = GetOutputSchema(i).ChildNodes[0];
+                OutputNodes[i].State.Schema = GetOutputSchema(i).ChildNodes.FirstOrDefault();
                 OutputNodes[i].State.DataFile = null;
                 var outputFile = DataDir + "Scripting_" + DisplayName + "_" + DateTime.Now.ToString("yyMMddHHmmssfff") + i.ToString() + ".xml";
                 OutputNodes[i].State.DataFilePath = outputFile;
