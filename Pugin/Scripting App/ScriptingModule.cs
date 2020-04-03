@@ -125,7 +125,7 @@ namespace ScriptingApp
 
                 for (int i = 0; i < OutputNodes.Count; i++)
                 {
-                    outputFiles.Add($"Output_{i}.{FullOutputSchema.ChildNodes[i].ChildNodes[0].Name}", ((InputNode)OutputNodes[i].Connector).State.DataFilePath);
+                    outputFiles.Add($"Output_{i}.{FullOutputSchema.ChildNodes[i].ChildNodes[0].Name}", OutputNodes[i].State.DataFilePath);
                 }
 
                 var tempFile = Path.GetTempFileName();
@@ -238,12 +238,9 @@ namespace ScriptingApp
                     workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Halting execution as OutputNode.State is null");
                     return false;
                 }
-
-                ((InputNode)OutputNodes[i].Connector).State.Schema = GetOutputSchema(i).ChildNodes[0];
-                ((InputNode)OutputNodes[i].Connector).State.DataFile = null;
-                var outputFile = DataDir + "Scripting_" + DisplayName + "_" + DateTime.Now.ToString("yyMMddHHmmssfff") + i.ToString() + ".xml";
-                ((InputNode)OutputNodes[i].Connector).State.DataFilePath = outputFile;
             }
+
+            SetOutputSchemas();
 
             return true;
         }
@@ -259,10 +256,23 @@ namespace ScriptingApp
                 CodeText = form.GetCode();
                 FullInputSchema = form.GetFullInputSchema();
                 FullOutputSchema = form.GetFullOutputSchema();
+
+                SetOutputSchemas();
             }
             catch (Exception ex)
             {
                 MessageService.ShowError("Critical", ex.Message);
+            }
+        }
+
+        private void SetOutputSchemas()
+        {
+            for (int i = 0; i < OutputNodes.Count; i++)
+            {
+                OutputNodes[i].State.Schema = GetOutputSchema(i).ChildNodes[0];
+                OutputNodes[i].State.DataFile = null;
+                var outputFile = DataDir + "Scripting_" + DisplayName + "_" + DateTime.Now.ToString("yyMMddHHmmssfff") + i.ToString() + ".xml";
+                OutputNodes[i].State.DataFilePath = outputFile;
             }
         }
 
