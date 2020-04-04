@@ -20,6 +20,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Input;
 using System.Xml;
 using System.Xml.XPath;
+using JdSuite.Common.FileProcessing;
 
 namespace JdSuite.DataSorting
 {
@@ -280,8 +281,9 @@ namespace JdSuite.DataSorting
             }
             if (this.InputNode.State.DataFile == null)
             {
-                workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Halting execution as InputNode.State.DataFile is null");
-                return false;
+                this.InputNode.State.DataFile = WorkflowFileFactory.LoadFromXmlFile(this.InputNode.State.DataFilePath);
+                //workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Halting execution as InputNode.State.DataFile is null");
+                //return false;
             }
 
             if (!File.Exists(this.InputNode.State.DataFilePath))
