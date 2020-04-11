@@ -134,6 +134,16 @@ namespace ScriptingApp
 
                 try
                 {
+                    if (result.Errors.HasErrors)
+                    {
+                        for (int i = 0; i < result.Errors.Count; i++)
+                        {
+                            workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"{result.Errors[i].ErrorNumber}: {result.Errors[i].ErrorText}");
+                        }
+
+                        return false;
+                    }
+
                     Assembly loAssembly = result.CompiledAssembly;
                     object loObject = loAssembly.CreateInstance("WinFormCodeCompile.Transform");
                     if (loObject == null)
