@@ -156,8 +156,11 @@ namespace ScriptingApp
                         var method = type.GetMethod("UpdateText");
                         var invokationResult = method.Invoke(loObject, null);
                     }
-                    catch
+                    catch (Exception ex)
                     {
+                        logger.Error(ex);
+                        workInfo.Log(this.DisplayName, NLog.LogLevel.Error, ex.InnerException?.Message);
+
                         return false;
                     }
                 }
