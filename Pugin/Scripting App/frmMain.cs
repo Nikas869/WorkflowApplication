@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace ScriptingApp
 {
@@ -25,6 +26,8 @@ namespace ScriptingApp
         public event NodesCountHandler OnInputNodesValueChanged;
         public event NodesCountHandler OnOutputNodesValueChanged;
 
+        private ICSharpCode.AvalonEdit.TextEditor textEditor;
+
         public frmMain(
             IList<BaseInputNode> inputNodes,
             IList<BaseOutputNode> outputNodes,
@@ -32,11 +35,16 @@ namespace ScriptingApp
             Field outputSchema = null)
         {
             InitializeComponent();
+            textEditor = new ICSharpCode.AvalonEdit.TextEditor();
+            textEditor.ShowLineNumbers = true;
+            textEditor.FontFamily = new System.Windows.Media.FontFamily("Consolas");
+            textEditor.FontSize = 14f;
+            host.Child = textEditor;
 
             tabControl1.SelectedTab = tabScript;
             txtdatainputcount.Value = inputNodes.Count;
             txtdataoutputcount.Value = outputNodes.Count;
-            txtScript.Text = code;
+            textEditor.Text = code;
 
             InputNodes = inputNodes;
             OutputNodes = outputNodes;
@@ -46,7 +54,7 @@ namespace ScriptingApp
 
         public string GetCode()
         {
-            return txtScript.Text;
+            return textEditor.Text;
         }
 
         public Field GetFullInputSchema()
@@ -344,7 +352,7 @@ namespace ScriptingApp
             var outputSchema = GenerateSchema(grOutput);
 
             var tempFile = Path.GetTempFileName();
-            var result = CompilerService.GenerateCodeAndCompile(tempFile, inputSchema, outputSchema, txtScript.Text);
+            var result = CompilerService.GenerateCodeAndCompile(tempFile, inputSchema, outputSchema, GetCode());
             File.Delete(tempFile);
 
             txtCompileStatus.Text = string.Empty;

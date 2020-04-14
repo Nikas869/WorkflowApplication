@@ -68,15 +68,15 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabSample = new System.Windows.Forms.TabPage();
             this.tabScript = new System.Windows.Forms.TabPage();
-            this.txtScript = new System.Windows.Forms.RichTextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanelCode = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.okButton = new System.Windows.Forms.Button();
             this.groupBoxCompileStatus = new System.Windows.Forms.GroupBox();
             this.txtCompileStatus = new System.Windows.Forms.RichTextBox();
-            this.okButton = new System.Windows.Forms.Button();
+            this.host = new System.Windows.Forms.Integration.ElementHost();
             ((System.ComponentModel.ISupportInitialize)(this.grInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdataoutputcount)).BeginInit();
@@ -641,26 +641,14 @@
             // 
             // tabScript
             // 
-            this.tabScript.Controls.Add(this.txtScript);
-            this.tabScript.Location = new System.Drawing.Point(4, 22);
+            this.tabScript.Controls.Add(this.host);
+            this.tabScript.Location = new System.Drawing.Point(4, 25);
             this.tabScript.Name = "tabScript";
             this.tabScript.Padding = new System.Windows.Forms.Padding(3);
-            this.tabScript.Size = new System.Drawing.Size(656, 574);
+            this.tabScript.Size = new System.Drawing.Size(656, 571);
             this.tabScript.TabIndex = 1;
             this.tabScript.Text = "Script";
             this.tabScript.UseVisualStyleBackColor = true;
-            // 
-            // txtScript
-            // 
-            this.txtScript.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtScript.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtScript.EnableAutoDragDrop = true;
-            this.txtScript.Location = new System.Drawing.Point(3, 3);
-            this.txtScript.Name = "txtScript";
-            this.txtScript.Size = new System.Drawing.Size(650, 568);
-            this.txtScript.TabIndex = 18;
-            this.txtScript.Text = "";
-            this.txtScript.WordWrap = false;
             // 
             // splitContainer1
             // 
@@ -742,6 +730,16 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(133, 123);
             this.flowLayoutPanel1.TabIndex = 22;
             // 
+            // okButton
+            // 
+            this.okButton.Location = new System.Drawing.Point(3, 54);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(127, 30);
+            this.okButton.TabIndex = 21;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            // 
             // groupBoxCompileStatus
             // 
             this.groupBoxCompileStatus.AutoSize = true;
@@ -763,15 +761,15 @@
             this.txtCompileStatus.TabIndex = 22;
             this.txtCompileStatus.Text = "";
             // 
-            // okButton
+            // host
             // 
-            this.okButton.Location = new System.Drawing.Point(3, 54);
-            this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(127, 30);
-            this.okButton.TabIndex = 21;
-            this.okButton.Text = "OK";
-            this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            this.host.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.host.Location = new System.Drawing.Point(3, 3);
+            this.host.Name = "host";
+            this.host.Size = new System.Drawing.Size(650, 565);
+            this.host.TabIndex = 20;
+            this.host.Text = "host";
+            this.host.Child = null;
             // 
             // frmMain
             // 
@@ -843,7 +841,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabSample;
         private System.Windows.Forms.TabPage tabScript;
-        private System.Windows.Forms.RichTextBox txtScript;
         private System.Windows.Forms.GroupBox groupBoxOutput;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelActions;
         private System.Windows.Forms.SplitContainer splitContainer1;
@@ -874,6 +871,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn NodeOptionality;
         private System.Windows.Forms.DataGridViewComboBoxColumn NodeChange;
         private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.Integration.ElementHost host;
     }
 }
 
