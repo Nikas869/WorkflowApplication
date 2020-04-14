@@ -160,8 +160,7 @@ namespace ScriptingApp
                     catch (Exception ex)
                     {
                         logger.Error(ex);
-                        var line = new StackTrace(ex.InnerException, true).GetFrame(0).GetFileLineNumber();
-                        workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Line {line - result.CodeLine}, {ex.InnerException?.Message}");
+                        workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Line {ex.InnerException.LineNumber() - result.CodeLine}, {ex.InnerException?.Message}");
 
                         return false;
                     }
