@@ -3,6 +3,7 @@ using Microsoft.CodeDom.Providers.DotNetCompilerPlatform;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -10,7 +11,7 @@ namespace ScriptingApp.Core
 {
     internal static class CompilerService
     {
-        public static CompilerResults GenerateCodeAndCompile(
+        public static (CompilerResults CompilerResult, int CodeLine) GenerateCodeAndCompile(
             string sourceFile,
             Field inputSchema,
             Field outputSchema,
@@ -67,7 +68,7 @@ namespace ScriptingApp.Core
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>
-        public static CompilerResults Compile(string filePath)
+        public static (CompilerResults CompilerResult, int CodeLine) Compile(string filePath)
         {
             CSharpCodeProvider cProv = new CSharpCodeProvider();
             CompilerParameters cParams = new CompilerParameters();
@@ -77,8 +78,12 @@ namespace ScriptingApp.Core
             cParams.ReferencedAssemblies.Add("System.Xml.dll");
             cParams.GenerateExecutable = false;
             cParams.GenerateInMemory = true;
+            cParams.IncludeDebugInformation = true;
 
-            return cProv.CompileAssemblyFromFile(cParams, filePath);
+            var lines = File.ReadAllLines(filePath).ToList();
+            var index = lines.FindIndex(line => line.Contains("public void UpdateText()"));
+
+            return (cProv.CompileAssemblyFromFile(cParams, filePath), index + 2);
         }
 
         private static (string, List<DynamicClass>) CreateDynamicClassObjects(Field schema, List<DynamicClass> initializeObjects)

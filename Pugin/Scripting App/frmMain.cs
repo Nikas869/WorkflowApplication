@@ -349,14 +349,14 @@ namespace ScriptingApp
 
             txtCompileStatus.Text = string.Empty;
             // Check for errors  
-            if (result.Errors.Count > 0)
+            if (result.CompilerResult.Errors.Count > 0)
             {
-                foreach (CompilerError CompErr in result.Errors)
+                foreach (CompilerError CompErr in result.CompilerResult.Errors)
                 {
                     //lblCompileStatus.ForeColor = Color.Red;
                     txtCompileStatus.ForeColor = Color.Red;
                     txtCompileStatus.Text = txtCompileStatus.Text +
-                                //"Line number " + CompErr.Line +
+                                "Line number " + (CompErr.Line - result.CodeLine) +
                                 " Error Number: " + CompErr.ErrorNumber +
                                 ", '" + CompErr.ErrorText + ";" +
                                 Environment.NewLine;

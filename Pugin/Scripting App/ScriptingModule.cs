@@ -7,6 +7,7 @@ using ScriptingApp.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -71,7 +72,7 @@ namespace ScriptingApp
 
             try
             {
-                Assembly loAssembly = result.CompiledAssembly;
+                Assembly loAssembly = result.CompilerResult.CompiledAssembly;
                 // Retrieve an obj ref - generic type only
                 object loObject =
                        loAssembly.CreateInstance("WinFormCodeCompile.Transform");
@@ -134,17 +135,17 @@ namespace ScriptingApp
 
                 try
                 {
-                    if (result.Errors.HasErrors)
+                    if (result.CompilerResult.Errors.HasErrors)
                     {
-                        for (int i = 0; i < result.Errors.Count; i++)
+                        for (int i = 0; i < result.CompilerResult.Errors.Count; i++)
                         {
-                            workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"{result.Errors[i].ErrorNumber}: {result.Errors[i].ErrorText}");
+                            workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Line {result.CompilerResult.Errors[i].Line - result.CodeLine}, Error {result.CompilerResult.Errors[i].ErrorNumber}: {result.CompilerResult.Errors[i].ErrorText}");
                         }
 
                         return false;
                     }
 
-                    Assembly loAssembly = result.CompiledAssembly;
+                    Assembly loAssembly = result.CompilerResult.CompiledAssembly;
                     object loObject = loAssembly.CreateInstance("WinFormCodeCompile.Transform");
                     if (loObject == null)
                     {
@@ -159,7 +160,8 @@ namespace ScriptingApp
                     catch (Exception ex)
                     {
                         logger.Error(ex);
-                        workInfo.Log(this.DisplayName, NLog.LogLevel.Error, ex.InnerException?.Message);
+                        var line = new StackTrace(ex.InnerException, true).GetFrame(0).GetFileLineNumber();
+                        workInfo.Log(this.DisplayName, NLog.LogLevel.Error, $"Line {line - result.CodeLine}, {ex.InnerException?.Message}");
 
                         return false;
                     }
@@ -397,6 +399,30 @@ namespace ScriptingApp
         public Field GetOutputSchema(int index)
         {
             return FullOutputSchema.ChildNodes.SingleOrDefault(node => node.Name == $"Output_{index}");
+        }
+    }
+
+    public static class ExceptionHelper
+    {
+        public static int LineNumber(this Exception e)
+        {
+
+            int linenum = 0;
+            try
+            {
+                linenum = Convert.ToInt32(e.StackTrace.Substring(e.StackTrace.LastIndexOf(":line") + 5));
+
+                //For Localized Visual Studio ... In other languages stack trace  doesn't end with ":Line 12"
+                //linenum = Convert.ToInt32(e.StackTrace.Substring(e.StackTrace.LastIndexOf(' ')));
+
+            }
+
+
+            catch
+            {
+                //Stack trace is not available!
+            }
+            return linenum;
         }
     }
 }

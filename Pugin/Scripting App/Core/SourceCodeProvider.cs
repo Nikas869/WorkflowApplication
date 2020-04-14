@@ -71,7 +71,7 @@ namespace WinFormCodeCompile
             return returnObject;
         }}
 
-        public void  UpdateText()
+        public void UpdateText()
         {{
             {code}
             {saves}
