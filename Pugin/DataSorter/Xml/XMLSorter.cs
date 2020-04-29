@@ -83,12 +83,7 @@ namespace JdSuite.DataSorting
                     orderNodeTree = Process(orderNodeTree, sf);
                 }
 
-
-                foreach (var item in orderNodeTree)
-                {
-                    item.Remove();
-                    grandParentElement.Add(item);
-                }
+                grandParentElement.ReplaceAll(orderNodeTree);
 
             }
             else
@@ -112,12 +107,7 @@ namespace JdSuite.DataSorting
                         orderNodeTree = Process(orderNodeTree, sf);
                     }
 
-
-                    foreach (var item in orderNodeTree)
-                    {
-                        item.Remove();
-                        gparent.Add(item);
-                    }
+                    gparent.ReplaceAll(orderNodeTree);
                 }
             }
             logger.Info("Multi-level sorting completed");
