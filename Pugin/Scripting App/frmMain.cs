@@ -221,7 +221,14 @@ namespace ScriptingApp
             field.Name = treeGridNode.Cells[0].Value.ToString();
             field.Alias = treeGridNode.Cells[0].Value?.ToString();
             field.DataType = treeGridNode.Cells[2].Value?.ToString();
-            field.Type = treeGridNode.Cells[3].Value?.ToString();
+            if (treeGridNode.Level > 2)
+            {
+                field.Type = "Element";
+            }
+            else
+            {
+                field.Type = treeGridNode.Cells[3].Value?.ToString();
+            }
             field.Optionality = treeGridNode.Cells[4].Value?.ToString();
             field.Change = treeGridNode.Cells[5].Value?.ToString();
 
